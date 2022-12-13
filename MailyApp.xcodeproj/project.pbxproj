@@ -7,23 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
+		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
 		A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC3285455C5006C9F59 /* ContentView.swift */; };
 		A55F2CC6285455C9006C9F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CC5285455C9006C9F59 /* Assets.xcassets */; };
 		A55F2CC9285455C9006C9F59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CC8285455C9006C9F59 /* Preview Assets.xcassets */; };
+		A55F2CD7285455E9006C9F59 /* MailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CD6285455E9006C9F59 /* MailExtension.swift */; };
+		A55F2CD9285455E9006C9F59 /* MessageActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CD8285455E9006C9F59 /* MessageActionHandler.swift */; };
+		A55F2CDB285455E9006C9F59 /* ComposeSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CDA285455E9006C9F59 /* ComposeSessionHandler.swift */; };
+		A55F2CDD285455E9006C9F59 /* ComposeSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CDC285455E9006C9F59 /* ComposeSessionViewController.swift */; };
+		A55F2CDF285455E9006C9F59 /* ComposeSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CDE285455E9006C9F59 /* ComposeSessionViewController.xib */; };
+		A55F2CE4285455E9006C9F59 /* Maily.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A55F2CD4285455E9006C9F59 /* Maily.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A55F2CEE285472E4006C9F59 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CED285472E4006C9F59 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A55F2CE2285455E9006C9F59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A55F2CB6285455C5006C9F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A55F2CD3285455E9006C9F59;
+			remoteInfo = Maily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A55F2CE8285455E9006C9F59 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A55F2CE4285455E9006C9F59 /* Maily.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
 		A55F2CC3285455C5006C9F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A55F2CC5285455C9006C9F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A55F2CC8285455C9006C9F59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A55F2CCA285455C9006C9F59 /* MailyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailyApp.entitlements; sourceTree = "<group>"; };
+		A55F2CD4285455E9006C9F59 /* Maily.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Maily.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A55F2CD6285455E9006C9F59 /* MailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailExtension.swift; sourceTree = "<group>"; };
+		A55F2CD8285455E9006C9F59 /* MessageActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageActionHandler.swift; sourceTree = "<group>"; };
+		A55F2CDA285455E9006C9F59 /* ComposeSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeSessionHandler.swift; sourceTree = "<group>"; };
+		A55F2CDC285455E9006C9F59 /* ComposeSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeSessionViewController.swift; sourceTree = "<group>"; };
+		A55F2CDE285455E9006C9F59 /* ComposeSessionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeSessionViewController.xib; sourceTree = "<group>"; };
+		A55F2CE0285455E9006C9F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55F2CE1285455E9006C9F59 /* Maily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maily.entitlements; sourceTree = "<group>"; };
+		A55F2CED285472E4006C9F59 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A5943741293240E100AD8BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A55F2CBB285455C5006C9F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A55F2CD1285455E9006C9F59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				A55F2CC0285455C5006C9F59 /* MailyApp */,
+				A55F2CD5285455E9006C9F59 /* Maily */,
 				A55F2CBF285455C5006C9F59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A55F2CBE285455C5006C9F59 /* MailyApp.app */,
+				A55F2CD4285455E9006C9F59 /* Maily.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,10 +105,12 @@
 		A55F2CC0285455C5006C9F59 /* MailyApp */ = {
 			isa = PBXGroup;
 			children = (
+				A5943741293240E100AD8BAA /* Info.plist */,
 				A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */,
 				A55F2CC3285455C5006C9F59 /* ContentView.swift */,
 				A55F2CC5285455C9006C9F59 /* Assets.xcassets */,
 				A55F2CCA285455C9006C9F59 /* MailyApp.entitlements */,
+				A53773A22855BD0B00404662 /* SharedUserDefaults.swift */,
 				A55F2CC7285455C9006C9F59 /* Preview Content */,
 			);
 			path = MailyApp;
@@ -69,6 +124,37 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A55F2CD5285455E9006C9F59 /* Maily */ = {
+			isa = PBXGroup;
+			children = (
+				A55F2CE92854562A006C9F59 /* Action */,
+				A55F2CEA28545636006C9F59 /* Compose */,
+				A55F2CD6285455E9006C9F59 /* MailExtension.swift */,
+				A55F2CED285472E4006C9F59 /* Media.xcassets */,
+				A55F2CE0285455E9006C9F59 /* Info.plist */,
+				A55F2CE1285455E9006C9F59 /* Maily.entitlements */,
+			);
+			path = Maily;
+			sourceTree = "<group>";
+		};
+		A55F2CE92854562A006C9F59 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				A55F2CD8285455E9006C9F59 /* MessageActionHandler.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		A55F2CEA28545636006C9F59 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				A55F2CDA285455E9006C9F59 /* ComposeSessionHandler.swift */,
+				A55F2CDC285455E9006C9F59 /* ComposeSessionViewController.swift */,
+				A55F2CDE285455E9006C9F59 /* ComposeSessionViewController.xib */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,15 +165,34 @@
 				A55F2CBA285455C5006C9F59 /* Sources */,
 				A55F2CBB285455C5006C9F59 /* Frameworks */,
 				A55F2CBC285455C5006C9F59 /* Resources */,
+				A55F2CE8285455E9006C9F59 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A55F2CE3285455E9006C9F59 /* PBXTargetDependency */,
 			);
 			name = MailyApp;
 			productName = MailyApp;
 			productReference = A55F2CBE285455C5006C9F59 /* MailyApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A55F2CD3285455E9006C9F59 /* Maily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A55F2CE5285455E9006C9F59 /* Build configuration list for PBXNativeTarget "Maily" */;
+			buildPhases = (
+				A55F2CD0285455E9006C9F59 /* Sources */,
+				A55F2CD1285455E9006C9F59 /* Frameworks */,
+				A55F2CD2285455E9006C9F59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maily;
+			productName = Maily;
+			productReference = A55F2CD4285455E9006C9F59 /* Maily.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -100,6 +205,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					A55F2CBD285455C5006C9F59 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					A55F2CD3285455E9006C9F59 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -118,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				A55F2CBD285455C5006C9F59 /* MailyApp */,
+				A55F2CD3285455E9006C9F59 /* Maily */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +241,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A55F2CD2285455E9006C9F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55F2CEE285472E4006C9F59 /* Media.xcassets in Resources */,
+				A55F2CDF285455E9006C9F59 /* ComposeSessionViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,11 +258,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
+				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 				A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A55F2CD0285455E9006C9F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55F2CD9285455E9006C9F59 /* MessageActionHandler.swift in Sources */,
+				A55F2CD7285455E9006C9F59 /* MailExtension.swift in Sources */,
+				A55F2CDD285455E9006C9F59 /* ComposeSessionViewController.swift in Sources */,
+				A55F2CDB285455E9006C9F59 /* ComposeSessionHandler.swift in Sources */,
+				A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A55F2CE3285455E9006C9F59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A55F2CD3285455E9006C9F59 /* Maily */;
+			targetProxy = A55F2CE2285455E9006C9F59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A55F2CCB285455C9006C9F59 /* Debug */ = {
@@ -263,15 +402,20 @@
 		A55F2CCE285455C9006C9F59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MailyApp/MailyApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MailyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = N793X7M743;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MailyApp/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -280,6 +424,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -288,15 +433,20 @@
 		A55F2CCF285455C9006C9F59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MailyApp/MailyApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MailyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = N793X7M743;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MailyApp/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +455,63 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A55F2CE6285455E9006C9F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Maily/Maily.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N793X7M743;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Maily/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Maily;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp.Maily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A55F2CE7285455E9006C9F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Maily/Maily.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N793X7M743;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Maily/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Maily;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp.Maily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -327,6 +534,15 @@
 			buildConfigurations = (
 				A55F2CCE285455C9006C9F59 /* Debug */,
 				A55F2CCF285455C9006C9F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A55F2CE5285455E9006C9F59 /* Build configuration list for PBXNativeTarget "Maily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A55F2CE6285455E9006C9F59 /* Debug */,
+				A55F2CE7285455E9006C9F59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
