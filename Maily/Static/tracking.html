@@ -14,49 +14,43 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            /* Create two equal columns that floats next to each other */
-            .column {
-                float: left;
-            }
-            
-            /* Clear floats after the columns */
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-            
-            /* Add styles for the text in the first column */
-            .column span {
-                font-family: avenir, sans-serif;
-                font-size: 17px;
-                font-weight: bold;
-            }
-            
-            .column span.blue {
-                color: #a740ff;
-            }
-            
-            .column span.pink {
-                color: #ff55be;
-            }
-            
-            .column img {
-                max-width: 20px; /* Set the maximum width of the image to 20px */
-            }
-        </style>
-    </head>
-    <body>
-        <div class="row">
-            <div class="column">
-                <span class="blue">Richard</span>
-                <span class="pink">Lee&nbsp;</span>
-            </div>
-            <div class="column" style="display: flex; justify-content: center;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RAF_roundel.svg/20px-RAF_roundel.svg.png" width="20" height="20" />
-            </div>
-        </div>
-    </body>
+  <head>
+    <style>
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div
+        style="
+          font-family: avenir, sans-serif;
+          font-size: 17px;
+          font-weight: bold;
+          float: left;
+        "
+      >
+        <span style="color: #a740ff">Richard</span>
+        <span style="color: #ff55be">Lee&nbsp;</span>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          margin-top: 2px;
+          float: left;
+        "
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RAF_roundel.svg/17px-RAF_roundel.svg.png"
+          width="17"
+          height="17"
+        />
+      </div>
+    </div>
+  </body>
 </html>
