@@ -23,9 +23,6 @@ struct ContentView: View {
                 showDetails.toggle()
                 
                 sharedUserDefaults?.set("myUserName", forKey: SharedUserDefaults.Keys.username)
-                let stringOne = sharedUserDefaults!.string(forKey: SharedUserDefaults.Keys.username)
-                
-                print("Test Suite: ", stringOne! as String)
             }
             
             Button("Store local storage 2 (localSetting)") {
@@ -33,9 +30,6 @@ struct ContentView: View {
                 showDetails.toggle()
                 
                 sharedUserDefaults?.set("localSetting", forKey: SharedUserDefaults.Keys.username)
-                let stringTwo = sharedUserDefaults!.string(forKey: SharedUserDefaults.Keys.username)
-                
-                print("Test Suite: ", stringTwo! as String)
             }
             
             if showDetails {
