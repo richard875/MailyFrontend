@@ -17,7 +17,7 @@ class ComposeSessionViewController: MEExtensionViewController {
         super.viewDidAppear()
         
         // Set the dimensions of the window.
-        let newFrame = NSMakeRect(0, 0, 400, 200)
+        let newFrame = NSMakeRect(0, 0, 400, 220)
         self.view.window?.setFrame(newFrame, display: true)
     }
     
