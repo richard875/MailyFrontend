@@ -20,18 +20,18 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGF-EZ-1bu">
-                    <rect key="frame" x="18" y="172" width="161" height="28"/>
+                    <rect key="frame" x="18" y="172" width="153" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Email Content" id="6gD-gd-tsG">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Maily Tracker" id="6gD-gd-tsG">
                         <font key="font" metaFont="systemBold" size="24"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQq-EH-o41">
-                    <rect key="frame" x="18" y="148" width="241" height="16"/>
+                    <rect key="frame" x="18" y="148" width="290" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Copy the content below into your Email" id="EKM-Jx-hEE">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Copy the content below into your Email (⌘ + A)" id="EKM-Jx-hEE">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
