@@ -8,7 +8,6 @@
 import MailKit
 
 class MailExtension: NSObject, MEExtension {
-    
     func handlerForMessageActions() -> MEMessageActionHandler {
         // Use a shared instance for all messages, since there's
         // no state associated with performing actions.
@@ -19,7 +18,4 @@ class MailExtension: NSObject, MEExtension {
         // Create a unique instance, since each compose window is separate.
         return ComposeSessionHandler()
     }
-
-    
 }
-
