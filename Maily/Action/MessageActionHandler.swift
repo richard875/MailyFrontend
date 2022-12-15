@@ -13,7 +13,7 @@ class MessageActionHandler: NSObject, MEMessageActionHandler {
     
     func decideAction(for message: MEMessage, completionHandler: @escaping (MEMessageActionDecision?) -> Void) {
         // The action to take on the message, if any.
-        // var action: MEMessageActionDecision? = nil
+         var action: MEMessageActionDecision? = nil
         
         // Check if the subject of the message contains the word Mars.
         // If it does, specify an action to set the background color to red.
@@ -23,6 +23,6 @@ class MessageActionHandler: NSObject, MEMessageActionHandler {
         
         // Always call the completion handler, passing the action
         // to take, or nil if there's no action.
-        // completionHandler(action)
+         completionHandler(action)
     }
 }
