@@ -8,41 +8,48 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showDetails = false
+    // Temp code
     let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
     let localS = UserDefaults.standard
     
+    // Actual code
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello World!")
-            Button("Store local storage 2 (myUserName)") {
-                print("Clicked One!")
-                showDetails.toggle()
-                
-                sharedUserDefaults?.set("myUserName", forKey: SharedUserDefaults.Keys.username)
-            }
+            Text("Welcome to Maily")
+                .font(.system(size: 25, weight: .bold))
+            Text("Login to continue")
+            TextField("Email", text: $email)
+            SecureField("Password", text: $password)
             
-            Button("Store local storage 2 (localSetting)") {
-                print("Clicked Two!")
-                showDetails.toggle()
-                
-                sharedUserDefaults?.set("localSetting", forKey: SharedUserDefaults.Keys.username)
-            }
+            Button(action: {}) {
+                Text("Sign In")
+                    .padding(22)
+                    .frame(width: 222, height: 44)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+            }.frame(width: 222, height: 44)
+             .background(Color.blue).cornerRadius(10)
             
-            if showDetails {
-                Text("You should follow me on Twitter: @twostraws")
-                    .font(.largeTitle)
-            }
-        }
-        .frame(width: 300, height: 300)
+//            Button("Store local storage 2 (myUserName)") {
+//                sharedUserDefaults?.set("myUserName", forKey: SharedUserDefaults.Keys.username)
+//            }
+        }.frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading
+          )
+          .background(Color.white)
+        .frame(width: 300, height: 500)
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
