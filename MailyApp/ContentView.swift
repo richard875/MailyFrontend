@@ -14,7 +14,10 @@ struct ContentView: View {
     
     // Actual code
     var body: some View {
-        Login()
+        VStack(spacing: 0) {
+            Login()
+            BottomBar()
+        }
     }
 }
 
