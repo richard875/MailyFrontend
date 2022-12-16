@@ -80,16 +80,34 @@ struct Login: View {
                 )
                 .background(Color("BackgroundInverse"))
                 .cornerRadius(7)
+                VStack(spacing: 0) {
+                    Text("By signing in you accept our ")
+                        .font(.system(size: 9))
+                        .foregroundColor(Color("TextGray"))
+                    + Text("Terms of use")
+                        .underline()
+                        .font(.system(size: 9))
+                        .foregroundColor(Color("TextGray"))
+                }.padding(.top, 12)
+                VStack(spacing: 0) {
+                    Text("and ")
+                        .font(.system(size: 9))
+                        .foregroundColor(Color("TextGray"))
+                    + Text("Privacy Policy")
+                        .underline()
+                        .font(.system(size: 9))
+                        .foregroundColor(Color("TextGray"))
+                }.padding(.top, 2)
             }
-            .padding(.top, 113)
+            .padding(.top, 105)
             .padding(.leading, 20)
             .frame(
                 width: 300,
-                height: 250,
+                height: 189,
                 alignment: .topLeading
             )
         }
-        .frame(width: 300, height: 500)
+        .frame(width: 300, height: 439)
         .background(Color("Background"))
     }
 }
