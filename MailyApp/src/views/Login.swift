@@ -1,0 +1,95 @@
+//
+//  login.swift
+//  MailyApp
+//
+//  Created by Richard Lee on 12/16/22.
+//
+
+import Foundation
+import SwiftUI
+
+struct Login: View {
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Welcome to Maily")
+                    .font(.system(size: 23))
+                    .fontWeight(.semibold)
+                Text("Login to continue")
+                    .padding(.top, 5)
+                    .font(.system(size: 13))
+                TextField("Email", text: $email)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .padding(.leading, 10)
+                    .font(.system(size: 10))
+                    .frame(width: 260, height: 35)
+                    .background(Color("InputBackgroundGray"))
+                    .cornerRadius(7)
+                    .padding(.top, 31)
+                SecureField("Password", text: $password)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .padding(.leading, 10)
+                    .font(.system(size: 10))
+                    .frame(width: 260, height: 35)
+                    .background(Color("InputBackgroundGray"))
+                    .cornerRadius(7)
+                    .padding(.top, 10)
+                HStack {
+                    Text("Forgot Password?")
+                        .font(.system(size: 10))
+                        .foregroundColor(Color("LoginBlue"))
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Text("Sign up")
+                        .font(.system(size: 10))
+                        .foregroundColor(Color("LoginBlue"))
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .trailing
+                        )
+                }.frame(
+                    width: 260
+                )
+                .padding(.top, 10)
+            }
+            .padding(.top, 42)
+            .padding(.leading, 20)
+            .frame(
+                width: 300,
+                height: 250,
+                alignment: .topLeading
+            )
+            VStack(spacing: 0) {
+                Button {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                } label: {
+                    Text("Login")
+                        .font(.system(size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("Background"))
+                }
+                .buttonStyle(PlainButtonStyle())
+                .frame(
+                    width: 260,
+                    height: 35
+                )
+                .background(Color("BackgroundInverse"))
+                .cornerRadius(7)
+            }
+            .padding(.top, 113)
+            .padding(.leading, 20)
+            .frame(
+                width: 300,
+                height: 250,
+                alignment: .topLeading
+            )
+        }
+        .frame(width: 300, height: 500)
+        .background(Color("Background"))
+    }
+}
