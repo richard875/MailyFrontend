@@ -25,6 +25,8 @@
 		A565A786294B133600BF8EF0 /* ComposeSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565A785294B133600BF8EF0 /* ComposeSessionError.swift */; };
 		A565A78B294C74C700BF8EF0 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565A78A294C74C700BF8EF0 /* Login.swift */; };
 		A589B2512948B9A4008AE02A /* tracking.html in Resources */ = {isa = PBXBuildFile; fileRef = A589B2502948B9A4008AE02A /* tracking.html */; };
+		A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551D8294E365B0098E803 /* LoginResponse.swift */; };
+		A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
@@ -77,6 +79,8 @@
 		A565A78A294C74C700BF8EF0 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A589B2502948B9A4008AE02A /* tracking.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tracking.html; sourceTree = "<group>"; };
 		A5943741293240E100AD8BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A59551D8294E365B0098E803 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		A59551DA294E36700098E803 /* ReturnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnStatus.swift; sourceTree = "<group>"; };
 		A59D0278294CBB1F00FE4523 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
 		A5A52119294E0268001E82EC /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A5645C70294DAB7A003557CA /* HttpMethod.swift */,
+				A59551DA294E36700098E803 /* ReturnStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A59551D7294E364A0098E803 /* Models */,
 				A5A520FD294DAF69001E82EC /* Api */,
 				A5645C6F294DAA87003557CA /* Enums */,
 				A5645C6C294DA23E003557CA /* Methods */,
@@ -224,6 +230,14 @@
 				A589B2502948B9A4008AE02A /* tracking.html */,
 			);
 			path = Static;
+			sourceTree = "<group>";
+		};
+		A59551D7294E364A0098E803 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A59551D8294E365B0098E803 /* LoginResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A5A520FD294DAF69001E82EC /* Api */ = {
@@ -338,10 +352,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */,
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
 				A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */,
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
+				A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
 				A5645C6E294DA274003557CA /* UserLogin.swift in Sources */,
 				A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */,
