@@ -20,10 +20,14 @@
 		A55F2CDF285455E9006C9F59 /* ComposeSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CDE285455E9006C9F59 /* ComposeSessionViewController.xib */; };
 		A55F2CE4285455E9006C9F59 /* Maily.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A55F2CD4285455E9006C9F59 /* Maily.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A55F2CEE285472E4006C9F59 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CED285472E4006C9F59 /* Media.xcassets */; };
+		A5645C6E294DA274003557CA /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5645C6D294DA274003557CA /* UserLogin.swift */; };
+		A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5645C70294DAB7A003557CA /* HttpMethod.swift */; };
 		A565A786294B133600BF8EF0 /* ComposeSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565A785294B133600BF8EF0 /* ComposeSessionError.swift */; };
 		A565A78B294C74C700BF8EF0 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565A78A294C74C700BF8EF0 /* Login.swift */; };
 		A589B2512948B9A4008AE02A /* tracking.html in Resources */ = {isa = PBXBuildFile; fileRef = A589B2502948B9A4008AE02A /* tracking.html */; };
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
+		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
+		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +71,15 @@
 		A55F2CE0285455E9006C9F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A55F2CE1285455E9006C9F59 /* Maily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maily.entitlements; sourceTree = "<group>"; };
 		A55F2CED285472E4006C9F59 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A5645C6D294DA274003557CA /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		A5645C70294DAB7A003557CA /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		A565A785294B133600BF8EF0 /* ComposeSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeSessionError.swift; sourceTree = "<group>"; };
 		A565A78A294C74C700BF8EF0 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A589B2502948B9A4008AE02A /* tracking.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tracking.html; sourceTree = "<group>"; };
 		A5943741293240E100AD8BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A59D0278294CBB1F00FE4523 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
+		A5A52119294E0268001E82EC /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +174,22 @@
 			path = Compose;
 			sourceTree = "<group>";
 		};
+		A5645C6C294DA23E003557CA /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				A5645C6D294DA274003557CA /* UserLogin.swift */,
+			);
+			path = Methods;
+			sourceTree = "<group>";
+		};
+		A5645C6F294DAA87003557CA /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A5645C70294DAB7A003557CA /* HttpMethod.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		A565A784294B130C00BF8EF0 /* enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +201,9 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A5A520FD294DAF69001E82EC /* Api */,
+				A5645C6F294DAA87003557CA /* Enums */,
+				A5645C6C294DA23E003557CA /* Methods */,
 				A565A789294C74B100BF8EF0 /* views */,
 			);
 			path = src;
@@ -197,6 +224,15 @@
 				A589B2502948B9A4008AE02A /* tracking.html */,
 			);
 			path = Static;
+			sourceTree = "<group>";
+		};
+		A5A520FD294DAF69001E82EC /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				A5A520FF294DAF80001E82EC /* ApiMethod.swift */,
+				A5A52119294E0268001E82EC /* ApiEndpoints.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +339,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
+				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
 				A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */,
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
+				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
+				A5645C6E294DA274003557CA /* UserLogin.swift in Sources */,
+				A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */,
 				A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */,
 				A565A78B294C74C700BF8EF0 /* Login.swift in Sources */,
 			);
