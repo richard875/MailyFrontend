@@ -12,6 +12,8 @@ struct Login: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
+    @State private var loading: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -72,9 +74,10 @@ struct Login: View {
             )
             VStack(spacing: 0) {
                 Button {
+                    loading.toggle()
                     login(email: email, password: password)
                 } label: {
-                    Text("Login")
+                    Text(loading ? "Loading.." : "Login")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
                         .foregroundColor(Color("Background"))
