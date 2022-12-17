@@ -72,7 +72,7 @@ struct Login: View {
             )
             VStack(spacing: 0) {
                 Button {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    login(email: email, password: password)
                 } label: {
                     Text("Login")
                         .font(.system(size: 14))
