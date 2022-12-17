@@ -39,6 +39,9 @@ struct Login: View {
                     .padding(.top, 10)
                 HStack {
                     Text("Forgot Password?")
+                        .onHover { hovering in
+                            hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                        }
                         .font(.system(size: 10))
                         .foregroundColor(Color("LoginBlue"))
                         .frame(
@@ -46,6 +49,9 @@ struct Login: View {
                             alignment: .leading
                         )
                     Text("Sign up")
+                        .onHover { hovering in
+                            hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                        }
                         .font(.system(size: 10))
                         .foregroundColor(Color("LoginBlue"))
                         .frame(
@@ -80,23 +86,33 @@ struct Login: View {
                 )
                 .background(Color("BackgroundInverse"))
                 .cornerRadius(7)
-                VStack(spacing: 0) {
+                .onHover { hovering in
+                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                }
+                HStack(spacing: 0) {
                     Text("By signing in you accept our ")
                         .font(.system(size: 9))
                         .foregroundColor(Color("TextGray"))
-                    + Text("Terms of use")
+                    Text("Terms of use")
                         .underline()
                         .font(.system(size: 9))
                         .foregroundColor(Color("TextGray"))
-                }.padding(.top, 12)
-                VStack(spacing: 0) {
+                        .onHover { hovering in
+                            hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                        }
+                }
+                .padding(.top, 12)
+                HStack(spacing: 0) {
                     Text("and ")
                         .font(.system(size: 9))
                         .foregroundColor(Color("TextGray"))
-                    + Text("Privacy Policy")
+                    Text("Privacy Policy")
                         .underline()
                         .font(.system(size: 9))
                         .foregroundColor(Color("TextGray"))
+                        .onHover { hovering in
+                            hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                        }
                 }.padding(.top, 2)
             }
             .padding(.top, 105)
