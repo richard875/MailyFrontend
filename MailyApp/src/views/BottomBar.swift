@@ -5,7 +5,6 @@
 //  Created by Richard Lee on 12/17/22.
 //
 
-import Foundation
 import SwiftUI
 
 struct BottomBar: View {
@@ -15,20 +14,61 @@ struct BottomBar: View {
                 .frame(width: 260)
                 .overlay(Color("Divider"))
             HStack {
-                Text("Forgot Password?")
-                    .font(.system(size: 10))
-                    .foregroundColor(Color("LoginBlue"))
-                    .frame(
-                        maxWidth: .infinity,
-                        alignment: .leading
-                    )
-                Text("Sign up")
-                    .font(.system(size: 10))
-                    .foregroundColor(Color("LoginBlue"))
-                    .frame(
-                        maxWidth: .infinity,
-                        alignment: .trailing
-                    )
+                Button {
+                    if let url = URL(string: "https://www.google.com") {
+                        NSWorkspace.shared.open(url)
+                    }
+                } label: {
+                    Image("Website")
+                        .padding(.trailing, -2)
+                    Text("Website")
+                        .font(.system(size: 12))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.white)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .frame(
+                    width: 86,
+                    height: 30
+                )
+                .background(Color("LoginBlue"))
+                .cornerRadius(15)
+                .onHover { hovering in
+                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                }
+                Button {} label: {
+                    Image("Share")
+                        .padding(.trailing, 3)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .frame(
+                    width: 30,
+                    height: 30
+                )
+                .background(Color("ShareOrange"))
+                .cornerRadius(15)
+                .onHover { hovering in
+                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                }.frame(
+                    maxWidth: .infinity,
+                    alignment: .trailing
+                )
+                Button {} label: {
+                    Image("Settings")
+                }
+                .buttonStyle(PlainButtonStyle())
+                .frame(
+                    width: 30,
+                    height: 30
+                )
+                .background(Color("BackgroundInverse"))
+                .cornerRadius(15)
+                .onHover { hovering in
+                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                }.frame(
+                    maxWidth: 30,
+                    alignment: .trailing
+                )
             }.frame(
                 width: 260
             )
