@@ -17,6 +17,11 @@ struct Login: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
+                if (loading) {
+                    ProgressView()
+                        .scaleEffect(0.5)
+                        .offset(x: 235)
+                }
                 Text("Welcome to Maily")
                     .font(.system(size: 23))
                     .fontWeight(.semibold)
@@ -65,7 +70,7 @@ struct Login: View {
                 )
                 .padding(.top, 10)
             }
-            .padding(.top, 42)
+            .padding(.top, loading ? 10 : 42)
             .padding(.leading, 20)
             .frame(
                 width: 300,
@@ -77,7 +82,7 @@ struct Login: View {
                     loading.toggle()
                     login(email: email, password: password)
                 } label: {
-                    Text(loading ? "Loading.." : "Login")
+                    Text("Login")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
                         .foregroundColor(Color("Background"))
