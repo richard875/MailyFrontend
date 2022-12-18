@@ -91,7 +91,7 @@ struct Login: View {
                     
                     login(email: email, password: password) { loginResponse in
                         // Use the loginResponse object as needed
-                        if (loginResponse.status == ReturnStatus.ERROR) {
+                        if (loginResponse.returnStatus == ReturnStatus.ERROR) {
                             message = loginResponse.message
                         } else {
                             let defaults = UserDefaults.standard
