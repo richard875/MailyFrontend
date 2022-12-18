@@ -28,6 +28,7 @@
 		A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551D8294E365B0098E803 /* LoginResponse.swift */; };
 		A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
 		A59551DD294EC0A40098E803 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DC294EC0A40098E803 /* Index.swift */; };
+		A59551DF294EE17E0098E803 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DE294EE17E0098E803 /* HTTPResponseStatus.swift */; };
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
@@ -83,6 +84,7 @@
 		A59551D8294E365B0098E803 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A59551DA294E36700098E803 /* ReturnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnStatus.swift; sourceTree = "<group>"; };
 		A59551DC294EC0A40098E803 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		A59551DE294EE17E0098E803 /* HTTPResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseStatus.swift; sourceTree = "<group>"; };
 		A59D0278294CBB1F00FE4523 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
 		A5A52119294E0268001E82EC /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				A5645C70294DAB7A003557CA /* HttpMethod.swift */,
 				A59551DA294E36700098E803 /* ReturnStatus.swift */,
+				A59551DE294EE17E0098E803 /* HTTPResponseStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */,
+				A59551DF294EE17E0098E803 /* HTTPResponseStatus.swift in Sources */,
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
 				A59551DD294EC0A40098E803 /* Index.swift in Sources */,
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
