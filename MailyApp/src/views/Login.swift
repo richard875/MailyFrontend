@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Login: View {
+    var setLoggedIn: ((Bool) -> Void)
+    
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -95,6 +97,7 @@ struct Login: View {
                             let defaults = UserDefaults.standard
                             defaults.set(loginResponse.message, forKey: "loginToken")
                             defaults.synchronize()
+                            setLoggedIn(true)
                         }
                         
                         loading.toggle()

@@ -13,11 +13,17 @@ struct ContentView: View {
     let localS = UserDefaults.standard
     
     // Actual code
+    @State private var loggedIn: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
-            Login()
+            Login(setLoggedIn: setLoggedIn)
             BottomBar()
         }
+    }
+    
+    private func setLoggedIn(newLoggedIn: Bool) -> Void {
+        loggedIn = newLoggedIn
     }
 }
 
