@@ -22,7 +22,7 @@ func loginComplete(result: Optional<Any>, error: Optional<Error>) -> LoginRespon
     
     // Check if the "status" property is in the result
     if let apiResultDict = apiResult as? [String: Any], apiResultDict["status"] != nil {
-        return LoginResponse(status: ReturnStatus.ERROR, message: "Username/Password is incorrect")
+        return LoginResponse(status: ReturnStatus.ERROR, message: "Username or Password is incorrect")
     }
     
     // If the "status" property is not in the result, then it is a success
