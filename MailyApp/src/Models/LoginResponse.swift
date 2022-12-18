@@ -8,6 +8,7 @@
 import Foundation
 
 struct LoginResponse {
-    let status: ReturnStatus
+    let returnStatus: ReturnStatus
+    let httpStatus: HTTPResponseStatus
     let message: String
 }
