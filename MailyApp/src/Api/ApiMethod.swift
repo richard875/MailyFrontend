@@ -15,7 +15,7 @@ func apiMethod(apiMethod: HTTPMethod, apiEndpoint: String, apiBody: Any, complet
     }
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = apiMethod.rawValue
-
+    
     // Set up the HTTP body
     let jsonBody: Data
     do {
@@ -45,8 +45,11 @@ func apiMethod(apiMethod: HTTPMethod, apiEndpoint: String, apiBody: Any, complet
         
         // Return received data
         do {
+            let httpResponse = response as! HTTPURLResponse
+            
             let jsonObject = try JSONSerialization.jsonObject(with: responseData, options: [])
-            completion(jsonObject, nil)
+            let statusCode = httpResponse.statusCode
+            completion(ApiResponse(data: jsonObject, status: HTTPResponseStatus(rawValue: statusCode)!), nil)
         } catch  {
             completion(nil, NSError(domain: "Error parsing response", code: 0, userInfo: nil))
         }
