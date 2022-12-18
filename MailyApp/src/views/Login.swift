@@ -13,6 +13,7 @@ struct Login: View {
     @State private var password: String = ""
     
     @State private var loading: Bool = false
+    @State private var message : String = " "
     
     var body: some View {
         VStack(spacing: 0) {
@@ -28,6 +29,10 @@ struct Login: View {
                 Text("Login to continue")
                     .padding(.top, 5)
                     .font(.system(size: 13))
+                Text(message)
+                    .font(.system(size: 10))
+                    .foregroundColor(Color.red)
+                    .padding(.top, 15)
                 TextField("Email", text: $email)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(.leading, 10)
@@ -35,7 +40,7 @@ struct Login: View {
                     .frame(width: 260, height: 35)
                     .background(Color("InputBackgroundGray"))
                     .cornerRadius(7)
-                    .padding(.top, 31)
+                    .padding(.top, 5)
                 SecureField("Password", text: $password)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(.leading, 10)
@@ -80,7 +85,20 @@ struct Login: View {
             VStack(spacing: 0) {
                 Button {
                     loading.toggle()
-                    login(email: email, password: password)
+                    message = " "
+                    
+                    login(email: email, password: password) { loginResponse in
+                        // Use the loginResponse object as needed
+                        if (loginResponse.status == ReturnStatus.ERROR) {
+                            message = loginResponse.message
+                        } else {
+                            let defaults = UserDefaults.standard
+                            defaults.set(loginResponse.message, forKey: "loginToken")
+                            defaults.synchronize()
+                        }
+                        
+                        loading.toggle()
+                    }
                 } label: {
                     Text("Login")
                         .font(.system(size: 14))
