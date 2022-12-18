@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Index: View {
-    var setLoggedIn: ((Bool) -> Void)
+    var setRoute: ((Route) -> Void)
     
     var body: some View {
         VStack(spacing: 0) {
