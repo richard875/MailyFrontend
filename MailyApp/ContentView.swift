@@ -17,7 +17,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Login(setLoggedIn: setLoggedIn)
+            if (loggedIn) {
+                Index(setLoggedIn: setLoggedIn)
+            } else {
+                Login(setLoggedIn: setLoggedIn)
+            }
             BottomBar()
         }
     }
