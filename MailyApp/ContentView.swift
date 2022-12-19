@@ -17,17 +17,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            if (loggedIn) {
-                Index(setLoggedIn: setLoggedIn)
-            } else {
-                Login(setLoggedIn: setLoggedIn)
+            switch route {
+            case Route.INDEX:
+                Index(setRoute: setRoute)
+            case Route.LOGIN:
+                Login(setRoute: setRoute)
+            default:
+                Text("Route not found")
             }
             BottomBar()
         }
     }
     
-    private func setLoggedIn(newLoggedIn: Bool) -> Void {
-        loggedIn = newLoggedIn
+    private func setRoute(newPage: Route) -> Void {
+        route = newPage
     }
 }
 
