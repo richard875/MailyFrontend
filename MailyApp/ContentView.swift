@@ -13,7 +13,14 @@ struct ContentView: View {
     let localS = UserDefaults.standard
     
     // Actual code
-    @State private var loggedIn: Bool = false
+    @State private var route: Route = Route.LOGIN
+    
+    init() {
+        let defaults = UserDefaults.standard
+        let token = defaults.value(forKey: "loginToken") as? String
+        
+        _route = State(initialValue: token == nil ? Route.LOGIN : Route.INDEX)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
