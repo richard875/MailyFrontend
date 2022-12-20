@@ -8,6 +8,6 @@
 import Foundation
 
 struct ApiResponse {
-    let data: Any
+    let data: Any?
     let status: HTTPResponseStatus
 }
