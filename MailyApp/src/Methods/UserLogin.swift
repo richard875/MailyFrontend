@@ -17,6 +17,7 @@ internal func UserLogin(email: String, password: String, completion: @escaping (
 }
 
 func loginComplete(result: ApiResponse, error: Optional<Error>) -> LoginResponse {
+    // First check if there's errors. Return straight away if there are any
     if (error != nil) {
         return LoginResponse(returnStatus: ReturnStatus.ERROR, httpStatus: result.status, message: error!.localizedDescription)
     }
