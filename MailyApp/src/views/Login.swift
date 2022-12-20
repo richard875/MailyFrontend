@@ -94,8 +94,8 @@ struct Login: View {
                         if (loginResponse.returnStatus == ReturnStatus.ERROR) {
                             message = loginResponse.message
                         } else {
-                            let defaults = UserDefaults.standard
-                            defaults.set(loginResponse.message, forKey: "loginToken")
+                            let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+                            defaults.set(loginResponse.message, forKey: SharedUserDefaults.Keys.loginToken)
                             defaults.synchronize()
                             setRoute(Route.INDEX)
                         }
