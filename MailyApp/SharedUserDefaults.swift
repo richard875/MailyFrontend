@@ -11,6 +11,6 @@ struct SharedUserDefaults {
     static let suiteName = "group.com.TeamMaily.MailyApp"
     
     struct Keys {
-        static let username = "username"
+        static let loginToken = "loginToken"
     }
 }
