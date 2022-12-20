@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Temp code
-    let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
-    let localS = UserDefaults.standard
-    
-    // Actual code
     @State private var route: Route = Route.LOGIN
     
     var body: some View {
@@ -34,8 +29,9 @@ struct ContentView: View {
     }
     
     private func fetchUser() {
-        let defaults = UserDefaults.standard
-        let token = defaults.value(forKey: "loginToken") as? String
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (token == nil) { return }
         
         GetUser(token: token!) { response in
             self.route = response.httpStatus == HTTPResponseStatus.UNAUTHORIZED ? Route.LOGIN : Route.INDEX
@@ -48,7 +44,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-// Button("Store local storage 2 (myUserName)") {
-//   sharedUserDefaults?.set("myUserName", forKey: SharedUserDefaults.Keys.username)
-// }
