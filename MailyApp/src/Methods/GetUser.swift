@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal func GetUser(token: String, completion: @escaping (Void) -> Void) {
+internal func GetUser(token: String, completion: @escaping (GetUserResponse) -> Void) {
     apiMethod(
         apiMethod: HTTPMethod.GET,
         apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.User)",
@@ -17,6 +17,20 @@ internal func GetUser(token: String, completion: @escaping (Void) -> Void) {
     )
 }
 
-func getComplete(result: Any, error: Optional<Error>) -> Void {
-    print(result)
+func getComplete(result: ApiResponse, error: Optional<Error>) -> GetUserResponse {
+    // First check if there's errors. Return straight away if there are any
+    if (error != nil) {
+        return GetUserResponse(
+            returnStatus: ReturnStatus.ERROR,
+            httpStatus: result.status,
+            user: nil
+        )
+    }
+    
+    // Return success if no error
+    return GetUserResponse(
+        returnStatus: ReturnStatus.SUCCESS,
+        httpStatus: result.status,
+        user: result.data
+    )
 }
