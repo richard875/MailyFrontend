@@ -89,7 +89,7 @@ struct Login: View {
                     loading.toggle()
                     message = " "
                     
-                    login(email: email, password: password) { loginResponse in
+                    UserLogin(email: email, password: password) { loginResponse in
                         // Use the loginResponse object as needed
                         if (loginResponse.returnStatus == ReturnStatus.ERROR) {
                             message = loginResponse.message

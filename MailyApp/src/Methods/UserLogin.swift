@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal func login(email: String, password: String, completion: @escaping (LoginResponse) -> Void) {
+internal func UserLogin(email: String, password: String, completion: @escaping (LoginResponse) -> Void) {
     apiMethod(
         apiMethod: HTTPMethod.POST,
         apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.Login)",
