@@ -15,13 +15,6 @@ struct ContentView: View {
     // Actual code
     @State private var route: Route = Route.LOGIN
     
-    init() {
-        let defaults = UserDefaults.standard
-        let token = defaults.value(forKey: "loginToken") as? String
-        
-        _route = State(initialValue: token == nil ? Route.LOGIN : Route.INDEX)
-    }
-    
     var body: some View {
         VStack(spacing: 0) {
             switch route {
@@ -33,11 +26,20 @@ struct ContentView: View {
                 Text("Route not found")
             }
             BottomBar()
-        }
+        }.onAppear(perform: fetchUser)
     }
     
     private func setRoute(newPage: Route) -> Void {
         route = newPage
+    }
+    
+    private func fetchUser() {
+        let defaults = UserDefaults.standard
+        let token = defaults.value(forKey: "loginToken") as? String
+        
+        GetUser(token: token!) { response in
+            self.route = response.httpStatus == HTTPResponseStatus.UNAUTHORIZED ? Route.LOGIN : Route.INDEX
+        }
     }
 }
 
