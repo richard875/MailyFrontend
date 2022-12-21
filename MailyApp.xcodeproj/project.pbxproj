@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A504921429512C73000C4022 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A50492162951B469000C4022 /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
-		A504921B295281DE000C4022 /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921A295281DE000C4022 /* ComposeView.swift */; };
+		A504921B295281DE000C4022 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921A295281DE000C4022 /* Index.swift */; };
 		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
@@ -65,7 +65,7 @@
 /* Begin PBXFileReference section */
 		A504921329512C73000C4022 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		A50492152951B469000C4022 /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
-		A504921A295281DE000C4022 /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
+		A504921A295281DE000C4022 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
@@ -116,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A504921D2952DD07000C4022 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A504921A295281DE000C4022 /* Index.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A55F2CB5285455C5006C9F59 = {
 			isa = PBXGroup;
 			children = (
@@ -183,9 +191,9 @@
 		A55F2CEA28545636006C9F59 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				A504921D2952DD07000C4022 /* Views */,
 				A55F2CDA285455E9006C9F59 /* ComposeSessionHandler.swift */,
 				A55F2CDC285455E9006C9F59 /* ComposeSessionViewController.swift */,
-				A504921A295281DE000C4022 /* ComposeView.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -398,7 +406,7 @@
 				A55F2CD7285455E9006C9F59 /* MailExtension.swift in Sources */,
 				A55F2CDD285455E9006C9F59 /* ComposeSessionViewController.swift in Sources */,
 				A55F2CDB285455E9006C9F59 /* ComposeSessionHandler.swift in Sources */,
-				A504921B295281DE000C4022 /* ComposeView.swift in Sources */,
+				A504921B295281DE000C4022 /* Index.swift in Sources */,
 				A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
