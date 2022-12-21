@@ -27,7 +27,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     // MARK: - Displaying Custom Compose Options
     
     func viewController(for session: MEComposeSession) -> MEExtensionViewController {
-        return ComposeSessionViewController(nibName: "ComposeSessionViewController", bundle: Bundle.main)
+        return ComposeSessionViewController(session: session)
     }
     
     // MARK: - Confirming Message Delivery
