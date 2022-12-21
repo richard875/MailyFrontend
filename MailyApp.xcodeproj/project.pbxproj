@@ -10,6 +10,7 @@
 		A504921429512C73000C4022 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A50492162951B469000C4022 /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
 		A504921B295281DE000C4022 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921A295281DE000C4022 /* Index.swift */; };
+		A525EBED295344F00075B4AD /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525EBEC295344F00075B4AD /* WebView.swift */; };
 		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
@@ -66,6 +67,7 @@
 		A504921329512C73000C4022 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		A50492152951B469000C4022 /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
 		A504921A295281DE000C4022 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		A525EBEC295344F00075B4AD /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A504921A295281DE000C4022 /* Index.swift */,
+				A525EBEC295344F00075B4AD /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A565A786294B133600BF8EF0 /* ComposeSessionError.swift in Sources */,
+				A525EBED295344F00075B4AD /* WebView.swift in Sources */,
 				A55F2CD9285455E9006C9F59 /* MessageActionHandler.swift in Sources */,
 				A55F2CD7285455E9006C9F59 /* MailExtension.swift in Sources */,
 				A55F2CDD285455E9006C9F59 /* ComposeSessionViewController.swift in Sources */,
