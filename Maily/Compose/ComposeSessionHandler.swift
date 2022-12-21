@@ -11,14 +11,8 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     // MARK: - Start composing an email
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
         // Perform any setup necessary for handling the compose session.
-        let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
-        
-        let separator = "---------------------"
-        let stringOne = sharedUserDefaults!.string(forKey: SharedUserDefaults.Keys.username)
-
-        print(separator)
-        print(stringOne! as String)
-        print(separator)
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
     }
     
     // MARK: - Finish composing an email
