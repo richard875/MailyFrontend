@@ -21,7 +21,12 @@ class ComposeSessionViewController: MEExtensionViewController {
     }
     
     override func loadView() {
-        let hostingController = NSHostingController(rootView: ComposeView(session: session))
+        // Load the HTML page into the web view.
+        let htmlPath = Bundle.main.path(forResource: "tracking", ofType: "html")
+        let url = URL(fileURLWithPath: htmlPath!)
+        let html = try? String(contentsOf: url)
+                
+        let hostingController = NSHostingController(rootView: ComposeView(session: session, html: html!))
         self.view = hostingController.view
     }
 }
