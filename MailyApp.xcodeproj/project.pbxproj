@@ -225,19 +225,19 @@
 				A5A520FD294DAF69001E82EC /* Api */,
 				A5645C6F294DAA87003557CA /* Enums */,
 				A5645C6C294DA23E003557CA /* Methods */,
-				A565A789294C74B100BF8EF0 /* views */,
+				A565A789294C74B100BF8EF0 /* Views */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		A565A789294C74B100BF8EF0 /* views */ = {
+		A565A789294C74B100BF8EF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A565A78A294C74C700BF8EF0 /* Login.swift */,
 				A59D0278294CBB1F00FE4523 /* BottomBar.swift */,
 				A59551DC294EC0A40098E803 /* Index.swift */,
 			);
-			path = views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A589B24F2948B98A008AE02A /* Static */ = {
