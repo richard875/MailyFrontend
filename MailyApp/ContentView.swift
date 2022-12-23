@@ -36,7 +36,7 @@ struct ContentView: View {
         if (token == nil) { return }
         
         GetUser(token: token!) { response in
-            self.route = response.httpStatus == HTTPResponseStatus.UNAUTHORIZED ? Route.LOGIN : Route.INDEX
+            self.route = response.httpStatus == HTTPResponseStatus.OK ? Route.INDEX : Route.LOGIN
         }
     }
 }
