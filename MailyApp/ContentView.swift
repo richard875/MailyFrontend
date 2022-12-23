@@ -17,6 +17,8 @@ struct ContentView: View {
                 Index(setRoute: setRoute)
             case Route.LOGIN:
                 Login(setRoute: setRoute)
+            case Route.LOADING:
+                Loading()
             default:
                 Text("Route not found")
             }
