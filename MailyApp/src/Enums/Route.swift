@@ -12,5 +12,5 @@ enum Route: String {
     case INDEX
     case FORGOT_PASSWORD
     case SIGN_UP
-    
+    case LOADING
 }
