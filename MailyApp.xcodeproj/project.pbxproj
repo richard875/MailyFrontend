@@ -10,6 +10,7 @@
 		A504921429512C73000C4022 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A50492162951B469000C4022 /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
 		A504921B295281DE000C4022 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921A295281DE000C4022 /* Index.swift */; };
+		A51B370B2955E39100688646 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B370A2955E39100688646 /* Loading.swift */; };
 		A525EBED295344F00075B4AD /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525EBEC295344F00075B4AD /* WebView.swift */; };
 		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
@@ -67,6 +68,7 @@
 		A504921329512C73000C4022 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		A50492152951B469000C4022 /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
 		A504921A295281DE000C4022 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		A51B370A2955E39100688646 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		A525EBEC295344F00075B4AD /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +249,7 @@
 				A565A78A294C74C700BF8EF0 /* Login.swift */,
 				A59D0278294CBB1F00FE4523 /* BottomBar.swift */,
 				A59551DC294EC0A40098E803 /* Index.swift */,
+				A51B370A2955E39100688646 /* Loading.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
 				A504921429512C73000C4022 /* GetUser.swift in Sources */,
 				A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */,
+				A51B370B2955E39100688646 /* Loading.swift in Sources */,
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 				A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
