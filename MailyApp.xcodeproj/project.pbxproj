@@ -181,7 +181,7 @@
 		A55F2CD5285455E9006C9F59 /* Maily */ = {
 			isa = PBXGroup;
 			children = (
-				A565A784294B130C00BF8EF0 /* Enums */,
+				A5D11AF7295686C70015808F /* src */,
 				A589B24F2948B98A008AE02A /* Static */,
 				A55F2CE92854562A006C9F59 /* Action */,
 				A55F2CEA28545636006C9F59 /* Compose */,
@@ -287,6 +287,14 @@
 				A5A52119294E0268001E82EC /* ApiEndpoints.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		A5D11AF7295686C70015808F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A565A784294B130C00BF8EF0 /* Enums */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
