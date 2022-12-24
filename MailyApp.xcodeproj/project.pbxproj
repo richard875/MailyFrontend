@@ -181,7 +181,7 @@
 		A55F2CD5285455E9006C9F59 /* Maily */ = {
 			isa = PBXGroup;
 			children = (
-				A565A784294B130C00BF8EF0 /* enums */,
+				A565A784294B130C00BF8EF0 /* Enums */,
 				A589B24F2948B98A008AE02A /* Static */,
 				A55F2CE92854562A006C9F59 /* Action */,
 				A55F2CEA28545636006C9F59 /* Compose */,
@@ -231,12 +231,12 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		A565A784294B130C00BF8EF0 /* enums */ = {
+		A565A784294B130C00BF8EF0 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				A565A785294B133600BF8EF0 /* ComposeSessionError.swift */,
 			);
-			path = enums;
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		A565A787294C742D00BF8EF0 /* src */ = {
