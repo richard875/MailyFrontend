@@ -13,11 +13,11 @@ internal func GetUser(token: String, completion: @escaping (GetUserResponse) -> 
         apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.User)",
         auth: true,
         token: token,
-        completion: {(result, error) in completion(getComplete(result: (result as! ApiResponse), error: error))}
+        completion: {(result, error) in completion(complete(result: (result as! ApiResponse), error: error))}
     )
 }
 
-func getComplete(result: ApiResponse, error: Optional<Error>) -> GetUserResponse {
+func complete(result: ApiResponse, error: Optional<Error>) -> GetUserResponse {
     // First check if there's errors. Return straight away if there are any
     if (error != nil) {
         return GetUserResponse(
