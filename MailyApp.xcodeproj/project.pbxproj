@@ -38,6 +38,14 @@
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
+		A5D11AEF29567A670015808F /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
+		A5D11AF029567A8F0015808F /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
+		A5D11AF129567AA10015808F /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
+		A5D11AF229567AAD0015808F /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DE294EE17E0098E803 /* HTTPResponseStatus.swift */; };
+		A5D11AF329567ACC0015808F /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5645C70294DAB7A003557CA /* HttpMethod.swift */; };
+		A5D11AF429567AED0015808F /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
+		A5D11AF529567B020015808F /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551E0294EE2B00098E803 /* ApiResponse.swift */; };
+		A5D11AF629567B190015808F /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -408,6 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D11AF629567B190015808F /* ApiMethod.swift in Sources */,
+				A5D11AF529567B020015808F /* ApiResponse.swift in Sources */,
+				A5D11AF429567AED0015808F /* ApiEndpoints.swift in Sources */,
+				A5D11AF329567ACC0015808F /* HttpMethod.swift in Sources */,
+				A5D11AF229567AAD0015808F /* HTTPResponseStatus.swift in Sources */,
+				A5D11AF129567AA10015808F /* ReturnStatus.swift in Sources */,
+				A5D11AF029567A8F0015808F /* GetUserResponse.swift in Sources */,
+				A5D11AEF29567A670015808F /* GetUser.swift in Sources */,
 				A565A786294B133600BF8EF0 /* ComposeSessionError.swift in Sources */,
 				A525EBED295344F00075B4AD /* WebView.swift in Sources */,
 				A55F2CD9285455E9006C9F59 /* MessageActionHandler.swift in Sources */,
