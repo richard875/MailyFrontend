@@ -8,11 +8,25 @@
 import MailKit
 
 class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
+    private var serverAddress: String? = nil
+    private var trackingNumber: String? = nil
+    
     // MARK: - Start composing an email
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
         // Perform any setup necessary for handling the compose session.
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        GetUser(token: token!) { response in
+            if (response.httpStatus == HTTPResponseStatus.OK) {
+                GetTracking(token: token!)  { response in
+                    if (response.returnStatus == ReturnStatus.SUCCESS && response.httpStatus == HTTPResponseStatus.OK) {
+                        self.serverAddress = response.data?.url
+                        self.trackingNumber = response.data?.token
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Finish composing an email
@@ -27,7 +41,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     // MARK: - Displaying Custom Compose Options
     
     func viewController(for session: MEComposeSession) -> MEExtensionViewController {
-        return ComposeSessionViewController(session: session)
+        return ComposeSessionViewController(session: session, serverAddress: self.serverAddress, trackingNumber: self.trackingNumber)
     }
     
     // MARK: - Confirming Message Delivery
