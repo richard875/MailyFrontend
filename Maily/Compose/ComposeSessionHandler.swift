@@ -35,6 +35,10 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
         
         // var clickedSend: true if message header contains the 'subject' key
         let clickedSend = session.mailMessage.headers?["subject"] != nil
+        if (clickedSend) {
+            AssignTracking(token: ComposeSessionHandler.userToken!, trackingNumber: self.trackingNumber!) { response in
+            }
+        }
     }
     
     // MARK: - Displaying Custom Compose Options
