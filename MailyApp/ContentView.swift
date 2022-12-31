@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var route: Route = Route.LOGIN
+    @State private var route: Route = Route.LOADING
     
     var body: some View {
         VStack(spacing: 0) {
