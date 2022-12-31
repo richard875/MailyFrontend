@@ -46,18 +46,5 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     func viewController(for session: MEComposeSession) -> MEExtensionViewController {
         return ComposeSessionViewController(session: session, serverAddress: self.serverAddress, trackingNumber: self.trackingNumber)
     }
-    
-    // MARK: - Confirming Message Delivery
-    func allowMessageSendForSession(_ session: MEComposeSession, completion: @escaping (Error?) -> Void) {
-        // Before Mail sends a message, your extension can validate the
-        // contents of the compose session. If the message is ready to be sent,
-        // call the compltion block with nil. If the message isn't ready to be
-        // sent, call the completion with an error.
-        if session.mailMessage.allRecipientAddresses.contains(where: { $0.rawString.hasSuffix("@example.com")}) {
-            completion(ComposeSessionError.invalidRecipientDomain)
-        } else {
-            completion(nil)
-        }
-    }
 }
 
