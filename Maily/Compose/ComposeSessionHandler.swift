@@ -8,18 +8,17 @@
 import MailKit
 
 class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
+    private static let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+    private static let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+    
     private var serverAddress: String? = nil
     private var trackingNumber: String? = nil
     
     // MARK: - Start composing an email
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
-        // Perform any setup necessary for handling the compose session.
-        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
-        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-        
-        GetUser(token: token!) { response in
+        GetUser(token: ComposeSessionHandler.userToken!) { response in
             if (response.httpStatus == HTTPResponseStatus.OK) {
-                GetTracking(token: token!)  { response in
+                GetTracking(token: ComposeSessionHandler.userToken!)  { response in
                     if (response.returnStatus == ReturnStatus.SUCCESS && response.httpStatus == HTTPResponseStatus.OK) {
                         self.serverAddress = response.data?.url
                         self.trackingNumber = response.data?.token
