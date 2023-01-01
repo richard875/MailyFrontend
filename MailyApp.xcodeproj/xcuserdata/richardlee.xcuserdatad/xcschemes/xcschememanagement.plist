@@ -4,32 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Maily (Development).xcscheme</key>
+		<key>Maily (Development).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Maily (Production).xcscheme</key>
+		<key>Maily (Production).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>Maily (Staging).xcscheme</key>
+		<key>Maily (Staging).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>MailyApp (Development).xcscheme</key>
+		<key>MailyApp (Development).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>MailyApp (Production).xcscheme</key>
+		<key>MailyApp (Production).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>MailyApp (Staging).xcscheme</key>
+		<key>MailyApp (Staging).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
