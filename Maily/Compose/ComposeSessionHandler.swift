@@ -66,9 +66,39 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     }
     
     // MARK: - Displaying Custom Compose Options
-    
     func viewController(for session: MEComposeSession) -> MEExtensionViewController {
         return ComposeSessionViewController(session: session, trackingNumber: self.trackingNumber)
+    }
+    
+    // MARK: - Confirming Message Delivery
+    func allowMessageSendForSession(_ session: MEComposeSession, completion: @escaping (Error?) -> Void) {
+        // Determine if tracker is placed in the message
+        let dataStr = String(data: session.mailMessage.rawData!, encoding: .utf8)!.replacingOccurrences(of: "[\n=]", with: "", options: .regularExpression)
+        
+        // Use a regular expression to find all occurrences of the tracking number in the email message string
+        let pattern = "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.Beep)/"
+        let regex = try! NSRegularExpression(pattern: pattern)
+        let matches = regex.matches(in: dataStr, range: NSRange(dataStr.startIndex..., in: dataStr))
+        
+        // Extract the random strings from the matches
+        let trackers = matches.map { tracker in
+            let range = Range(tracker.range, in: dataStr)!
+            let endRange = dataStr[range.upperBound...].range(of: ".png")!
+            return String(dataStr[range.upperBound..<endRange.lowerBound])
+        }
+        
+        // Throw warning if there are no trackers in the email message ("trackers" list is empty)
+        if (trackers.isEmpty) {
+            completion(NSError(
+                domain: "error",
+                code: -1,
+                userInfo: [
+                    NSLocalizedDescriptionKey: "Message is not tracked, sand anyway?"
+                ]
+            ))
+        } else {
+            completion(nil)
+        }
     }
 }
 
