@@ -7,11 +7,33 @@
 
 import Foundation
 
-internal func AssignTracking(token: String, trackingNumber: String, completion: @escaping (AssignTrackingResponse) -> Void) {
+internal func AssignTracking(
+    token: String,
+    trackingNumber: String,
+    composeAction: Int,
+    subject: String,
+    fromAddress: String,
+    toAddresses: String,
+    ccAddresses: String,
+    bccAddresses: String,
+    replyToAddresses: String,
+    internalMessageID: String,
+    completion: @escaping (AssignTrackingResponse) -> Void
+) {
     apiMethod(
         apiMethod: HTTPMethod.POST,
         apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.AssignTrackingNumber)",
-        apiBody: ["trackingNumber": trackingNumber],
+        apiBody: [
+            "trackingNumber": trackingNumber,
+            "composeAction": composeAction,
+            "subject": subject,
+            "fromAddress": fromAddress,
+            "toAddresses": toAddresses,
+            "ccAddresses": ccAddresses,
+            "bccAddresses": bccAddresses,
+            "replyToAddresses": replyToAddresses,
+            "internalMessageID": internalMessageID
+        ],
         auth: true,
         token: token,
         completion: {(result, error) in completion(complete(result: (result as! ApiResponse), error: error))}

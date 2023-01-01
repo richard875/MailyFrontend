@@ -33,10 +33,31 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
         // Perform any cleanup now that the compose session is over.
         session.reload()
         
+        // Collect and compute email message properties
+        let composeAction = session.composeContext.action.rawValue
+        let subject = session.mailMessage.subject
+        let fromAddress = session.mailMessage.fromAddress.rawString
+        let toAddresses = session.mailMessage.toAddresses.map { $0.rawString }.joined(separator: ",")
+        let ccAddresses = session.mailMessage.ccAddresses.map { $0.rawString }.joined(separator: ",")
+        let bccAddresses = session.mailMessage.bccAddresses.map { $0.rawString }.joined(separator: ",")
+        let replyToAddresses = session.mailMessage.replyToAddresses.map { $0.rawString }.joined(separator: ",")
+        let internalMessageID = (session.mailMessage.headers?["message-id"] as! [String]).first!
+        
         // var clickedSend: true if message header contains the 'subject' key
         let clickedSend = session.mailMessage.headers?["subject"] != nil
         if (clickedSend) {
-            AssignTracking(token: ComposeSessionHandler.userToken!, trackingNumber: self.trackingNumber!) { response in
+            AssignTracking(
+                token: ComposeSessionHandler.userToken!,
+                trackingNumber: self.trackingNumber!,
+                composeAction: composeAction,
+                subject: subject,
+                fromAddress: fromAddress,
+                toAddresses: toAddresses,
+                ccAddresses: ccAddresses,
+                bccAddresses: bccAddresses,
+                replyToAddresses: replyToAddresses,
+                internalMessageID: internalMessageID
+            ) { response in
             }
         }
     }
