@@ -47,7 +47,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
             let ccAddresses = session.mailMessage.ccAddresses.map { $0.rawString }.joined(separator: ",")
             let bccAddresses = session.mailMessage.bccAddresses.map { $0.rawString }.joined(separator: ",")
             let replyToAddresses = session.mailMessage.replyToAddresses.map { $0.rawString }.joined(separator: ",")
-            let internalMessageID = (session.mailMessage.headers?["message-id"] as! [String]).first!
+            let internalMessageID = ((session.mailMessage.headers?["message-id"] as? [String])?.first) ?? ""
             
             AssignTracking(
                 token: userToken!,
