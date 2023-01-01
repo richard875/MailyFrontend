@@ -25,16 +25,12 @@ struct WebView: NSViewRepresentable {
             }]
         """
         
-        // Convert the rule list string to data and then back to a string
-        let blockAllRuleData = blockAllRule.data(using: .utf8)!
-        let blockAllRuleString = String(data: blockAllRuleData, encoding: .utf8)!
-        
         // Create a WKWebView
         let webView = WKWebView()
         
         // Create a WKContentRuleListStore and compile the rule list
         if let ruleListStore = WKContentRuleListStore.default() {
-            ruleListStore.compileContentRuleList(forIdentifier: "BlockAllRuleList", encodedContentRuleList: blockAllRuleString) { (ruleList, error) in
+            ruleListStore.compileContentRuleList(forIdentifier: "BlockAllRuleList", encodedContentRuleList: blockAllRule) { (ruleList, error) in
                 if let error = error {
                     print("Error compiling content rule list: \(error)")
                 } else if let ruleList = ruleList {
