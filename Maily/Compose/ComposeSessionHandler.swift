@@ -33,7 +33,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
         
         // var clickedSend: true if message header contains the 'subject' key
         let clickedSend = session.mailMessage.headers?["subject"] != nil
-        if (clickedSend) {
+        if (clickedSend && self.trackingNumber != nil) {
             // Collect and compute email message properties
             let composeAction = session.composeContext.action.rawValue
             let subject = session.mailMessage.subject
