@@ -8,16 +8,18 @@
 import MailKit
 
 class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
-    private static let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
-    private static let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-    
     private var trackingNumber: String? = nil
+    private static let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+    
     
     // MARK: - Start composing an email
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
-        GetUser(token: ComposeSessionHandler.userToken!) { response in
+        // Get userToken from shared suite
+        let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        GetUser(token: userToken!) { response in
             if (response.httpStatus == HTTPResponseStatus.OK) {
-                GetTracking(token: ComposeSessionHandler.userToken!)  { response in
+                GetTracking(token: userToken!)  { response in
                     if (response.returnStatus == ReturnStatus.SUCCESS && response.httpStatus == HTTPResponseStatus.OK) {
                         self.trackingNumber = response.data?.token
                     }
@@ -28,6 +30,9 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     
     // MARK: - Finish composing an email
     func mailComposeSessionDidEnd(_ session: MEComposeSession) {
+        // Get userToken from shared suite
+        let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
         // Perform any cleanup now that the compose session is over.
         session.reload()
         
@@ -45,7 +50,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
             let internalMessageID = (session.mailMessage.headers?["message-id"] as! [String]).first!
             
             AssignTracking(
-                token: ComposeSessionHandler.userToken!,
+                token: userToken!,
                 trackingNumber: self.trackingNumber!,
                 composeAction: composeAction,
                 subject: subject,
