@@ -10,11 +10,15 @@ import SwiftUI
 
 class ComposeSessionViewController: MEExtensionViewController {
     private let session: MEComposeSession
-    private var trackingNumber: String?
+    private var html: String
+    private let trackingNumber: String?
+    private var trackingNumberLoaded: Bool
     
     init(session: MEComposeSession, trackingNumber: String?) {
         self.session = session
+        self.html = "<div></div>"
         self.trackingNumber = trackingNumber
+        self.trackingNumberLoaded = false
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,10 +30,14 @@ class ComposeSessionViewController: MEExtensionViewController {
         // Load the HTML page into the web view and replace witht the tracking URL
         let htmlPath = Bundle.main.path(forResource: "tracking", ofType: "html")
         let url = URL(fileURLWithPath: htmlPath!)
-        let html = try? String(contentsOf: url).replacingOccurrences(of: "{{beacon}}", with: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.Beep)/\(self.trackingNumber!).png")
         
+        if let trackingNumber = self.trackingNumber {
+            self.html = try! String(contentsOf: url).replacingOccurrences(of: "{{beacon}}", with: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.Beep)/\(trackingNumber).png")
+            self.trackingNumberLoaded = true
+        }
+                        
         // Load view
-        let hostingController = NSHostingController(rootView: ComposeView(session: session, html: html!))
+        let hostingController = NSHostingController(rootView: ComposeView(session: session, html: self.html, trackingNumberLoaded: self.trackingNumberLoaded))
         self.view = hostingController.view
     }
 }
