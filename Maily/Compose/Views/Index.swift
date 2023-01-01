@@ -12,6 +12,7 @@ import MailKit
 struct ComposeView: View {
     let session: MEComposeSession
     @State var html: String
+    @State var trackingNumberLoaded: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,11 +22,22 @@ struct ComposeView: View {
             Text("Paste the HTML into Email (⌘ + A)")
                 .padding(.top, 5)
                 .font(.system(size: 13))
-            WebView(html: $html)
-                .frame(width: 260, height: 130)
-                .border(Color("Border"), width: 1)
-                .cornerRadius(7)
-                .padding(.top, 12)
+            if (trackingNumberLoaded) {
+                WebView(html: $html)
+                    .frame(width: 260, height: 130)
+                    .border(Color("Border"), width: 1)
+                    .cornerRadius(7)
+                    .padding(.top, 12)
+            } else {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 260, height: 130)
+                        .cornerRadius(7)
+                        .foregroundColor(Color("Border"))
+                    Text("Please login first and try again")
+                        .font(.system(size: 13))
+                }.padding(.top, 12)
+            }
         }
         .padding(.top, 20)
         .padding(.leading, 20)
