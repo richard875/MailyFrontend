@@ -15,7 +15,7 @@ struct Loading: View {
                 .scaleEffect(0.7)
                 .offset(y: 25)
         }
-        .frame(width: 300, height: 439)
+        .frame(width: 300, height: 500)
         .background(Color("Background"))
     }
 }
