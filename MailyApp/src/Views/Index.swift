@@ -14,7 +14,7 @@ struct Index: View {
     var body: some View {
         VStack(spacing: 0) {
         }
-        .frame(width: 300, height: 439)
+        .frame(width: 300, height: 500)
         .background(Color("Background"))
     }
 }
