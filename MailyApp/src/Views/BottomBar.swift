@@ -12,7 +12,7 @@ struct BottomBar: View {
         VStack(spacing: 0) {
             Divider()
                 .frame(width: 260)
-                .overlay(Color("Divider"))
+                .overlay(Color("Seperate Line"))
             HStack {
                 Button {
                     if let url = URL(string: "https://www.google.com") {
@@ -31,7 +31,7 @@ struct BottomBar: View {
                     width: 86,
                     height: 30
                 )
-                .background(Color("LoginBlue"))
+                .background(Color("Blue"))
                 .cornerRadius(15)
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
@@ -45,7 +45,7 @@ struct BottomBar: View {
                     width: 30,
                     height: 30
                 )
-                .background(Color("ShareOrange"))
+                .background(Color("Button Orange"))
                 .cornerRadius(15)
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
@@ -61,7 +61,7 @@ struct BottomBar: View {
                     width: 30,
                     height: 30
                 )
-                .background(Color("BackgroundInverse"))
+                .background(Color("Button on Black"))
                 .cornerRadius(15)
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()

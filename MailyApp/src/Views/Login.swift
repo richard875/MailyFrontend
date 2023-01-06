@@ -40,7 +40,7 @@ struct Login: View {
                     .padding(.leading, 10)
                     .font(.system(size: 10))
                     .frame(width: 260, height: 35)
-                    .background(Color("InputBackgroundGray"))
+                    .background(Color("Grey Background"))
                     .cornerRadius(7)
                     .padding(.top, 5)
                 SecureField("Password", text: $password)
@@ -48,7 +48,7 @@ struct Login: View {
                     .padding(.leading, 10)
                     .font(.system(size: 10))
                     .frame(width: 260, height: 35)
-                    .background(Color("InputBackgroundGray"))
+                    .background(Color("Grey Background"))
                     .cornerRadius(7)
                     .padding(.top, 10)
                 HStack {
@@ -57,7 +57,7 @@ struct Login: View {
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
                         .font(.system(size: 10))
-                        .foregroundColor(Color("LoginBlue"))
+                        .foregroundColor(Color("Blue"))
                         .frame(
                             maxWidth: .infinity,
                             alignment: .leading
@@ -67,7 +67,7 @@ struct Login: View {
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
                         .font(.system(size: 10))
-                        .foregroundColor(Color("LoginBlue"))
+                        .foregroundColor(Color("Blue"))
                         .frame(
                             maxWidth: .infinity,
                             alignment: .trailing
@@ -106,14 +106,14 @@ struct Login: View {
                     Text("Login")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color("Background"))
+                        .foregroundColor(Color("Text - Inverse"))
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(
                     width: 260,
                     height: 35
                 )
-                .background(Color("BackgroundInverse"))
+                .background(Color("Button on Black"))
                 .cornerRadius(7)
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
@@ -121,11 +121,11 @@ struct Login: View {
                 HStack(spacing: 0) {
                     Text("By signing in you accept our ")
                         .font(.system(size: 9))
-                        .foregroundColor(Color("TextGray"))
+                        .foregroundColor(Color("Text"))
                     Text("Terms of use")
                         .underline()
                         .font(.system(size: 9))
-                        .foregroundColor(Color("TextGray"))
+                        .foregroundColor(Color("Text"))
                         .onHover { hovering in
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
@@ -134,11 +134,11 @@ struct Login: View {
                 HStack(spacing: 0) {
                     Text("and ")
                         .font(.system(size: 9))
-                        .foregroundColor(Color("TextGray"))
+                        .foregroundColor(Color("Text"))
                     Text("Privacy Policy")
                         .underline()
                         .font(.system(size: 9))
-                        .foregroundColor(Color("TextGray"))
+                        .foregroundColor(Color("Text"))
                         .onHover { hovering in
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
