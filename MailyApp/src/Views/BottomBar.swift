@@ -10,9 +10,15 @@ import SwiftUI
 struct BottomBar: View {
     var body: some View {
         VStack(spacing: 0) {
-            Divider()
-                .frame(width: 260)
-                .overlay(Color("Seperate Line"))
+            Line()
+                .stroke(
+                    Color("Seperate Line"),
+                    style: StrokeStyle(lineWidth: 1, dash: [2])
+                )
+                .frame(
+                    width: 260,
+                    height: 1
+                )
             HStack {
                 Button {
                     if let url = URL(string: "https://www.google.com") {
