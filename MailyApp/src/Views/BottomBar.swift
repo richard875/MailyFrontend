@@ -61,6 +61,8 @@ struct BottomBar: View {
                 )
                 Button {} label: {
                     Image("Settings")
+                        .renderingMode(.template)
+                        .foregroundColor(Color("Text - Inverse"))
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(
