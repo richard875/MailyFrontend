@@ -13,7 +13,6 @@ struct Loading: View {
         VStack(spacing: 0) {
             ProgressView()
                 .scaleEffect(0.7)
-                .offset(y: 25)
         }
         .frame(width: 300, height: 500)
         .background(Color("Background"))
