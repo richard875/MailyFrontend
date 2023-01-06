@@ -17,12 +17,12 @@ struct ContentView: View {
                 Index(setRoute: setRoute)
             case Route.LOGIN:
                 Login(setRoute: setRoute)
+                BottomBar()
             case Route.LOADING:
                 Loading()
             default:
                 Text("Route not found")
             }
-            BottomBar()
         }.onAppear(perform: fetchUser)
     }
     
