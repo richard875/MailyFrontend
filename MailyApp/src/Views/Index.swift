@@ -284,7 +284,7 @@ struct Index: View {
                         .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
                     )
                     .cornerRadius(5)
-                    .padding(.leading, 6)
+                    .padding(.leading, 5)
                 }
                 .padding(.top, 6)
             }
@@ -430,7 +430,7 @@ struct Index: View {
                         .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
                     )
                     .cornerRadius(5)
-                    .padding(.leading, 6)
+                    .padding(.leading, 5)
                 }
                 .padding(.top, 6)
             }
