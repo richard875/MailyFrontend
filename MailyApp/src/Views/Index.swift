@@ -298,6 +298,63 @@ struct Index: View {
                 .stroke(Color("Border"), lineWidth: 1)
             )
             .padding(.top, 10)
+            // -----------------------------------------------------
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(spacing: 0) {
+                    Text("Richard Lee")
+                        .font(.system(size: 11))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("Text"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("Jan 1, 2022")
+                        .font(.system(size: 11))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("Text Grey"))
+                }
+                Text(verbatim: "richard@apple.com")
+                    .font(.system(size: 11))
+                    .fontWeight(.regular)
+                    .foregroundColor(Color("Text"))
+                    .frame(alignment: .topLeading)
+                    .padding(.top, 3)
+                Text("The rise and fall of the Soviet Empire: Why this war will be Russia’s last (part 2) | Chris Snow")
+                    .font(.system(size: 11))
+                    .fontWeight(.regular)
+                    .foregroundColor(Color("Text Grey"))
+                    .frame(width: 210, height: 13)
+                    .padding(.top, 3)
+                HStack(spacing: 0) {
+                    Button {} label: {
+                        HStack(spacing: 0) {
+                            Text("Unopened")
+                                .font(.system(size: 9))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Red Tag Text"))
+                        }
+                        .padding(.bottom, 1)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .frame(width: 62, height: 20)
+                    .background(Color("Red Tag Fill"))
+                    .overlay(RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                    )
+                    .cornerRadius(5)
+                }
+                .padding(.top, 6)
+            }
+            .padding(.top, 10)
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            .frame(
+                width: 260,
+                height: 92,
+                alignment: .topLeading
+            )
+            .overlay(RoundedRectangle(cornerRadius: 7)
+                .stroke(Color("Border"), lineWidth: 1)
+            )
+            .padding(.top, 10)
         }
         .padding(.top, 17)
         .padding(.leading, 20)
