@@ -23,10 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var mainPopover: NSPopover!
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
-        if let window = NSApplication.shared.windows.first {
-            window.close()
-        }
-        
+        if let window = NSApplication.shared.windows.first { window.close() }
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let statusButton = statusItem.button {
