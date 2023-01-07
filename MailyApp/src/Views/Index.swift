@@ -13,6 +13,7 @@ struct Index: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            // Top Section
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
                     Image("profile\(Int.random(in: 1...33))")
@@ -164,7 +165,31 @@ struct Index: View {
                     height: 1
                 )
                 .padding(.top, 17)
-                .padding(.bottom, 17)
+            // Bottom Section
+            HStack(spacing: 0) {
+                Text("Emails")
+                    .font(.system(size: 12))
+                    .fontWeight(.medium)
+                    .foregroundColor(Color("Text"))
+                HStack(spacing: 0) {
+                    Text("View: ")
+                        .font(.system(size: 12))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color("Text Grey"))
+                    Text("All Emails")
+                        .font(.system(size: 12))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color("Text"))
+                    Image("Arrow Down")
+                        .padding(.leading, 5)
+                }
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .trailing
+                )
+            }
+            .frame(width: 260)
+            .padding(.top, 17)
         }
         .padding(.top, 17)
         .padding(.leading, 20)
