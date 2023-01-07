@@ -109,7 +109,7 @@ struct Index: View {
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 83, height: 24)
                     .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 7)
+                    .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color("Green Tag Stroke"), lineWidth: 1)
                     )
                     .cornerRadius(5)
