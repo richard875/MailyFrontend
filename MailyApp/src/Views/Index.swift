@@ -227,7 +227,7 @@ struct Index: View {
                     .foregroundColor(Color("Text"))
                     .frame(alignment: .topLeading)
                     .padding(.top, 3)
-                Text("The rise and fall of the Soviet Empire: Why this war will be Russia’s last (part 2) | Chris Snow")
+                Text("Request #421152: How would you rate the support you received?")
                     .font(.system(size: 11))
                     .fontWeight(.regular)
                     .foregroundColor(Color("Text Grey"))
@@ -237,15 +237,14 @@ struct Index: View {
                     Button {} label: {
                         HStack(spacing: 0) {
                             Text("2")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Green Tag Text"))
                             Text(" Clicks")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Green Tag Text"))
                         }
-                        .padding(.bottom, 1)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 51, height: 20)
@@ -257,23 +256,22 @@ struct Index: View {
                     Button {} label: {
                         HStack(spacing: 0) {
                             Text("Last opened ")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Yellow Tag Text"))
                             Text("3")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Yellow Tag Text"))
                             Text(" days ago at ")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Yellow Tag Text"))
-                            Text("1:16:24 PM")
-                                .font(.system(size: 9))
+                            Text("1:16 PM")
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Yellow Tag Text"))
                         }
-                        .padding(.bottom, 1)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 184, height: 20)
@@ -297,6 +295,7 @@ struct Index: View {
             .overlay(RoundedRectangle(cornerRadius: 7)
                 .stroke(Color("Border"), lineWidth: 1)
             )
+            .cornerRadius(7)
             .padding(.top, 10)
             // -----------------------------------------------------
             VStack(alignment: .leading, spacing: 0) {
@@ -317,7 +316,7 @@ struct Index: View {
                     .foregroundColor(Color("Text"))
                     .frame(alignment: .topLeading)
                     .padding(.top, 3)
-                Text("The rise and fall of the Soviet Empire: Why this war will be Russia’s last (part 2) | Chris Snow")
+                Text("Request #421152: How would you rate the support you received?")
                     .font(.system(size: 11))
                     .fontWeight(.regular)
                     .foregroundColor(Color("Text Grey"))
@@ -327,11 +326,10 @@ struct Index: View {
                     Button {} label: {
                         HStack(spacing: 0) {
                             Text("Unopened")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Red Tag Text"))
                         }
-                        .padding(.bottom, 1)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 62, height: 20)
@@ -354,6 +352,7 @@ struct Index: View {
             .overlay(RoundedRectangle(cornerRadius: 7)
                 .stroke(Color("Border"), lineWidth: 1)
             )
+            .cornerRadius(7)
             .padding(.top, 10)
             // -----------------------------------------------------
             VStack(alignment: .leading, spacing: 0) {
@@ -374,7 +373,7 @@ struct Index: View {
                     .foregroundColor(Color("Text"))
                     .frame(alignment: .topLeading)
                     .padding(.top, 3)
-                Text("The rise and fall of the Soviet Empire: Why this war will be Russia’s last (part 2) | Chris Snow")
+                Text("Request #421152: How would you rate the support you received?")
                     .font(.system(size: 11))
                     .fontWeight(.regular)
                     .foregroundColor(Color("Text Grey"))
@@ -384,15 +383,14 @@ struct Index: View {
                     Button {} label: {
                         HStack(spacing: 0) {
                             Text("2")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Green Tag Text"))
                             Text(" Clicks")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Green Tag Text"))
                         }
-                        .padding(.bottom, 1)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 51, height: 20)
@@ -404,23 +402,22 @@ struct Index: View {
                     Button {} label: {
                         HStack(spacing: 0) {
                             Text("Last opened ")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Yellow Tag Text"))
                             Text("3")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Yellow Tag Text"))
                             Text(" days ago at ")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Yellow Tag Text"))
                             Text("1:16:24 PM")
-                                .font(.system(size: 9))
+                                .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Yellow Tag Text"))
                         }
-                        .padding(.bottom, 1)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 184, height: 20)
@@ -444,6 +441,7 @@ struct Index: View {
             .overlay(RoundedRectangle(cornerRadius: 7)
                 .stroke(Color("Border"), lineWidth: 1)
             )
+            .cornerRadius(7)
             .padding(.top, 10)
         }
         .padding(.top, 17)
