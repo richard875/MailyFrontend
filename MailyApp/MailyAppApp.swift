@@ -47,8 +47,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     @objc func togglePopover() {
+        // Create a window
+        let invisibleWindow = NSWindow(contentRect: NSMakeRect(0, 0, 20, 5), styleMask: .borderless, backing: .buffered, defer: false)
+        invisibleWindow.backgroundColor = .clear
+        invisibleWindow.alphaValue = 0
+        
         if let button = statusItem.button {
-            popover.isShown ? popover.performClose(nil) : popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            if mainPopover.isShown {
+                mainPopover.performClose(nil)
+                // secondaryPopover.performClose(nil)
+            } else {
+                // find the coordinates of the statusBarItem in screen space
+                let screenRect = button.window!.convertToScreen(button.bounds)
+                
+                // calculate the bottom center position (10 is the half of the window width)
+                let posX = screenRect.origin.x + (screenRect.width / 2) - 10
+                let posY = screenRect.origin.y
+                
+                // position and show the window
+                invisibleWindow.setFrameOrigin(NSPoint(x: posX, y: posY))
+                invisibleWindow.makeKeyAndOrderFront(self)
+                
+                // position and show the NSPopover
+                mainPopover.show(relativeTo: invisibleWindow.contentView!.frame, of: invisibleWindow.contentView!, preferredEdge: NSRectEdge.minY)
+                // secondaryPopover.show(relativeTo: CGRect(), of: mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
+                NSApp.activate(ignoringOtherApps: true)
+            }
         }
     }
 }
