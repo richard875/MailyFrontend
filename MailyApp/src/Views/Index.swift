@@ -11,6 +11,8 @@ import SwiftUI
 struct Index: View {
     var setRoute: ((Route) -> Void)
     
+    @State private var searchQuery: String = ""
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // Top Section
@@ -190,6 +192,20 @@ struct Index: View {
             }
             .frame(width: 260)
             .padding(.top, 17)
+            HStack {
+                Image("Search")
+                TextField("Search emails...", text: $searchQuery)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .font(.system(size: 10))
+            }
+            .padding(.leading, 10)
+            .frame(width: 260, height: 30)
+            .background(Color("Grey Background"))
+            .overlay(RoundedRectangle(cornerRadius: 7)
+                .stroke(Color("Border"), lineWidth: 1)
+            )
+            .cornerRadius(7)
+            .padding(.top, 14)
         }
         .padding(.top, 17)
         .padding(.leading, 20)
