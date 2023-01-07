@@ -65,7 +65,7 @@ struct Login: View {
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
                         .font(.system(size: 10))
-                        .foregroundColor(Color("Blue"))
+                        .foregroundColor(Color.blue)
                         .frame(
                             maxWidth: .infinity,
                             alignment: .leading
@@ -75,7 +75,7 @@ struct Login: View {
                             hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                         }
                         .font(.system(size: 10))
-                        .foregroundColor(Color("Blue"))
+                        .foregroundColor(Color.blue)
                         .frame(
                             maxWidth: .infinity,
                             alignment: .trailing

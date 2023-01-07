@@ -37,7 +37,7 @@ struct BottomBar: View {
                     width: 86,
                     height: 30
                 )
-                .background(Color("Blue"))
+                .background(Color.blue)
                 .cornerRadius(15)
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
