@@ -58,10 +58,15 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     .padding(.leading, 5)
-                    Button {} label: {
+                    Menu {
+                        Button("Buttons") { }
+                    } label: {
                         Image("Settings Inverse")
+                            .buttonStyle(PlainButtonStyle())
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .menuStyle(BorderlessButtonMenuStyle())
+                    .menuIndicator(.hidden)
+                    .fixedSize() // Otherwise will be the width of your menu options.
                     .frame(
                         width: 30,
                         height: 30
@@ -71,7 +76,6 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     .padding(.leading, 5)
-                    
                 }
                 .frame(height: 40, alignment: .topLeading)
                 .onHover { hovering in
