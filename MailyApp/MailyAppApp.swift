@@ -20,7 +20,7 @@ struct MailyAppApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var statusItem: NSStatusItem!
-    private var popover: NSPopover!
+    private var mainPopover: NSPopover!
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         if let window = NSApplication.shared.windows.first {
@@ -34,11 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             statusButton.action = #selector(togglePopover)
         }
         
-        popover = NSPopover()
-        popover.contentSize = NSSize(width: 300, height: 500)
-        popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: ContentView())
-        popover.setValue(true, forKeyPath: "shouldHideAnchor")
+        mainPopover = NSPopover()
+        mainPopover.contentSize = NSSize(width: 300, height: 500)
+        mainPopover.behavior = .transient
+        mainPopover.contentViewController = NSHostingController(rootView: ContentView())
+        mainPopover.setValue(true, forKeyPath: "shouldHideAnchor")
         
     }
     
