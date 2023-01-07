@@ -11,6 +11,7 @@ import SwiftUI
 struct Index: View {
     var setRoute: ((Route) -> Void)
     
+    let profilePictureNumber = Int.random(in: 1...33)
     @State private var searchQuery: String = ""
     
     var body: some View {
@@ -18,7 +19,7 @@ struct Index: View {
             // Top Section
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    Image("profile\(Int.random(in: 1...33))")
+                    Image("profile\(profilePictureNumber)")
                         .resizable()
                         .frame(width: 40, height: 40)
                         .overlay(RoundedRectangle(cornerRadius: 7)
