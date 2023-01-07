@@ -193,11 +193,12 @@ struct Index: View {
             }
             .frame(width: 260)
             .padding(.top, 17)
-            HStack {
+            HStack(spacing: 0) {
                 Image("Search")
                 TextField("Search emails...", text: $searchQuery)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.system(size: 10))
+                    .padding(.leading, 8)
             }
             .padding(.leading, 10)
             .frame(width: 260, height: 30)
