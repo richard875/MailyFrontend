@@ -511,13 +511,15 @@ struct Index: View {
         GetUser(token: token!) { response in
             let dictionary = response.user as! [String: Any]
             let loginCheck = dictionary["loginCheck"] as! [String: Any]
-            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"
+                        
             // Convert the loginCheck dictionary to a LoginCheck struct
             let loginCheckStruct = User.LoginCheck(
                 id: loginCheck["id"] as! String,
-                createdAt: loginCheck["CreatedAt"] as! String,
-                updatedAt: loginCheck["UpdatedAt"] as! String,
-                deletedAt: loginCheck["DeletedAt"] as? String,
+                createdAt: dateFormatter.date(from: loginCheck["CreatedAt"] as? String ?? ""),
+                updatedAt: dateFormatter.date(from: loginCheck["UpdatedAt"] as? String ?? ""),
+                deletedAt: dateFormatter.date(from: loginCheck["DeletedAt"] as? String ?? ""),
                 firstName: loginCheck["firstName"] as! String,
                 lastName: loginCheck["lastName"] as! String,
                 email: loginCheck["email"] as! String,
