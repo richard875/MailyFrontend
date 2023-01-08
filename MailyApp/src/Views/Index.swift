@@ -13,6 +13,7 @@ struct Index: View {
     
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
+    @State private var userTrackers: [Tracker] = []
     
     let profilePictureNumber = Int.random(in: 1...33)
     
@@ -444,6 +445,12 @@ struct Index: View {
             
             // Create a User struct with the loginCheck struct and the message
             self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
+        }
+        
+        GetUserTrackers(token: token!) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
+                self.userTrackers = userTrackers
+            }
         }
     }
 }
