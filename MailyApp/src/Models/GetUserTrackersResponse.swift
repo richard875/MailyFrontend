@@ -10,5 +10,5 @@ import Foundation
 struct GetUserTrackersResponse {
     let returnStatus: ReturnStatus
     let httpStatus: HTTPResponseStatus
-    let user: [Tracker]?
+    let userTrackers: [Tracker]?
 }

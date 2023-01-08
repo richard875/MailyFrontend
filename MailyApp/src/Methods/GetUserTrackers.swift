@@ -23,7 +23,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
         return GetUserTrackersResponse(
             returnStatus: ReturnStatus.ERROR,
             httpStatus: result.status,
-            user: nil
+            userTrackers: nil
         )
     }
     
@@ -35,7 +35,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
         return GetUserTrackersResponse(
             returnStatus: ReturnStatus.ERROR,
             httpStatus: result.status,
-            user: []
+            userTrackers: []
         )
     }
     
@@ -76,6 +76,6 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
     return GetUserTrackersResponse(
         returnStatus: ReturnStatus.SUCCESS,
         httpStatus: result.status,
-        user: trackers
+        userTrackers: trackers
     )
 }
