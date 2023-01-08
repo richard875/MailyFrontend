@@ -62,15 +62,6 @@
          BundleIdentifier = "com.apple.mail"
          RemotePath = "/System/Applications/Mail.app">
       </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A55F2CBD285455C5006C9F59"
-            BuildableName = "MailyApp.app"
-            BlueprintName = "MailyApp"
-            ReferencedContainer = "container:MailyApp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "SERVER_URL"
@@ -92,16 +83,15 @@
       debugDocumentVersioning = "YES"
       askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A55F2CBD285455C5006C9F59"
-            BuildableName = "MailyApp.app"
-            BlueprintName = "MailyApp"
+            BlueprintIdentifier = "A55F2CD3285455E9006C9F59"
+            BuildableName = "Maily.appex"
+            BlueprintName = "Maily"
             ReferencedContainer = "container:MailyApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

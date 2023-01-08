@@ -41,12 +41,10 @@
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
 		A5B5CF22296851DF002B885E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF21296851DF002B885E /* Line.swift */; };
 		A5B5CF242969A0D1002B885E /* DetailedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF232969A0D1002B885E /* DetailedContentView.swift */; };
-		A5B65888296A848600FE48FF /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B65887296A848600FE48FF /* ListExtension.swift */; };
 		A5B6588A296AA32100FE48FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B65889296AA32100FE48FF /* User.swift */; };
 		A5B6588C296AD20400FE48FF /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588B296AD20400FE48FF /* Tracker.swift */; };
 		A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */; };
 		A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */; };
-		A5B6589E296AFE2B00FE48FF /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = A5B6589D296AFE2B00FE48FF /* Introspect */; };
 		A5D11AEF29567A670015808F /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A5D11AF029567A8F0015808F /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
 		A5D11AF129567AA10015808F /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
@@ -123,7 +121,6 @@
 		A5A52119294E0268001E82EC /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		A5B5CF21296851DF002B885E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		A5B5CF232969A0D1002B885E /* DetailedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedContentView.swift; sourceTree = "<group>"; };
-		A5B65887296A848600FE48FF /* ListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtension.swift; sourceTree = "<group>"; };
 		A5B65889296AA32100FE48FF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A5B6588B296AD20400FE48FF /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserTrackers.swift; sourceTree = "<group>"; };
@@ -138,7 +135,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B6589E296AFE2B00FE48FF /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +257,6 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A5B65886296A847600FE48FF /* Extension */,
 				A59551D7294E364A0098E803 /* Models */,
 				A5A520FD294DAF69001E82EC /* Api */,
 				A5645C6F294DAA87003557CA /* Enums */,
@@ -321,14 +316,6 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		A5B65886296A847600FE48FF /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				A5B65887296A848600FE48FF /* ListExtension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		A5B65891296AFBCF00FE48FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,7 +370,6 @@
 			);
 			name = MailyApp;
 			packageProductDependencies = (
-				A5B6589D296AFE2B00FE48FF /* Introspect */,
 			);
 			productName = MailyApp;
 			productReference = A55F2CBE285455C5006C9F59 /* MailyApp.app */;
@@ -434,7 +420,6 @@
 			);
 			mainGroup = A55F2CB5285455C5006C9F59;
 			packageReferences = (
-				A5B65883296A816300FE48FF /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = A55F2CBF285455C5006C9F59 /* Products */;
 			projectDirPath = "";
@@ -479,7 +464,6 @@
 				A59551E3294F1DFA0098E803 /* Route.swift in Sources */,
 				A59551E1294EE2B00098E803 /* ApiResponse.swift in Sources */,
 				A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */,
-				A5B65888296A848600FE48FF /* ListExtension.swift in Sources */,
 				A59551DD294EC0A40098E803 /* Index.swift in Sources */,
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
 				A504921429512C73000C4022 /* GetUser.swift in Sources */,
@@ -1274,25 +1258,6 @@
 			defaultConfigurationName = "Release (Development)";
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A5B65883296A816300FE48FF /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A5B6589D296AFE2B00FE48FF /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A5B65883296A816300FE48FF /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A55F2CB6285455C5006C9F59 /* Project object */;
 }
