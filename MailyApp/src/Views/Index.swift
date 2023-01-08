@@ -466,5 +466,33 @@ struct Index: View {
             alignment: .topLeading
         )
         .background(Color("Background"))
+        .onAppear(perform: indexOnAppear)
+    }
+    
+    private func indexOnAppear() {
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (token == nil) { return }
+        
+        GetUser(token: token!) { response in
+            let dictionary = response.user as! [String: Any]
+            let loginCheck = dictionary["loginCheck"] as! [String: Any]
+            
+            // Convert the loginCheck dictionary to a LoginCheck struct
+            let loginCheckStruct = User.LoginCheck(
+                id: loginCheck["ID"] as! Int,
+                createdAt: loginCheck["CreatedAt"] as! String,
+                updatedAt: loginCheck["UpdatedAt"] as! String,
+                deletedAt: loginCheck["DeletedAt"] as? String,
+                firstName: loginCheck["firstName"] as! String,
+                lastName: loginCheck["lastName"] as! String,
+                email: loginCheck["email"] as! String,
+                password: loginCheck["password"] as! String,
+                emailVerified: loginCheck["emailVerified"] as! Bool
+            )
+            
+            // Create a User struct with the loginCheck struct and the message
+            self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
+        }
     }
 }
