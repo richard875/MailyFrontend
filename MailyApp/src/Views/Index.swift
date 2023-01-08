@@ -11,8 +11,9 @@ import SwiftUI
 struct Index: View {
     var setRoute: ((Route) -> Void)
     
-    let profilePictureNumber = Int.random(in: 1...33)
     @State private var searchQuery: String = ""
+    
+    let profilePictureNumber = Int.random(in: 1...33)
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
