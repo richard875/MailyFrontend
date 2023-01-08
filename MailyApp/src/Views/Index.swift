@@ -11,6 +11,7 @@ import SwiftUI
 struct Index: View {
     var setRoute: ((Route) -> Void)
     
+    @State private var user: User? = nil
     @State private var searchQuery: String = ""
     
     let profilePictureNumber = Int.random(in: 1...33)
@@ -95,11 +96,11 @@ struct Index: View {
             )
             HStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Richard Lee")
+                    Text("\(self.user?.loginCheck.firstName ?? "") \(self.user?.loginCheck.lastName ?? "")")
                         .font(.system(size: 12))
                         .fontWeight(.semibold)
                         .foregroundColor(Color("Text"))
-                    Text(verbatim: "richard@apple.com")
+                    Text(verbatim: self.user?.loginCheck.email ?? "")
                         .font(.system(size: 12))
                         .fontWeight(.medium)
                         .foregroundColor(Color("Text Grey"))
@@ -110,19 +111,37 @@ struct Index: View {
                     alignment: .leading
                 )
                 VStack(alignment: .leading, spacing: 0) {
-                    Button {} label: {
-                        Text("Email Verified")
-                            .font(.system(size: 10))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color("Green Tag Text"))
+                    if let userEmailVerified = self.user?.loginCheck.emailVerified {
+                        if userEmailVerified {
+                            Button {} label: {
+                                Text("Email Verified")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Green Tag Text"))
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 83, height: 24)
+                            .background(Color("Green Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Green Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                        } else {
+                            Button {} label: {
+                                Text("Email not Verified")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Red Tag Text"))
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 101, height: 24)
+                            .background(Color("Red Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                        }
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 83, height: 24)
-                    .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Green Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
                 }
                 .frame(height: 32, alignment: .topLeading)
             }
@@ -136,10 +155,17 @@ struct Index: View {
                 HStack(spacing: 0) {
                     Image("Click")
                         .padding(.trailing, 7)
-                    Text("117")
-                        .font(.system(size: 12))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
+                    if let totalClicks = self.user?.loginCheck.totalClicks {
+                        Text("\(totalClicks)")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text"))
+                    } else {
+                        Text("0")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text"))
+                    }
                     Text(" Total Clicks")
                         .font(.system(size: 12))
                         .fontWeight(.medium)
@@ -150,10 +176,17 @@ struct Index: View {
                 HStack(spacing: 0) {
                     Image("Send")
                         .padding(.trailing, 7)
-                    Text("155")
-                        .font(.system(size: 12))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
+                    if let emailSent = self.user?.loginCheck.emailsSent {
+                        Text("\(emailSent)")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text"))
+                    } else {
+                        Text("0")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text"))
+                    }
                     Text(" Emails Sent")
                         .font(.system(size: 12))
                         .fontWeight(.medium)
