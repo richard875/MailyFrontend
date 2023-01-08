@@ -27,7 +27,7 @@ struct Index: View {
                         )
                         .cornerRadius(13)
                 }
-                .frame(width: 105, alignment: .topLeading)
+                .frame(width: 115, alignment: .topLeading)
                 HStack(spacing: 0) {
                     Button {} label: {
                         Text("Edit Profile")
@@ -83,7 +83,7 @@ struct Index: View {
                 }
             }
             .frame(
-                width: 260,
+                width: 270,
                 height: 40,
                 alignment: .topLeading
             )
@@ -121,7 +121,7 @@ struct Index: View {
                 .frame(height: 32, alignment: .topLeading)
             }
             .frame(
-                width: 260,
+                width: 270,
                 height: 32,
                 alignment: .topLeading
             )
@@ -157,7 +157,7 @@ struct Index: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(
-                width: 260,
+                width: 270,
                 height: 14,
                 alignment: .topLeading
             )
@@ -168,7 +168,7 @@ struct Index: View {
                     style: StrokeStyle(lineWidth: 1, dash: [2])
                 )
                 .frame(
-                    width: 260,
+                    width: 270,
                     height: 1
                 )
                 .padding(.top, 17)
@@ -195,7 +195,7 @@ struct Index: View {
                     alignment: .trailing
                 )
             }
-            .frame(width: 260)
+            .frame(width: 270)
             .padding(.top, 17)
             HStack(spacing: 0) {
                 Image("Search")
@@ -205,7 +205,7 @@ struct Index: View {
                     .padding(.leading, 8)
             }
             .padding(.leading, 10)
-            .frame(width: 260, height: 30)
+            .frame(width: 270, height: 30)
             .background(Color("Grey Background"))
             .overlay(RoundedRectangle(cornerRadius: 7)
                 .stroke(Color("Border"), lineWidth: 1)
@@ -215,238 +215,238 @@ struct Index: View {
             .padding(.bottom, 5)
             // List
             List {
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("Richard Lee")
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 0) {
+                        Text("Richard Lee")
+                            .font(.system(size: 11))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("Text"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("Jan 1, 2023")
+                            .font(.system(size: 11))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text Grey"))
+                    }
+                    Text(verbatim: "richard@apple.com")
                         .font(.system(size: 11))
-                        .fontWeight(.medium)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Jan 1, 2023")
+                        .frame(alignment: .topLeading)
+                        .padding(.top, 3)
+                    Text("Request #421152: How would you rate the support you received?")
                         .font(.system(size: 11))
-                        .fontWeight(.semibold)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
-                }
-                Text(verbatim: "richard@apple.com")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text"))
-                    .frame(alignment: .topLeading)
-                    .padding(.top, 3)
-                Text("Request #421152: How would you rate the support you received?")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text Grey"))
-                    .frame(width: 210, height: 13)
-                    .padding(.top, 3)
-                HStack(spacing: 0) {
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("2")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Green Tag Text"))
-                            Text(" Clicks")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Green Tag Text"))
+                        .frame(width: 210, height: 13)
+                        .padding(.top, 3)
+                    HStack(spacing: 0) {
+                        Button {} label: {
+                            HStack(spacing: 0) {
+                                Text("2")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Green Tag Text"))
+                                Text(" Clicks")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Green Tag Text"))
+                            }
                         }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 51, height: 20)
-                    .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Green Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Last opened ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("3")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text(" days ago at ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("1:16 PM")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: 51, height: 20)
+                        .background(Color("Green Tag Fill"))
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("Green Tag Stroke"), lineWidth: 1)
+                        )
+                        .cornerRadius(5)
+                        Button {} label: {
+                            HStack(spacing: 0) {
+                                Text("Last opened ")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text("3")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text(" days ago at ")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text("1:16 PM")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                            }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: 184, height: 20)
+                        .background(Color("Yellow Tag Fill"))
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
+                        )
+                        .cornerRadius(5)
+                        .padding(.leading, 5)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 184, height: 20)
-                    .background(Color("Yellow Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    .padding(.leading, 5)
+                    .padding(.top, 6)
                 }
-                .padding(.top, 6)
-            }
-            .padding(.top, 10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .frame(
-                width: 260,
-                height: 92,
-                alignment: .topLeading
-            )
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-            // -----------------------------------------------------
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("Richard Lee")
+                .padding(.top, 10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                .frame(
+                    width: 270,
+                    height: 92,
+                    alignment: .topLeading
+                )
+                .overlay(RoundedRectangle(cornerRadius: 7)
+                    .stroke(Color("Border"), lineWidth: 1)
+                )
+                .cornerRadius(7)
+                // -----------------------------------------------------
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 0) {
+                        Text("Richard Lee")
+                            .font(.system(size: 11))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("Text"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("Jan 1, 2022")
+                            .font(.system(size: 11))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text Grey"))
+                    }
+                    Text(verbatim: "richard@apple.com")
                         .font(.system(size: 11))
-                        .fontWeight(.medium)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Jan 1, 2022")
+                        .frame(alignment: .topLeading)
+                        .padding(.top, 3)
+                    Text("Request #421152: How would you rate the support you received?")
                         .font(.system(size: 11))
-                        .fontWeight(.semibold)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
-                }
-                Text(verbatim: "richard@apple.com")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text"))
-                    .frame(alignment: .topLeading)
-                    .padding(.top, 3)
-                Text("Request #421152: How would you rate the support you received?")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text Grey"))
-                    .frame(width: 210, height: 13)
-                    .padding(.top, 3)
-                HStack(spacing: 0) {
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Unopened")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Red Tag Text"))
+                        .frame(width: 210, height: 13)
+                        .padding(.top, 3)
+                    HStack(spacing: 0) {
+                        Button {} label: {
+                            HStack(spacing: 0) {
+                                Text("Unopened")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Red Tag Text"))
+                            }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: 62, height: 20)
+                        .background(Color("Red Tag Fill"))
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                        )
+                        .cornerRadius(5)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 62, height: 20)
-                    .background(Color("Red Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Red Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
+                    .padding(.top, 6)
                 }
-                .padding(.top, 6)
-            }
-            .padding(.top, 10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .frame(
-                width: 260,
-                height: 92,
-                alignment: .topLeading
-            )
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-            // -----------------------------------------------------
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("Richard Lee")
+                .padding(.top, 10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                .frame(
+                    width: 270,
+                    height: 92,
+                    alignment: .topLeading
+                )
+                .overlay(RoundedRectangle(cornerRadius: 7)
+                    .stroke(Color("Border"), lineWidth: 1)
+                )
+                .cornerRadius(7)
+                // -----------------------------------------------------
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 0) {
+                        Text("Richard Lee")
+                            .font(.system(size: 11))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("Text"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("Jan 1, 2023")
+                            .font(.system(size: 11))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Text Grey"))
+                    }
+                    Text(verbatim: "richard@apple.com")
                         .font(.system(size: 11))
-                        .fontWeight(.medium)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Jan 1, 2023")
+                        .frame(alignment: .topLeading)
+                        .padding(.top, 3)
+                    Text("Request #421152: How would you rate the support you received?")
                         .font(.system(size: 11))
-                        .fontWeight(.semibold)
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
-                }
-                Text(verbatim: "richard@apple.com")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text"))
-                    .frame(alignment: .topLeading)
-                    .padding(.top, 3)
-                Text("Request #421152: How would you rate the support you received?")
-                    .font(.system(size: 11))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color("Text Grey"))
-                    .frame(width: 210, height: 13)
-                    .padding(.top, 3)
-                HStack(spacing: 0) {
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("2")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Green Tag Text"))
-                            Text(" Clicks")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Green Tag Text"))
+                        .frame(width: 210, height: 13)
+                        .padding(.top, 3)
+                    HStack(spacing: 0) {
+                        Button {} label: {
+                            HStack(spacing: 0) {
+                                Text("2")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Green Tag Text"))
+                                Text(" Clicks")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Green Tag Text"))
+                            }
                         }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 51, height: 20)
-                    .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Green Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Last opened ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("3")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text(" days ago at ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("1:16:24 PM")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: 51, height: 20)
+                        .background(Color("Green Tag Fill"))
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("Green Tag Stroke"), lineWidth: 1)
+                        )
+                        .cornerRadius(5)
+                        Button {} label: {
+                            HStack(spacing: 0) {
+                                Text("Last opened ")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text("3")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text(" days ago at ")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                                Text("1:16:24 PM")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Yellow Tag Text"))
+                            }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: 184, height: 20)
+                        .background(Color("Yellow Tag Fill"))
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
+                        )
+                        .cornerRadius(5)
+                        .padding(.leading, 5)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 184, height: 20)
-                    .background(Color("Yellow Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    .padding(.leading, 5)
+                    .padding(.top, 6)
                 }
-                .padding(.top, 6)
+                .padding(.top, 10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                .frame(
+                    width: 270,
+                    height: 92,
+                    alignment: .topLeading
+                )
+                .overlay(RoundedRectangle(cornerRadius: 7)
+                    .stroke(Color("Border"), lineWidth: 1)
+                )
+                .cornerRadius(7)
             }
-            .padding(.top, 10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .frame(
-                width: 260,
-                height: 92,
-                alignment: .topLeading
-            )
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-        }
             .removeBackground()
             .padding(.leading, -8)
             .padding(.trailing, -9)
@@ -454,7 +454,7 @@ struct Index: View {
             .frame(width: 276)
         }
         .padding(.top, 17)
-        .padding(.leading, 20)
+        .padding(.leading, 15)
         .frame(
             width: 300,
             height: 500,
