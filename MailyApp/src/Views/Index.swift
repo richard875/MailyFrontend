@@ -486,7 +486,6 @@ struct Index: View {
                 )
                 .cornerRadius(7)
             }
-            .removeBackground()
             .padding(.leading, -8)
             .padding(.trailing, -9)
             .listStyle(PlainListStyle())
