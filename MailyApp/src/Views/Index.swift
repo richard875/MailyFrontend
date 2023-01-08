@@ -212,7 +212,9 @@ struct Index: View {
             )
             .cornerRadius(7)
             .padding(.top, 10)
+            .padding(.bottom, 5)
             // List
+            List {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     Text("Richard Lee")
@@ -300,7 +302,6 @@ struct Index: View {
                 .stroke(Color("Border"), lineWidth: 1)
             )
             .cornerRadius(7)
-            .padding(.top, 10)
             // -----------------------------------------------------
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
@@ -357,7 +358,6 @@ struct Index: View {
                 .stroke(Color("Border"), lineWidth: 1)
             )
             .cornerRadius(7)
-            .padding(.top, 10)
             // -----------------------------------------------------
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
@@ -446,7 +446,12 @@ struct Index: View {
                 .stroke(Color("Border"), lineWidth: 1)
             )
             .cornerRadius(7)
-            .padding(.top, 10)
+        }
+            .removeBackground()
+            .padding(.leading, -8)
+            .padding(.trailing, -9)
+            .listStyle(PlainListStyle())
+            .frame(width: 276)
         }
         .padding(.top, 17)
         .padding(.leading, 20)
