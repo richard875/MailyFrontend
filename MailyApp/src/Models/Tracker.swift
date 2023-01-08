@@ -23,3 +23,10 @@ struct Tracker {
     let replyToAddress: String?
     let internalMessageId: String?
 }
+
+extension Tracker: Equatable {
+    static func == (lhs: Tracker, rhs: Tracker) -> Bool {
+        // Compare the two instances of Tracker and return true if they are equal, false otherwise
+        return lhs.id == rhs.id
+    }
+}
