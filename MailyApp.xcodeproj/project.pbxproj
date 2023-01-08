@@ -40,6 +40,7 @@
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
 		A5B55403296B069E00E41877 /* NSTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B55402296B069E00E41877 /* NSTableViewExtension.swift */; };
+		A5B55408296B0FDE00E41877 /* ParseEmailAddressEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B55407296B0FDE00E41877 /* ParseEmailAddressEmail.swift */; };
 		A5B5CF22296851DF002B885E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF21296851DF002B885E /* Line.swift */; };
 		A5B5CF242969A0D1002B885E /* DetailedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF232969A0D1002B885E /* DetailedContentView.swift */; };
 		A5B6588A296AA32100FE48FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B65889296AA32100FE48FF /* User.swift */; };
@@ -121,6 +122,7 @@
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
 		A5A52119294E0268001E82EC /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		A5B55402296B069E00E41877 /* NSTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableViewExtension.swift; sourceTree = "<group>"; };
+		A5B55407296B0FDE00E41877 /* ParseEmailAddressEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseEmailAddressEmail.swift; sourceTree = "<group>"; };
 		A5B5CF21296851DF002B885E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		A5B5CF232969A0D1002B885E /* DetailedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedContentView.swift; sourceTree = "<group>"; };
 		A5B65889296AA32100FE48FF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A5B55404296B0C2E00E41877 /* Logic */,
 				A5B55400296B068200E41877 /* Extension */,
 				A59551D7294E364A0098E803 /* Models */,
 				A5A520FD294DAF69001E82EC /* Api */,
@@ -317,6 +320,14 @@
 				A5B55402296B069E00E41877 /* NSTableViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A5B55404296B0C2E00E41877 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A5B55407296B0FDE00E41877 /* ParseEmailAddressEmail.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		A5B5CF20296851A1002B885E /* Component */ = {
@@ -479,6 +490,7 @@
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
 				A504921429512C73000C4022 /* GetUser.swift in Sources */,
 				A5B6588A296AA32100FE48FF /* User.swift in Sources */,
+				A5B55408296B0FDE00E41877 /* ParseEmailAddressEmail.swift in Sources */,
 				A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */,
 				A5B5CF242969A0D1002B885E /* DetailedContentView.swift in Sources */,
 				A5B55403296B069E00E41877 /* NSTableViewExtension.swift in Sources */,
