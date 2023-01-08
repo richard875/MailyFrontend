@@ -341,6 +341,7 @@ struct Index: View {
                     .stroke(Color("Border"), lineWidth: 1)
                 )
                 .cornerRadius(7)
+                .padding(.bottom, userTracker == self.userTrackers.last ? 10 : 0)
                 // -----------------------------------------------------
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 0) {
