@@ -41,10 +41,12 @@
 		A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A52119294E0268001E82EC /* ApiEndpoints.swift */; };
 		A5B5CF22296851DF002B885E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF21296851DF002B885E /* Line.swift */; };
 		A5B5CF242969A0D1002B885E /* DetailedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5CF232969A0D1002B885E /* DetailedContentView.swift */; };
-		A5B65885296A816300FE48FF /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = A5B65884296A816300FE48FF /* Introspect */; };
 		A5B65888296A848600FE48FF /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B65887296A848600FE48FF /* ListExtension.swift */; };
 		A5B6588A296AA32100FE48FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B65889296AA32100FE48FF /* User.swift */; };
 		A5B6588C296AD20400FE48FF /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588B296AD20400FE48FF /* Tracker.swift */; };
+		A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */; };
+		A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */; };
+		A5B6589E296AFE2B00FE48FF /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = A5B6589D296AFE2B00FE48FF /* Introspect */; };
 		A5D11AEF29567A670015808F /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A5D11AF029567A8F0015808F /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
 		A5D11AF129567AA10015808F /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
@@ -124,6 +126,8 @@
 		A5B65887296A848600FE48FF /* ListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtension.swift; sourceTree = "<group>"; };
 		A5B65889296AA32100FE48FF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A5B6588B296AD20400FE48FF /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserTrackers.swift; sourceTree = "<group>"; };
+		A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserTrackersResponse.swift; sourceTree = "<group>"; };
 		A5D11AF9295698EB0015808F /* GetTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTracking.swift; sourceTree = "<group>"; };
 		A5D11AFF29569FB10015808F /* GetTrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrackingResponse.swift; sourceTree = "<group>"; };
 		A5D11B012956A27F0015808F /* TrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingResponse.swift; sourceTree = "<group>"; };
@@ -134,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B65885296A816300FE48FF /* Introspect in Frameworks */,
+				A5B6589E296AFE2B00FE48FF /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,7 @@
 				A55F2CC0285455C5006C9F59 /* MailyApp */,
 				A55F2CD5285455E9006C9F59 /* Maily */,
 				A55F2CBF285455C5006C9F59 /* Products */,
+				A5B65891296AFBCF00FE48FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +242,7 @@
 			children = (
 				A5645C6D294DA274003557CA /* UserLogin.swift */,
 				A504921329512C73000C4022 /* GetUser.swift */,
+				A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */,
 			);
 			path = Methods;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				A50492152951B469000C4022 /* GetUserResponse.swift */,
 				A5B65889296AA32100FE48FF /* User.swift */,
 				A5B6588B296AD20400FE48FF /* Tracker.swift */,
+				A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +327,13 @@
 				A5B65887296A848600FE48FF /* ListExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A5B65891296AFBCF00FE48FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A5D11AF7295686C70015808F /* src */ = {
@@ -369,7 +383,7 @@
 			);
 			name = MailyApp;
 			packageProductDependencies = (
-				A5B65884296A816300FE48FF /* Introspect */,
+				A5B6589D296AFE2B00FE48FF /* Introspect */,
 			);
 			productName = MailyApp;
 			productReference = A55F2CBE285455C5006C9F59 /* MailyApp.app */;
@@ -464,6 +478,7 @@
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
 				A59551E3294F1DFA0098E803 /* Route.swift in Sources */,
 				A59551E1294EE2B00098E803 /* ApiResponse.swift in Sources */,
+				A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */,
 				A5B65888296A848600FE48FF /* ListExtension.swift in Sources */,
 				A59551DD294EC0A40098E803 /* Index.swift in Sources */,
 				A5A5211A294E0268001E82EC /* ApiEndpoints.swift in Sources */,
@@ -476,6 +491,7 @@
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 				A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
+				A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */,
 				A5645C6E294DA274003557CA /* UserLogin.swift in Sources */,
 				A5B5CF22296851DF002B885E /* Line.swift in Sources */,
 				A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */,
@@ -1271,7 +1287,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A5B65884296A816300FE48FF /* Introspect */ = {
+		A5B6589D296AFE2B00FE48FF /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A5B65883296A816300FE48FF /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
