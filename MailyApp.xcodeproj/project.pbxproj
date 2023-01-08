@@ -295,9 +295,9 @@
 				A59551D8294E365B0098E803 /* LoginResponse.swift */,
 				A59551E0294EE2B00098E803 /* ApiResponse.swift */,
 				A50492152951B469000C4022 /* GetUserResponse.swift */,
+				A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */,
 				A5B65889296AA32100FE48FF /* User.swift */,
 				A5B6588B296AD20400FE48FF /* Tracker.swift */,
-				A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
