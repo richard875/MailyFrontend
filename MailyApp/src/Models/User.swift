@@ -9,7 +9,7 @@ import Foundation
 
 struct User {
     struct LoginCheck {
-        let id: Int
+        let id: String
         let createdAt: String
         let updatedAt: String
         let deletedAt: String?
@@ -18,6 +18,8 @@ struct User {
         let email: String
         let password: String
         let emailVerified: Bool
+        let totalClicks: Int
+        let emailsSent: Int
     }
     
     let loginCheck: LoginCheck

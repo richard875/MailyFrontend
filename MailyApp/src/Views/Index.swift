@@ -481,7 +481,7 @@ struct Index: View {
             
             // Convert the loginCheck dictionary to a LoginCheck struct
             let loginCheckStruct = User.LoginCheck(
-                id: loginCheck["ID"] as! Int,
+                id: loginCheck["id"] as! String,
                 createdAt: loginCheck["CreatedAt"] as! String,
                 updatedAt: loginCheck["UpdatedAt"] as! String,
                 deletedAt: loginCheck["DeletedAt"] as? String,
@@ -489,7 +489,9 @@ struct Index: View {
                 lastName: loginCheck["lastName"] as! String,
                 email: loginCheck["email"] as! String,
                 password: loginCheck["password"] as! String,
-                emailVerified: loginCheck["emailVerified"] as! Bool
+                emailVerified: loginCheck["emailVerified"] as! Bool,
+                totalClicks: loginCheck["totalClicks"] as! Int,
+                emailsSent: loginCheck["emailsSent"] as! Int
             )
             
             // Create a User struct with the loginCheck struct and the message
