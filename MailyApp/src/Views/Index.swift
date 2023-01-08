@@ -59,7 +59,12 @@ struct Index: View {
                     .cornerRadius(7)
                     .padding(.leading, 5)
                     Menu {
-                        Button("Buttons") { }
+                        Button("Logout") {
+                            setRoute(Route.LOGIN)
+                            let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+                            defaults.set("", forKey: SharedUserDefaults.Keys.loginToken)
+                            defaults.synchronize()
+                        }
                     } label: {
                         Image("Settings Inverse")
                             .buttonStyle(PlainButtonStyle())
