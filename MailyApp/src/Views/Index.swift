@@ -15,6 +15,7 @@ struct Index: View {
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
     @State private var userTrackers: [Tracker] = []
+    @State private var selectIndexEmail: IndexEmail = IndexEmail.ALL
     
     let profilePictureNumber = Int.random(in: 1...33)
     
@@ -226,12 +227,16 @@ struct Index: View {
                         .font(.system(size: 12))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
-                    Text("All Emails")
-                        .font(.system(size: 12))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                    Image("Arrow Down")
-                        .padding(.leading, 5)
+                    Menu {
+                        Button(IndexEmail.ALL.rawValue) {}
+                        Button(IndexEmail.OPENED.rawValue) {}
+                        Button(IndexEmail.UNOPENED.rawValue) {}
+                    } label: {
+                        Text("\(selectIndexEmail.rawValue)  \(Image("Arrow Down"))")
+                    }
+                    .menuStyle(BorderlessButtonMenuStyle())
+                    .menuIndicator(.hidden)
+                    .fixedSize() // Otherwise will be the width of your menu options.
                 }
                 .frame(
                     maxWidth: .infinity,
