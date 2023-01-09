@@ -228,9 +228,21 @@ struct Index: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
                     Menu {
-                        Button(IndexEmail.ALL.rawValue) {}
-                        Button(IndexEmail.OPENED.rawValue) {}
-                        Button(IndexEmail.UNOPENED.rawValue) {}
+                        if (self.selectIndexEmail != IndexEmail.ALL) {
+                            Button(IndexEmail.ALL.rawValue) {
+                                self.selectIndexEmail = IndexEmail.ALL
+                            }
+                        }
+                        if (self.selectIndexEmail != IndexEmail.OPENED) {
+                            Button(IndexEmail.OPENED.rawValue) {
+                                self.selectIndexEmail = IndexEmail.OPENED
+                            }
+                        }
+                        if (self.selectIndexEmail != IndexEmail.UNOPENED) {
+                            Button(IndexEmail.UNOPENED.rawValue) {
+                                self.selectIndexEmail = IndexEmail.UNOPENED
+                            }
+                        }
                     } label: {
                         Text("\(selectIndexEmail.rawValue)  \(Image("Arrow Down"))")
                     }
