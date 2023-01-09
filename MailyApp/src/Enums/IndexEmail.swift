@@ -11,4 +11,5 @@ enum IndexEmail: String {
     case ALL = "All"
     case OPENED = "Opened"
     case UNOPENED = "Unopened"
+    case SEARCH = "Search"
 }
