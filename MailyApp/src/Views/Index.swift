@@ -327,48 +327,6 @@ struct Index: View {
                         )
                         .cornerRadius(5)
                         .padding(.leading, 5)
-                    }
-                    .padding(.top, 6)
-                }
-                .padding(.top, 10)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .frame(
-                    width: 270,
-                    height: 92,
-                    alignment: .topLeading
-                )
-                .overlay(RoundedRectangle(cornerRadius: 7)
-                    .stroke(Color("Border"), lineWidth: 1)
-                )
-                .cornerRadius(7)
-                .padding(.bottom, userTracker == self.userTrackers.last ? 10 : 0)
-                // -----------------------------------------------------
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack(spacing: 0) {
-                        Text("Richard Lee")
-                            .font(.system(size: 11))
-                            .fontWeight(.medium)
-                            .foregroundColor(Color("Text"))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Text("Jan 1, 2022")
-                            .font(.system(size: 11))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Text Grey"))
-                    }
-                    Text(verbatim: "richard@apple.com")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                        .frame(alignment: .topLeading)
-                        .padding(.top, 3)
-                    Text("Request #421152: How would you rate the support you received?")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
-                        .frame(width: 210, height: 13)
-                        .padding(.top, 3)
-                    HStack(spacing: 0) {
                         Button {} label: {
                             HStack(spacing: 0) {
                                 Text("Unopened")
@@ -399,7 +357,6 @@ struct Index: View {
                     .stroke(Color("Border"), lineWidth: 1)
                 )
                 .cornerRadius(7)
-                // -----------------------------------------------------
             }
             .padding(.leading, -8)
             .padding(.trailing, -9)
