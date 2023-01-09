@@ -231,16 +231,19 @@ struct Index: View {
                         if (self.selectIndexEmail != IndexEmail.ALL) {
                             Button(IndexEmail.ALL.rawValue) {
                                 self.selectIndexEmail = IndexEmail.ALL
+                                self.indexOnAppear(indexEmail: IndexEmail.ALL)
                             }
                         }
                         if (self.selectIndexEmail != IndexEmail.OPENED) {
                             Button(IndexEmail.OPENED.rawValue) {
                                 self.selectIndexEmail = IndexEmail.OPENED
+                                self.indexOnAppear(indexEmail: IndexEmail.OPENED)
                             }
                         }
                         if (self.selectIndexEmail != IndexEmail.UNOPENED) {
                             Button(IndexEmail.UNOPENED.rawValue) {
                                 self.selectIndexEmail = IndexEmail.UNOPENED
+                                self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
                             }
                         }
                     } label: {
