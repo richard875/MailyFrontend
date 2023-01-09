@@ -15,5 +15,6 @@ struct ApiEndpoints {
     static let AssignTrackingNumber = "api/assign-tracking-number"
     static let Beep = "api/beep"
     static let UserTrackers = "api/user-trackers"
+    static let SearchTrackers = "api/search-trackers"
     static let User = "api/admin/user"
 }
