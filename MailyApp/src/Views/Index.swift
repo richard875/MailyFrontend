@@ -266,6 +266,18 @@ struct Index: View {
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.system(size: 10))
                     .padding(.leading, 8)
+                if (self.searchQuery != "") {
+                    VStack(spacing: 0) {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 12, height: 12)
+                            .foregroundColor(Color("Text Grey"))
+                    }
+                    .padding(.trailing, 10)
+                    .onTapGesture {
+                        self.searchQuery = ""
+                    }
+                }
             }
             .padding(.leading, 10)
             .frame(width: 270, height: 30)
