@@ -266,6 +266,9 @@ struct Index: View {
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.system(size: 10))
                     .padding(.leading, 8)
+                    .onSubmit {
+                        self.searchTrackers(searchQuery: self.searchQuery)
+                    }
                 if (self.searchQuery != "") {
                     VStack(spacing: 0) {
                         Image(systemName: "xmark.circle.fill")
@@ -356,6 +359,24 @@ struct Index: View {
                 
                 // Stop loading
                 self.loading = false
+            }
+        }
+    }
+    
+    private func searchTrackers(searchQuery: String) {
+        // Start loading
+        self.loading = true
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (token == nil) { return }
+        
+        SearchUserTrackers(token: token!, searchQuery: searchQuery) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
+                self.userTrackers = userTrackers
+                
+                // Stop loading
+                self.loading = false
+                self.selectIndexEmail = IndexEmail.SEARCH
             }
         }
     }
