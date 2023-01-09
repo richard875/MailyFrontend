@@ -65,7 +65,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
             composeAction: composeAction,
             subject: subject,
             fromAddress: fromAddress,
-            toAddress: toAddresses,
+            toAddresses: toAddresses,
             ccAddress: ccAddresses,
             bccAddress: bccAddresses,
             replyToAddress: replyToAddresses,

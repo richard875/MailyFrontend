@@ -17,7 +17,7 @@ struct Tracker {
     let composeAction: Int
     let subject: String?
     let fromAddress: String
-    let toAddress: String
+    let toAddresses: String
     let ccAddress: String?
     let bccAddress: String?
     let replyToAddress: String?
