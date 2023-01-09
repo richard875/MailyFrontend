@@ -16,6 +16,8 @@ struct EmailTracker: View {
     var dateViewFormatter = DateFormatter()
     var timeViewFormatter = DateFormatter()
     
+    @State private var hoverOverFrame = false
+    
     init(userTracker: Tracker, last: Bool) {
         self.userTracker = userTracker
         self.last = last
@@ -123,9 +125,15 @@ struct EmailTracker: View {
             alignment: .topLeading
         )
         .overlay(RoundedRectangle(cornerRadius: 7)
-            .stroke(Color("Border"), lineWidth: 1)
+            .stroke(hoverOverFrame ? Color("Icon Stoke") : Color("Border"), lineWidth: 1)
         )
+        .background(hoverOverFrame ? Color("Grey Background") : Color("Background"))
         .cornerRadius(7)
         .padding(.bottom, self.last ? 10 : 0)
+        .onHover { over in
+            withAnimation(.easeInOut(duration: 0.15)) {
+                hoverOverFrame = over
+            }
+        }
     }
 }
