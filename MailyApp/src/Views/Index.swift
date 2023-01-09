@@ -11,6 +11,7 @@ import SwiftUI
 struct Index: View {
     var setRoute: ((Route) -> Void)
     
+    @State private var loading: Bool = false
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
     @State private var userTrackers: [Tracker] = []
@@ -254,6 +255,13 @@ struct Index: View {
             .padding(.top, 10)
             .padding(.bottom, 5)
             // List
+            if (self.loading) {
+                VStack(spacing: 0) {
+                    ProgressView()
+                        .scaleEffect(0.7)
+                }
+                .frame(width: 270, height: 250)
+            } else {
             List(self.userTrackers, id: \.id) {userTracker in
                 EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
             }
@@ -261,6 +269,7 @@ struct Index: View {
             .padding(.trailing, -9)
             .listStyle(PlainListStyle())
             .frame(width: 276)
+        }
         }
         .padding(.top, 17)
         .padding(.leading, 15)
@@ -274,6 +283,8 @@ struct Index: View {
     }
     
     private func indexOnAppear() {
+        // Start loading
+        self.loading = true
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         if (token == nil) { return }
@@ -306,6 +317,9 @@ struct Index: View {
         GetUserTrackers(token: token!) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
+                
+                // Stop loading
+                self.loading = false
             }
         }
     }
