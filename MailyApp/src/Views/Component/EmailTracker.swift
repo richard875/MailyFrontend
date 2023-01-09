@@ -69,7 +69,7 @@ struct EmailTracker: View {
                                 .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("Green Tag Text"))
-                            Text(" Clicks")
+                            Text(" Click\(userTracker.timesOpened > 1 ? "s" : "")")
                                 .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Green Tag Text"))
