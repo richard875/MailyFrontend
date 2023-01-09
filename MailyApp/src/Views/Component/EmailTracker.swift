@@ -26,6 +26,15 @@ struct EmailTracker: View {
         self.timeViewFormatter.dateFormat = "hh:mm a"
     }
     
+    func setEmailBackgroundColor(hover: Bool, press: Bool) -> Color {
+        if (hover && !press) { return Color("Grey Background") }
+        if (hover && press) { return Color("Background")  }
+        if (!hover && press) { return Color("Background")  }
+        if (!hover && !press) { return Color("Background")  }
+        
+        return Color("Background")
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
