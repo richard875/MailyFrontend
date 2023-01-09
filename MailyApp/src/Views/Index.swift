@@ -230,18 +230,21 @@ struct Index: View {
                     Menu {
                         if (self.selectIndexEmail != IndexEmail.ALL) {
                             Button(IndexEmail.ALL.rawValue) {
+                                self.searchQuery = ""
                                 self.selectIndexEmail = IndexEmail.ALL
                                 self.indexOnAppear(indexEmail: IndexEmail.ALL)
                             }
                         }
                         if (self.selectIndexEmail != IndexEmail.OPENED) {
                             Button(IndexEmail.OPENED.rawValue) {
+                                self.searchQuery = ""
                                 self.selectIndexEmail = IndexEmail.OPENED
                                 self.indexOnAppear(indexEmail: IndexEmail.OPENED)
                             }
                         }
                         if (self.selectIndexEmail != IndexEmail.UNOPENED) {
                             Button(IndexEmail.UNOPENED.rawValue) {
+                                self.searchQuery = ""
                                 self.selectIndexEmail = IndexEmail.UNOPENED
                                 self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
                             }
@@ -279,6 +282,13 @@ struct Index: View {
                     .padding(.trailing, 10)
                     .onTapGesture {
                         self.searchQuery = ""
+                        if (self.selectIndexEmail == IndexEmail.SEARCH) {
+                            self.selectIndexEmail = IndexEmail.ALL
+                            self.indexOnAppear(indexEmail: IndexEmail.ALL)
+                        }
+                    }
+                    .onHover { hovering in
+                        hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                     }
                 }
             }
