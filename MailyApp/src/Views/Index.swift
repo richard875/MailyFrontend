@@ -50,7 +50,7 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     Button {
-                        self.indexOnAppear()
+                        self.indexOnAppear(indexEmail: selectIndexEmail)
                     } label: {
                         Image("Refresh")
                             .padding(.bottom, 2)
@@ -298,10 +298,12 @@ struct Index: View {
             alignment: .topLeading
         )
         .background(Color("Background"))
-        .onAppear(perform: indexOnAppear)
+        .onAppear {
+            self.indexOnAppear(indexEmail: selectIndexEmail)
+        }
     }
     
-    private func indexOnAppear() {
+    private func indexOnAppear(indexEmail: IndexEmail) {
         // Start loading
         self.loading = true
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
