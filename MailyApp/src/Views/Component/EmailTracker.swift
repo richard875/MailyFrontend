@@ -76,7 +76,7 @@ struct EmailTracker: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .frame(width: 45, height: 20)
+                    .frame(width: 48, height: 20)
                     .background(Color("Green Tag Fill"))
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color("Green Tag Stroke"), lineWidth: 1)
@@ -99,7 +99,7 @@ struct EmailTracker: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .frame(width: 200, height: 20)
+                    .frame(width: 197, height: 20)
                     .background(Color("Yellow Tag Fill"))
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
