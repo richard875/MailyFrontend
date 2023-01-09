@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal func GetUserTrackers(token: String, completion: @escaping (GetUserTrackersResponse) -> Void) {
+internal func GetUserTrackers(token: String, indexEmail: IndexEmail, completion: @escaping (GetUserTrackersResponse) -> Void) {
     apiMethod(
         apiMethod: HTTPMethod.GET,
-        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.UserTrackers)",
+        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.UserTrackers)/\(indexEmail.rawValue)",
         auth: true,
         token: token,
         completion: {(result, error) in completion(complete(result: (result as! ApiResponse), error: error))}

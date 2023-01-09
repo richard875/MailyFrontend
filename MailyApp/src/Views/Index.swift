@@ -335,7 +335,7 @@ struct Index: View {
             self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
         }
         
-        GetUserTrackers(token: token!) { response in
+        GetUserTrackers(token: token!, indexEmail: indexEmail) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
                 
