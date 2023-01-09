@@ -57,12 +57,12 @@ func timeAgoSinceDate(_ date: Date, numericDates: Bool = false) -> String {
             result = "an hour ago"
         }
     } else if components.minute! >= 2 {
-        result = "\(components.minute!) minutes ago"
+        result = "\(components.minute!) mins ago"
     } else if components.minute! >= 1 {
         if numericDates {
-            result = "1 minute ago"
+            result = "1 min ago"
         } else {
-            result = "a minute ago"
+            result = "a min ago"
         }
     } else if components.second! >= 3 {
         result = "\(components.second!) seconds ago"
