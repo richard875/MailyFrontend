@@ -48,7 +48,9 @@ struct Index: View {
                         .stroke(Color("Border"), lineWidth: 1)
                     )
                     .cornerRadius(7)
-                    Button {} label: {
+                    Button {
+                        self.indexOnAppear()
+                    } label: {
                         Image("Refresh")
                             .padding(.bottom, 2)
                     }
@@ -262,14 +264,14 @@ struct Index: View {
                 }
                 .frame(width: 270, height: 250)
             } else {
-            List(self.userTrackers, id: \.id) {userTracker in
-                EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
+                List(self.userTrackers, id: \.id) {userTracker in
+                    EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
+                }
+                .padding(.leading, -8)
+                .padding(.trailing, -9)
+                .listStyle(PlainListStyle())
+                .frame(width: 276)
             }
-            .padding(.leading, -8)
-            .padding(.trailing, -9)
-            .listStyle(PlainListStyle())
-            .frame(width: 276)
-        }
         }
         .padding(.top, 17)
         .padding(.leading, 15)
