@@ -66,7 +66,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
             subject: subject,
             fromAddress: fromAddress,
             toAddresses: toAddresses,
-            ccAddress: ccAddresses,
+            ccAddresses: ccAddresses,
             bccAddress: bccAddresses,
             replyToAddress: replyToAddresses,
             internalMessageId: internalMessageID

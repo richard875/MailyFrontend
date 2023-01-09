@@ -18,7 +18,7 @@ struct Tracker {
     let subject: String?
     let fromAddress: String
     let toAddresses: String
-    let ccAddress: String?
+    let ccAddresses: String?
     let bccAddress: String?
     let replyToAddress: String?
     let internalMessageId: String?
