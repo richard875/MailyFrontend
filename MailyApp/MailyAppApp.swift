@@ -20,9 +20,8 @@ struct MailyAppApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var statusItem: NSStatusItem!
-    private var mainPopover: NSPopover!
-    private var secondaryPopover: NSPopover!
-    
+    @Published var mainPopover: NSPopover!
+    @Published var secondaryPopover: NSPopover!
     @Published var route: Route = Route.LOADING
     
     private func fetchUser() {
