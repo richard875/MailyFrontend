@@ -274,7 +274,7 @@ struct Index: View {
                     .onSubmit {
                         self.searchTrackers(searchQuery: self.searchQuery)
                     }
-                if (self.searchQuery != "") {
+                if (self.searchQuery != "" || self.selectIndexEmail == IndexEmail.SEARCH) {
                     VStack(spacing: 0) {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()
