@@ -12,7 +12,7 @@ struct MailyAppApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(appDelegate)
             DetailedContentView()
         }
     }
@@ -22,6 +22,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var statusItem: NSStatusItem!
     private var mainPopover: NSPopover!
     private var secondaryPopover: NSPopover!
+    
+    @Published var route: Route = Route.LOADING
+    
+    private func fetchUser() {
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (token == nil) { return }
+        
+        GetUser(token: token!) { response in
+            self.route = response.httpStatus == HTTPResponseStatus.OK ? Route.INDEX : Route.LOGIN
+        }
+    }
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         if let window = NSApplication.shared.windows.first { window.close() }
@@ -35,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         mainPopover = NSPopover()
         mainPopover.contentSize = NSSize(width: 300, height: 500)
         mainPopover.behavior = .transient
-        mainPopover.contentViewController = NSHostingController(rootView: ContentView())
+        mainPopover.contentViewController = NSHostingController(rootView: ContentView().environmentObject(self))
         mainPopover.setValue(true, forKeyPath: "shouldHideAnchor")
         
         // Create and show the second content view window as a popup
@@ -70,6 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 
                 // position and show the NSPopover
                 mainPopover.show(relativeTo: invisibleWindow.contentView!.frame, of: invisibleWindow.contentView!, preferredEdge: NSRectEdge.minY)
+                self.fetchUser()
                 // secondaryPopover.show(relativeTo: CGRect(), of: mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
                 NSApp.activate(ignoringOtherApps: true)
             }
