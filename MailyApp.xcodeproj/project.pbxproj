@@ -203,7 +203,6 @@
 				A55F2CCA285455C9006C9F59 /* MailyApp.entitlements */,
 				A53773A22855BD0B00404662 /* SharedUserDefaults.swift */,
 				A55F2CC7285455C9006C9F59 /* Preview Content */,
-				A5B5CF232969A0D1002B885E /* DetailedContentView.swift */,
 			);
 			path = MailyApp;
 			sourceTree = "<group>";
@@ -294,6 +293,7 @@
 				A59D0278294CBB1F00FE4523 /* BottomBar.swift */,
 				A59551DC294EC0A40098E803 /* Index.swift */,
 				A51B370A2955E39100688646 /* Loading.swift */,
+				A5B5CF232969A0D1002B885E /* DetailedContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
