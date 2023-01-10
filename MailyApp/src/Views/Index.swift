@@ -228,6 +228,7 @@ struct Index: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
                     Menu {
+                        if (self.selectIndexEmail != IndexEmail.SEARCH) {
                         if (self.selectIndexEmail != IndexEmail.ALL) {
                             Button(IndexEmail.ALL.rawValue) {
                                 self.searchQuery = ""
@@ -249,8 +250,9 @@ struct Index: View {
                                 self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
                             }
                         }
+                        }
                     } label: {
-                        Text("\(selectIndexEmail.rawValue)  \(Image("Arrow Down"))")
+                        Text("\(selectIndexEmail.rawValue)  \(self.selectIndexEmail != IndexEmail.SEARCH ? Image("Arrow Down") : Image(""))")
                     }
                     .menuStyle(BorderlessButtonMenuStyle())
                     .menuIndicator(.hidden)
