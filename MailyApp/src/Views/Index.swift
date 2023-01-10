@@ -229,27 +229,27 @@ struct Index: View {
                         .foregroundColor(Color("Text Grey"))
                     Menu {
                         if (self.selectIndexEmail != IndexEmail.SEARCH) {
-                        if (self.selectIndexEmail != IndexEmail.ALL) {
-                            Button(IndexEmail.ALL.rawValue) {
-                                self.searchQuery = ""
-                                self.selectIndexEmail = IndexEmail.ALL
-                                self.indexOnAppear(indexEmail: IndexEmail.ALL)
+                            if (self.selectIndexEmail != IndexEmail.ALL) {
+                                Button(IndexEmail.ALL.rawValue) {
+                                    self.searchQuery = ""
+                                    self.selectIndexEmail = IndexEmail.ALL
+                                    self.indexOnAppear(indexEmail: IndexEmail.ALL)
+                                }
                             }
-                        }
-                        if (self.selectIndexEmail != IndexEmail.OPENED) {
-                            Button(IndexEmail.OPENED.rawValue) {
-                                self.searchQuery = ""
-                                self.selectIndexEmail = IndexEmail.OPENED
-                                self.indexOnAppear(indexEmail: IndexEmail.OPENED)
+                            if (self.selectIndexEmail != IndexEmail.OPENED) {
+                                Button(IndexEmail.OPENED.rawValue) {
+                                    self.searchQuery = ""
+                                    self.selectIndexEmail = IndexEmail.OPENED
+                                    self.indexOnAppear(indexEmail: IndexEmail.OPENED)
+                                }
                             }
-                        }
-                        if (self.selectIndexEmail != IndexEmail.UNOPENED) {
-                            Button(IndexEmail.UNOPENED.rawValue) {
-                                self.searchQuery = ""
-                                self.selectIndexEmail = IndexEmail.UNOPENED
-                                self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
+                            if (self.selectIndexEmail != IndexEmail.UNOPENED) {
+                                Button(IndexEmail.UNOPENED.rawValue) {
+                                    self.searchQuery = ""
+                                    self.selectIndexEmail = IndexEmail.UNOPENED
+                                    self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
+                                }
                             }
-                        }
                         }
                     } label: {
                         Text("\(selectIndexEmail.rawValue)  \(self.selectIndexEmail != IndexEmail.SEARCH ? Image("Arrow Down") : Image(""))")
@@ -272,7 +272,9 @@ struct Index: View {
                     .font(.system(size: 10))
                     .padding(.leading, 8)
                     .onSubmit {
-                        self.searchTrackers(searchQuery: self.searchQuery)
+                        if (self.searchQuery.trimmingCharacters(in: .whitespacesAndNewlines).sanitized() != "") {
+                            self.searchTrackers(searchQuery: self.searchQuery)
+                        }
                     }
                 if (self.searchQuery != "" || self.selectIndexEmail == IndexEmail.SEARCH) {
                     VStack(spacing: 0) {
