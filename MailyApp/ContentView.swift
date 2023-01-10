@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack(spacing: 0) {
             switch self.appDelegate.route {
             case Route.INDEX:
-                Index(setRoute: setRoute)
+                Index(setRoute: setRoute, mainPopover: self.appDelegate.mainPopover, secondaryPopover: self.appDelegate.secondaryPopover)
             case Route.LOGIN:
                 Login(setRoute: setRoute)
                 BottomBar()

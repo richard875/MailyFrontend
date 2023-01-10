@@ -10,6 +10,8 @@ import SwiftUI
 
 struct Index: View {
     var setRoute: ((Route) -> Void)
+    var mainPopover: NSPopover!
+    var secondaryPopover: NSPopover!
     
     @State private var loading: Bool = false
     @State private var user: User? = nil
@@ -323,7 +325,12 @@ struct Index: View {
                     .frame(width: 270, height: 250)
                 } else {
                     List(self.userTrackers, id: \.id) {userTracker in
-                        EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
+                        EmailTracker(
+                            mainPopover: self.mainPopover,
+                            secondaryPopover: self.secondaryPopover,
+                            userTracker: userTracker,
+                            last: userTracker == self.userTrackers.last
+                        )
                     }
                     .padding(.leading, -8)
                     .padding(.trailing, -9)

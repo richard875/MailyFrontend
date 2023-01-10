@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct EmailTracker: View {
+    var mainPopover: NSPopover!
+    var secondaryPopover: NSPopover!
     var userTracker: Tracker
     var last: Bool
     
@@ -19,7 +21,9 @@ struct EmailTracker: View {
     @State private var hoverOverFrame = false
     @State private var heldDownOverFrame = false
     
-    init(userTracker: Tracker, last: Bool) {
+    init(mainPopover: NSPopover!, secondaryPopover: NSPopover!, userTracker: Tracker, last: Bool) {
+        self.mainPopover = mainPopover
+        self.secondaryPopover = secondaryPopover
         self.userTracker = userTracker
         self.last = last
         self.toAddresses = userTracker.toAddresses.components(separatedBy: ",")
