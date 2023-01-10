@@ -58,7 +58,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "SERVER_URL"
-            value = "http://api.richard-lee.com/maily"
+            value = "http://maily.richard-lee.com"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
