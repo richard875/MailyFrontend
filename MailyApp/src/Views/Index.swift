@@ -313,13 +313,23 @@ struct Index: View {
                 }
                 .frame(width: 270, height: 250)
             } else {
-                List(self.userTrackers, id: \.id) {userTracker in
-                    EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
+                if (self.userTrackers.isEmpty) {
+                    VStack(spacing: 0) {
+                        Text("No emails")
+                            .font(.system(size: 12))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color("Text"))
+                    }
+                    .frame(width: 270, height: 250)
+                } else {
+                    List(self.userTrackers, id: \.id) {userTracker in
+                        EmailTracker(userTracker: userTracker, last: userTracker == self.userTrackers.last)
+                    }
+                    .padding(.leading, -8)
+                    .padding(.trailing, -9)
+                    .listStyle(PlainListStyle())
+                    .frame(width: 276)
                 }
-                .padding(.leading, -8)
-                .padding(.trailing, -9)
-                .listStyle(PlainListStyle())
-                .frame(width: 276)
             }
         }
         .padding(.top, 17)
