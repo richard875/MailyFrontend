@@ -150,6 +150,7 @@ struct EmailTracker: View {
         .gesture(DragGesture(minimumDistance: 0.0)
             .onChanged {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = true
+                self.secondaryPopover.show(relativeTo: CGRect(), of: self.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
             }}
             .onEnded {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = false
