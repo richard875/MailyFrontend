@@ -13,10 +13,10 @@ func extraEmailAddressesToText(addressArray: [String]) -> String {
     for i in 1..<addressArray.count {
         let name = ParseEmailAddressName(emailAddress: addressArray[i])
         let email = ParseEmailAddressEmail(emailAddress: addressArray[i])
-        emailText += "\(name) (\(email)), "
+        emailText += "\n\(name) (\(email))"
     }
     
-    let end = emailText.index(emailText.endIndex, offsetBy: -2)
-    let range = emailText.startIndex..<end
+    let start = emailText.index(emailText.startIndex, offsetBy: 1)
+    let range = start..<emailText.endIndex
     return String(emailText[range])
 }
