@@ -13,7 +13,7 @@ struct MailyAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(appDelegate)
-            DetailedContentView()
+            DetailedContentView().environmentObject(appDelegate)
         }
     }
 }
@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var mainPopover: NSPopover!
     @Published var secondaryPopover: NSPopover!
     @Published var route: Route = Route.LOADING
+    @Published var selectedUserTracker: Tracker!
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     
     private func fetchUser() {
@@ -54,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         secondaryPopover = NSPopover()
         secondaryPopover.contentSize = NSSize(width: 350, height: 500)
         secondaryPopover.behavior = .transient
-        secondaryPopover.contentViewController = NSHostingController(rootView: DetailedContentView())
+        secondaryPopover.contentViewController = NSHostingController(rootView: DetailedContentView().environmentObject(self))
         secondaryPopover.setValue(true, forKeyPath: "shouldHideAnchor")
     }
     
