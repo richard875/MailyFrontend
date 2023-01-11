@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var mainPopover: NSPopover!
     @Published var secondaryPopover: NSPopover!
     @Published var route: Route = Route.LOADING
+    @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     
     private func fetchUser() {
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!

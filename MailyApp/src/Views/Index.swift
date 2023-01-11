@@ -12,6 +12,7 @@ struct Index: View {
     var setRoute: ((Route) -> Void)
     var mainPopover: NSPopover!
     var secondaryPopover: NSPopover!
+    var profilePictureNumber: Int
     
     @State private var loading: Bool = false
     @State private var user: User? = nil
@@ -19,7 +20,17 @@ struct Index: View {
     @State private var userTrackers: [Tracker] = []
     @State private var selectIndexEmail: IndexEmail = IndexEmail.ALL
     
-    let profilePictureNumber = Int.random(in: 1...33)
+    init(
+        setRoute: @escaping (Route) -> Void,
+        mainPopover: NSPopover!,
+        secondaryPopover: NSPopover!,
+        profilePictureNumber: Int
+    ) {
+        self.setRoute = setRoute
+        self.mainPopover = mainPopover
+        self.secondaryPopover = secondaryPopover
+        self.profilePictureNumber = profilePictureNumber
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
