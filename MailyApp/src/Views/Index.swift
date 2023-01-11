@@ -18,7 +18,7 @@ struct Index: View {
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
     @State private var userTrackers: [Tracker] = []
-    @State private var selectIndexEmail: IndexEmail = IndexEmail.ALL
+    @State private var selectedIndexEmail: IndexEmail = IndexEmail.ALL
     
     init(
         setRoute: @escaping (Route) -> Void,
@@ -63,7 +63,7 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     Button {
-                        self.indexOnAppear(indexEmail: selectIndexEmail)
+                        self.indexOnAppear(indexEmail: selectedIndexEmail)
                     } label: {
                         Image("Refresh")
                             .padding(.bottom, 2)
@@ -241,31 +241,31 @@ struct Index: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
                     Menu {
-                        if (self.selectIndexEmail != IndexEmail.SEARCH) {
-                            if (self.selectIndexEmail != IndexEmail.ALL) {
+                        if (self.selectedIndexEmail != IndexEmail.SEARCH) {
+                            if (self.selectedIndexEmail != IndexEmail.ALL) {
                                 Button(IndexEmail.ALL.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectIndexEmail = IndexEmail.ALL
+                                    self.selectedIndexEmail = IndexEmail.ALL
                                     self.indexOnAppear(indexEmail: IndexEmail.ALL)
                                 }
                             }
-                            if (self.selectIndexEmail != IndexEmail.OPENED) {
+                            if (self.selectedIndexEmail != IndexEmail.OPENED) {
                                 Button(IndexEmail.OPENED.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectIndexEmail = IndexEmail.OPENED
+                                    self.selectedIndexEmail = IndexEmail.OPENED
                                     self.indexOnAppear(indexEmail: IndexEmail.OPENED)
                                 }
                             }
-                            if (self.selectIndexEmail != IndexEmail.UNOPENED) {
+                            if (self.selectedIndexEmail != IndexEmail.UNOPENED) {
                                 Button(IndexEmail.UNOPENED.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectIndexEmail = IndexEmail.UNOPENED
+                                    self.selectedIndexEmail = IndexEmail.UNOPENED
                                     self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
                                 }
                             }
                         }
                     } label: {
-                        Text("\(selectIndexEmail.rawValue)  \(self.selectIndexEmail != IndexEmail.SEARCH ? Image("Arrow Down") : Image(""))")
+                        Text("\(selectedIndexEmail.rawValue)  \(self.selectedIndexEmail != IndexEmail.SEARCH ? Image("Arrow Down") : Image(""))")
                     }
                     .menuStyle(BorderlessButtonMenuStyle())
                     .menuIndicator(.hidden)
@@ -289,7 +289,7 @@ struct Index: View {
                             self.searchTrackers(searchQuery: self.searchQuery)
                         }
                     }
-                if (self.searchQuery != "" || self.selectIndexEmail == IndexEmail.SEARCH) {
+                if (self.searchQuery != "" || self.selectedIndexEmail == IndexEmail.SEARCH) {
                     VStack(spacing: 0) {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()
@@ -299,8 +299,8 @@ struct Index: View {
                     .padding(.trailing, 10)
                     .onTapGesture {
                         self.searchQuery = ""
-                        if (self.selectIndexEmail == IndexEmail.SEARCH) {
-                            self.selectIndexEmail = IndexEmail.ALL
+                        if (self.selectedIndexEmail == IndexEmail.SEARCH) {
+                            self.selectedIndexEmail = IndexEmail.ALL
                             self.indexOnAppear(indexEmail: IndexEmail.ALL)
                         }
                     }
@@ -359,7 +359,7 @@ struct Index: View {
         )
         .background(Color("Background"))
         .onAppear {
-            self.indexOnAppear(indexEmail: selectIndexEmail)
+            self.indexOnAppear(indexEmail: selectedIndexEmail)
         }
     }
     
@@ -418,7 +418,7 @@ struct Index: View {
                 
                 // Stop loading
                 self.loading = false
-                self.selectIndexEmail = IndexEmail.SEARCH
+                self.selectedIndexEmail = IndexEmail.SEARCH
             }
         }
     }
