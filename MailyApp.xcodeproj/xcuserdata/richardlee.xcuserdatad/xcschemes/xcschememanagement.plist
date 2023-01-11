@@ -9,15 +9,10 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>Maily (Nginx Production).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
 		<key>Maily (Production).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Maily (Staging).xcscheme_^#shared#^_</key>
 		<dict>
@@ -34,15 +29,10 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>MailyApp (Nginx Production).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
 		<key>MailyApp (Production).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>MailyApp (Staging).xcscheme_^#shared#^_</key>
 		<dict>
