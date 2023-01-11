@@ -39,6 +39,7 @@
 		A59FE967296E8A5800366A25 /* ExtraEmailAddressesToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */; };
 		A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE968296EA46000366A25 /* MessageSendAction.swift */; };
 		A59FE96B296EAB7D00366A25 /* EmailViewSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE96A296EAB7D00366A25 /* EmailViewSort.swift */; };
+		A59FE96D296EE77D00366A25 /* GetTrackerClicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE96C296EE77D00366A25 /* GetTrackerClicks.swift */; };
 		A59FE96F296EEF9200366A25 /* GetTrackerClicksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE96E296EEF9200366A25 /* GetTrackerClicksResponse.swift */; };
 		A59FE971296EF02800366A25 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE970296EF02800366A25 /* Record.swift */; };
 		A5A225172960128600215F79 /* AssignTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225162960128600215F79 /* AssignTracking.swift */; };
@@ -132,6 +133,7 @@
 		A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraEmailAddressesToText.swift; sourceTree = "<group>"; };
 		A59FE968296EA46000366A25 /* MessageSendAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendAction.swift; sourceTree = "<group>"; };
 		A59FE96A296EAB7D00366A25 /* EmailViewSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewSort.swift; sourceTree = "<group>"; };
+		A59FE96C296EE77D00366A25 /* GetTrackerClicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrackerClicks.swift; sourceTree = "<group>"; };
 		A59FE96E296EEF9200366A25 /* GetTrackerClicksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrackerClicksResponse.swift; sourceTree = "<group>"; };
 		A59FE970296EF02800366A25 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		A5A225162960128600215F79 /* AssignTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTracking.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				A504921329512C73000C4022 /* GetUser.swift */,
 				A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */,
 				A5B55412296C384300E41877 /* SearchUserTrackers.swift */,
+				A59FE96C296EE77D00366A25 /* GetTrackerClicks.swift */,
 			);
 			path = Methods;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 				A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */,
 				A5B55413296C384300E41877 /* SearchUserTrackers.swift in Sources */,
+				A59FE96D296EE77D00366A25 /* GetTrackerClicks.swift in Sources */,
 				A59FE96F296EEF9200366A25 /* GetTrackerClicksResponse.swift in Sources */,
 				A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
