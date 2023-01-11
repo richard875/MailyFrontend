@@ -150,6 +150,7 @@ struct DetailedContentView: View {
                                     .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.replyToAddresses!.components(separatedBy: ",")))
                             }
                         }
+                        .frame(height: 13)
                         .padding(.top, 5)
                     }
                 }
