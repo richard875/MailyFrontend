@@ -37,6 +37,7 @@
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
 		A59FE965296D855600366A25 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE964296D855600366A25 /* StringExtension.swift */; };
 		A59FE967296E8A5800366A25 /* ExtraEmailAddressesToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */; };
+		A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE968296EA46000366A25 /* MessageSendAction.swift */; };
 		A5A225172960128600215F79 /* AssignTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225162960128600215F79 /* AssignTracking.swift */; };
 		A5A225192960142F00215F79 /* AssignTrackingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225182960142F00215F79 /* AssignTrackingResponse.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
@@ -126,6 +127,7 @@
 		A59D0278294CBB1F00FE4523 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		A59FE964296D855600366A25 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraEmailAddressesToText.swift; sourceTree = "<group>"; };
+		A59FE968296EA46000366A25 /* MessageSendAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendAction.swift; sourceTree = "<group>"; };
 		A5A225162960128600215F79 /* AssignTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTracking.swift; sourceTree = "<group>"; };
 		A5A225182960142F00215F79 /* AssignTrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTrackingResponse.swift; sourceTree = "<group>"; };
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				A59551DE294EE17E0098E803 /* HTTPResponseStatus.swift */,
 				A59551E2294F1DFA0098E803 /* Route.swift */,
 				A5B55410296BECAB00E41877 /* IndexEmail.swift */,
+				A59FE968296EA46000366A25 /* MessageSendAction.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */,
 				A59551D9294E365B0098E803 /* LoginResponse.swift in Sources */,
 				A5B55413296C384300E41877 /* SearchUserTrackers.swift in Sources */,
+				A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
 				A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */,
 				A5645C6E294DA274003557CA /* UserLogin.swift in Sources */,
