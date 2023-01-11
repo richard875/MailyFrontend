@@ -36,6 +36,7 @@
 		A59551E3294F1DFA0098E803 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551E2294F1DFA0098E803 /* Route.swift */; };
 		A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D0278294CBB1F00FE4523 /* BottomBar.swift */; };
 		A59FE965296D855600366A25 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE964296D855600366A25 /* StringExtension.swift */; };
+		A59FE967296E8A5800366A25 /* ExtraEmailAddressesToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */; };
 		A5A225172960128600215F79 /* AssignTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225162960128600215F79 /* AssignTracking.swift */; };
 		A5A225192960142F00215F79 /* AssignTrackingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225182960142F00215F79 /* AssignTrackingResponse.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
@@ -124,6 +125,7 @@
 		A59551E2294F1DFA0098E803 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		A59D0278294CBB1F00FE4523 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		A59FE964296D855600366A25 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraEmailAddressesToText.swift; sourceTree = "<group>"; };
 		A5A225162960128600215F79 /* AssignTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTracking.swift; sourceTree = "<group>"; };
 		A5A225182960142F00215F79 /* AssignTrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTrackingResponse.swift; sourceTree = "<group>"; };
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				A5B55405296B0C3E00E41877 /* ParseEmailAddressName.swift */,
 				A5B55407296B0FDE00E41877 /* ParseEmailAddressEmail.swift */,
 				A5B55409296B964600E41877 /* TimeAgoSinceDate.swift */,
+				A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				A5B6588A296AA32100FE48FF /* User.swift in Sources */,
 				A5B5540A296B964600E41877 /* TimeAgoSinceDate.swift in Sources */,
 				A5B55408296B0FDE00E41877 /* ParseEmailAddressEmail.swift in Sources */,
+				A59FE967296E8A5800366A25 /* ExtraEmailAddressesToText.swift in Sources */,
 				A59D0279294CBB1F00FE4523 /* BottomBar.swift in Sources */,
 				A5B5CF242969A0D1002B885E /* DetailedContentView.swift in Sources */,
 				A5B55403296B069E00E41877 /* NSTableViewExtension.swift in Sources */,
