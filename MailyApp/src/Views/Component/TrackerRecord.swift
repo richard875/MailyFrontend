@@ -127,7 +127,7 @@ struct TrackerRecord: View {
                         .foregroundColor(Color("Text"))
                 }
                 if (trackerRecord.ipCountry != "") {
-                    Text("\(trackerRecord.ipCountry!) 🇦🇺")
+                    Text("\(trackerRecord.ipCountry) 🇦🇺")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text"))

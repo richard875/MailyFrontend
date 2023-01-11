@@ -15,7 +15,7 @@ struct Record {
     let publicTrackingNumber: String
     let ipAddress: String
     let ipCity: String?
-    let ipCountry: String?
+    let ipCountry: String
     let isEu: Bool?
     let isTor: Bool
     let isProxy: Bool

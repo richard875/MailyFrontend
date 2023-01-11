@@ -52,7 +52,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetTrackerClicksRe
         let publicTrackingNumber = record["publicTrackingNumber"] as! String
         let ipAddress = record["ipAddress"] as! String
         let ipCity = record["ipCity"] as? String ?? ""
-        let ipCountry = record["ipCountry"] as? String ?? ""
+        let ipCountry = record["ipCountry"] as! String
         let isEu = record["isEu"] as? Bool ?? false
         let isTor = record["isTor"] as! Bool
         let isProxy = record["isProxy"] as! Bool
