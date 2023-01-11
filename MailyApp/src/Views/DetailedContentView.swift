@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct DetailedContentView: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {

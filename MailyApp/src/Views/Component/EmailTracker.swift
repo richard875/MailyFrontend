@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct EmailTracker: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var mainPopover: NSPopover!
     var secondaryPopover: NSPopover!
     var userTracker: Tracker
@@ -150,6 +152,8 @@ struct EmailTracker: View {
         .gesture(DragGesture(minimumDistance: 0.0)
             .onChanged {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = true
+                // Open detailed popover and load userTracker (Tracker) data
+                self.appDelegate.selectedUserTracker = self.userTracker
                 self.secondaryPopover.show(relativeTo: CGRect(), of: self.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
             }}
             .onEnded {_ in withAnimation(.easeInOut(duration: 0.15)) {
