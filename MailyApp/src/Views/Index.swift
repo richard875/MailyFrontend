@@ -266,6 +266,9 @@ struct Index: View {
                         }
                     } label: {
                         Text("\(selectedIndexEmail.rawValue)  \(self.selectedIndexEmail != IndexEmail.SEARCH ? Image("Arrow Down") : Image(""))")
+                            .font(.system(size: 12))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color("Text"))
                     }
                     .menuStyle(BorderlessButtonMenuStyle())
                     .menuIndicator(.hidden)
