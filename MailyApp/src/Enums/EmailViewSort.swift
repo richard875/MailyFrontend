@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EmailViewsSort: String {
+enum EmailViewSort: String {
     case LATEST_TO_OLDEST = "Latest to Oldest"
     case OLDEST_TO_LATEST = "Oldest to Latest"
 }
