@@ -24,7 +24,7 @@ struct EmailTracker: View {
     init(mainPopover: NSPopover!, secondaryPopover: NSPopover!, userTracker: Tracker, last: Bool) {
         self.mainPopover = mainPopover
         self.secondaryPopover = secondaryPopover
-        self.userTracker = userTracker
+        self.userTracker = userTracker // Tracker Data
         self.last = last
         self.toAddresses = userTracker.toAddresses.components(separatedBy: ",")
         self.dateViewFormatter.dateFormat = "MMM dd, yyyy"
