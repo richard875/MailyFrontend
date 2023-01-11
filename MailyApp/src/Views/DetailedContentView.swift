@@ -10,26 +10,28 @@ import SwiftUI
 
 struct DetailedContentView: View {
     @EnvironmentObject var appDelegate: AppDelegate
+    let dateFormatter = DateFormatter()
+    
+    init() {
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
-                Text("A Day in the Life of a Data Scientist | Leah Berg and Ray McLendon in Towards Data Science ")
+                Text(self.appDelegate.selectedUserTracker != nil ? self.appDelegate.selectedUserTracker.subject! : "")
                     .font(.system(size: 12))
                     .fontWeight(.medium)
                     .lineSpacing(1.5)
                     .foregroundColor(Color("Text"))
-                    .frame(
-                        width: 310,
-                        height: 32,
-                        alignment: .topLeading
-                    )
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(width: 310, alignment: .topLeading)
                 HStack(spacing: 0) {
                     Text("Sent: ")
                         .font(.system(size: 11))
                         .fontWeight(.medium)
                         .foregroundColor(Color("Text"))
-                    Text("Tuesday Jan 3, 2023 (2 days ago)")
+                    Text("\(self.dateFormatter.string(from: self.appDelegate.selectedUserTracker != nil ? self.appDelegate.selectedUserTracker.createdAt! : Date())) (\(self.appDelegate.selectedUserTracker != nil ? timeAgoSinceDate(self.appDelegate.selectedUserTracker.createdAt!) : timeAgoSinceDate(Date())))")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
@@ -40,7 +42,7 @@ struct DetailedContentView: View {
                         .font(.system(size: 11))
                         .fontWeight(.medium)
                         .foregroundColor(Color("Text"))
-                    Text("Richard Lee (richard@apple.com)")
+                    Text("\(self.appDelegate.selectedUserTracker != nil ? ParseEmailAddressName(emailAddress: self.appDelegate.selectedUserTracker.fromAddress) : "") (\(self.appDelegate.selectedUserTracker != nil ? ParseEmailAddressEmail(emailAddress: self.appDelegate.selectedUserTracker.fromAddress) : ""))")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
@@ -51,50 +53,105 @@ struct DetailedContentView: View {
                         .font(.system(size: 11))
                         .fontWeight(.medium)
                         .foregroundColor(Color("Text"))
-                    Text("Eddie Cue (cue@apple.com) and")
+                    Text("\(self.appDelegate.selectedUserTracker != nil ? ParseEmailAddressName(emailAddress: self.appDelegate.selectedUserTracker.toAddresses.components(separatedBy: ",")[0]) : "") (\(self.appDelegate.selectedUserTracker != nil ? ParseEmailAddressEmail(emailAddress: self.appDelegate.selectedUserTracker.toAddresses.components(separatedBy: ",")[0]) : ""))")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
-                    Text(" more")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color.blue)
-                        .underline()
+                    if (self.appDelegate.selectedUserTracker != nil && self.appDelegate.selectedUserTracker.toAddresses.components(separatedBy: ",").count > 1) {
+                        Text(" and")
+                            .font(.system(size: 11))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color("Text Grey"))
+                        Text(" more")
+                            .font(.system(size: 11))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.blue)
+                            .underline()
+                            .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.toAddresses.components(separatedBy: ",")))
+                    }
                 }
                 .padding(.top, 5)
-                HStack(spacing: 0) {
-                    Text("CC: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color("Text"))
-                    Text("None")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
+                if (self.appDelegate.selectedUserTracker != nil) {
+                    if (self.appDelegate.selectedUserTracker.ccAddresses != "") {
+                        HStack(spacing: 0) {
+                            Text("CC: ")
+                                .font(.system(size: 11))
+                                .fontWeight(.medium)
+                                .foregroundColor(Color("Text"))
+                            Text("\(ParseEmailAddressName(emailAddress: self.appDelegate.selectedUserTracker.ccAddresses!.components(separatedBy: ",")[0])) (\(ParseEmailAddressEmail(emailAddress: self.appDelegate.selectedUserTracker.ccAddresses!.components(separatedBy: ",")[0])))")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                            if (self.appDelegate.selectedUserTracker.ccAddresses!.components(separatedBy: ",").count > 1) {
+                                Text(" and")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Text Grey"))
+                                Text(" more")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.blue)
+                                    .underline()
+                                    .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.ccAddresses!.components(separatedBy: ",")))
+                            }
+                        }
+                        .padding(.top, 5)
+                    }
                 }
-                .padding(.top, 5)
-                HStack(spacing: 0) {
-                    Text("BCC: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color("Text"))
-                    Text("None")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
+                if (self.appDelegate.selectedUserTracker != nil) {
+                    if (self.appDelegate.selectedUserTracker.bccAddresses != "") {
+                        HStack(spacing: 0) {
+                            Text("BCC: ")
+                                .font(.system(size: 11))
+                                .fontWeight(.medium)
+                                .foregroundColor(Color("Text"))
+                            Text("\(ParseEmailAddressName(emailAddress: self.appDelegate.selectedUserTracker.bccAddresses!.components(separatedBy: ",")[0])) (\(ParseEmailAddressEmail(emailAddress: self.appDelegate.selectedUserTracker.bccAddresses!.components(separatedBy: ",")[0])))")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                            if (self.appDelegate.selectedUserTracker.bccAddresses!.components(separatedBy: ",").count > 1) {
+                                Text(" and")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Text Grey"))
+                                Text(" more")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.blue)
+                                    .underline()
+                                    .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.bccAddresses!.components(separatedBy: ",")))
+                            }
+                        }
+                        .padding(.top, 5)
+                    }
                 }
-                .padding(.top, 5)
-                HStack(spacing: 0) {
-                    Text("Reply-To: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color("Text"))
-                    Text("None")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
+                if (self.appDelegate.selectedUserTracker != nil) {
+                    if (self.appDelegate.selectedUserTracker.replyToAddresses != "") {
+                        HStack(spacing: 0) {
+                            Text("Reply-To: ")
+                                .font(.system(size: 11))
+                                .fontWeight(.medium)
+                                .foregroundColor(Color("Text"))
+                            Text("\(ParseEmailAddressName(emailAddress: self.appDelegate.selectedUserTracker.replyToAddresses!.components(separatedBy: ",")[0])) (\(ParseEmailAddressEmail(emailAddress: self.appDelegate.selectedUserTracker.replyToAddresses!.components(separatedBy: ",")[0])))")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                            if (self.appDelegate.selectedUserTracker.replyToAddresses!.components(separatedBy: ",").count > 1) {
+                                Text(" and")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Text Grey"))
+                                Text(" more")
+                                    .font(.system(size: 11))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.blue)
+                                    .underline()
+                                    .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.replyToAddresses!.components(separatedBy: ",")))
+                            }
+                        }
+                        .padding(.top, 5)
+                    }
                 }
-                .padding(.top, 5)
                 HStack(spacing: 0) {
                     Button {} label: {
                         HStack(spacing: 0) {
