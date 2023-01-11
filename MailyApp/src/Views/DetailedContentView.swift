@@ -25,7 +25,6 @@ struct DetailedContentView: View {
                     .lineSpacing(1.5)
                     .foregroundColor(Color("Text"))
                     .fixedSize(horizontal: false, vertical: true)
-                    .frame(width: 310, alignment: .topLeading)
                 HStack(spacing: 0) {
                     Text("Sent: ")
                         .font(.system(size: 11))
@@ -432,6 +431,7 @@ struct DetailedContentView: View {
         }
         .padding(.top, 17)
         .padding(.leading, 20)
+        .padding(.trailing, 20)
         .frame(
             width: 350,
             height: 500,
