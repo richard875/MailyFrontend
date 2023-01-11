@@ -26,3 +26,10 @@ struct Record {
     let isBogon: Bool
     let confidentWithEmailClient: Bool
 }
+
+extension Record: Equatable {
+    static func == (lhs: Record, rhs: Record) -> Bool {
+        // Compare the two instances of Tracker and return true if they are equal, false otherwise
+        return lhs.id == rhs.id
+    }
+}
