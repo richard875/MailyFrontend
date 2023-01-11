@@ -22,6 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var statusItem: NSStatusItem!
     @Published var mainPopover: NSPopover!
     @Published var secondaryPopover: NSPopover!
+    @Published var secondaryPopoverEmailRecords: [Record] = []
+    @Published var secondaryPopoverLoading: Bool = false
     @Published var route: Route = Route.LOADING
     @Published var selectedUserTracker: Tracker!
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
