@@ -12,7 +12,6 @@ struct DetailedContentView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     let dateFormatter = DateFormatter()
     let timeFormatter = DateFormatter()
-    @State private var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
     
     init() {
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
@@ -257,18 +256,18 @@ struct DetailedContentView: View {
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Text Grey"))
                             Menu {
-                                if (self.selectedEmailView != EmailViewSort.LATEST_TO_OLDEST) {
+                                if (self.appDelegate.selectedEmailView != EmailViewSort.LATEST_TO_OLDEST) {
                                     Button(EmailViewSort.LATEST_TO_OLDEST.rawValue) {
-                                        self.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
+                                        self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
                                     }
                                 }
-                                if (self.selectedEmailView != EmailViewSort.OLDEST_TO_LATEST) {
+                                if (self.appDelegate.selectedEmailView != EmailViewSort.OLDEST_TO_LATEST) {
                                     Button(EmailViewSort.OLDEST_TO_LATEST.rawValue) {
-                                        self.selectedEmailView = EmailViewSort.OLDEST_TO_LATEST
+                                        self.appDelegate.selectedEmailView = EmailViewSort.OLDEST_TO_LATEST
                                     }
                                 }
                             } label: {
-                                Text("\(self.selectedEmailView.rawValue)  \(Image("Arrow Down"))")
+                                Text("\(self.appDelegate.selectedEmailView.rawValue)  \(Image("Arrow Down"))")
                                     .font(.system(size: 12))
                                     .fontWeight(.regular)
                                     .foregroundColor(Color("Text"))

@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var route: Route = Route.LOADING
     @Published var selectedUserTracker: Tracker!
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
+    @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
     
     private func fetchUser() {
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!

@@ -154,6 +154,7 @@ struct EmailTracker: View {
                 self.heldDownOverFrame = true
                 // Open detailed popover and load userTracker (Tracker) data
                 self.appDelegate.selectedUserTracker = self.userTracker
+                self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
                 self.secondaryPopover.show(relativeTo: CGRect(), of: self.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
             }}
             .onEnded {_ in withAnimation(.easeInOut(duration: 0.15)) {
