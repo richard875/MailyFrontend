@@ -153,9 +153,21 @@ struct EmailTracker: View {
             .onChanged {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = true
                 // Open detailed popover and load userTracker (Tracker) data
+                self.appDelegate.secondaryPopoverLoading = true
+                let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+                let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+                if (token == nil) { return }
+                
                 self.appDelegate.selectedUserTracker = self.userTracker
                 self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
                 self.secondaryPopover.show(relativeTo: CGRect(), of: self.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
+                
+                GetTrackerClicks(token: token!, trackingNumber: self.userTracker.id, emailViewSort: EmailViewSort.LATEST_TO_OLDEST) { response in
+                    if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
+                        self.appDelegate.secondaryPopoverEmailRecords = trackerRecords
+                        self.appDelegate.secondaryPopoverLoading = false
+                    }
+                }
             }}
             .onEnded {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = false
