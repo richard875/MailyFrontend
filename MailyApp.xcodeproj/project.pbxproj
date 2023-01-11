@@ -38,6 +38,7 @@
 		A59FE965296D855600366A25 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE964296D855600366A25 /* StringExtension.swift */; };
 		A59FE967296E8A5800366A25 /* ExtraEmailAddressesToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */; };
 		A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE968296EA46000366A25 /* MessageSendAction.swift */; };
+		A59FE96B296EAB7D00366A25 /* EmailViewsSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59FE96A296EAB7D00366A25 /* EmailViewsSort.swift */; };
 		A5A225172960128600215F79 /* AssignTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225162960128600215F79 /* AssignTracking.swift */; };
 		A5A225192960142F00215F79 /* AssignTrackingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A225182960142F00215F79 /* AssignTrackingResponse.swift */; };
 		A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A520FF294DAF80001E82EC /* ApiMethod.swift */; };
@@ -128,6 +129,7 @@
 		A59FE964296D855600366A25 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A59FE966296E8A5800366A25 /* ExtraEmailAddressesToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraEmailAddressesToText.swift; sourceTree = "<group>"; };
 		A59FE968296EA46000366A25 /* MessageSendAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendAction.swift; sourceTree = "<group>"; };
+		A59FE96A296EAB7D00366A25 /* EmailViewsSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewsSort.swift; sourceTree = "<group>"; };
 		A5A225162960128600215F79 /* AssignTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTracking.swift; sourceTree = "<group>"; };
 		A5A225182960142F00215F79 /* AssignTrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTrackingResponse.swift; sourceTree = "<group>"; };
 		A5A520FF294DAF80001E82EC /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				A59551E2294F1DFA0098E803 /* Route.swift */,
 				A5B55410296BECAB00E41877 /* IndexEmail.swift */,
 				A59FE968296EA46000366A25 /* MessageSendAction.swift */,
+				A59FE96A296EAB7D00366A25 /* EmailViewsSort.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */,
 				A59551DF294EE17E0098E803 /* HTTPResponseStatus.swift in Sources */,
 				A5B55411296BECAB00E41877 /* IndexEmail.swift in Sources */,
+				A59FE96B296EAB7D00366A25 /* EmailViewsSort.swift in Sources */,
 				A59FE965296D855600366A25 /* StringExtension.swift in Sources */,
 				A5B5540C296B97B700E41877 /* EmailTracker.swift in Sources */,
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
