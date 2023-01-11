@@ -245,221 +245,235 @@ struct DetailedContentView: View {
                     )
                     .padding(.top, 12)
                 // Bottom Section
-                HStack(spacing: 0) {
-                    Text("Email Views")
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color("Text"))
+                if (self.appDelegate.selectedUserTracker != nil && self.appDelegate.selectedUserTracker.timesOpened > 0) {
                     HStack(spacing: 0) {
-                        Text("Sort: ")
+                        Text("Email Views")
                             .font(.system(size: 12))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color("Text Grey"))
-                        Menu {
-                            if (self.selectedEmailView != EmailViewSort.LATEST_TO_OLDEST) {
-                                Button(EmailViewSort.LATEST_TO_OLDEST.rawValue) {
-                                    self.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
-                                }
-                            }
-                            if (self.selectedEmailView != EmailViewSort.OLDEST_TO_LATEST) {
-                                Button(EmailViewSort.OLDEST_TO_LATEST.rawValue) {
-                                    self.selectedEmailView = EmailViewSort.OLDEST_TO_LATEST
-                                }
-                            }
-                        } label: {
-                            Text("\(self.selectedEmailView.rawValue)  \(Image("Arrow Down"))")
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("Text"))
+                        HStack(spacing: 0) {
+                            Text("Sort: ")
                                 .font(.system(size: 12))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                            Menu {
+                                if (self.selectedEmailView != EmailViewSort.LATEST_TO_OLDEST) {
+                                    Button(EmailViewSort.LATEST_TO_OLDEST.rawValue) {
+                                        self.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
+                                    }
+                                }
+                                if (self.selectedEmailView != EmailViewSort.OLDEST_TO_LATEST) {
+                                    Button(EmailViewSort.OLDEST_TO_LATEST.rawValue) {
+                                        self.selectedEmailView = EmailViewSort.OLDEST_TO_LATEST
+                                    }
+                                }
+                            } label: {
+                                Text("\(self.selectedEmailView.rawValue)  \(Image("Arrow Down"))")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("Text"))
+                            }
+                            .menuStyle(BorderlessButtonMenuStyle())
+                            .menuIndicator(.hidden)
+                            .fixedSize() // Otherwise will be the width of your menu options.
+                        }
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .trailing
+                        )
+                    }
+                    .frame(width: 310)
+                    .padding(.top, 10)
+                }
+            }
+            // List
+            if (self.appDelegate.selectedUserTracker != nil) {
+                if (self.appDelegate.selectedUserTracker.timesOpened > 0) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(spacing: 0) {
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("IP Address is ")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Green Tag Text"))
+                                    Text("Safe")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color("Green Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 105, height: 20)
+                            .background(Color("Green Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Green Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("Verified")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Blue Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 51, height: 20)
+                            .background(Color("Blue Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Blue Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            .padding(.leading, 5)
+                        }
+                        HStack(spacing: 0) {
+                            Text("Opened: ")
+                                .font(.system(size: 11))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Text"))
+                            Text("Tuesday, Jan 3 at 1:16:24 PM (2 days ago)")
+                                .font(.system(size: 11))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("Text"))
                         }
-                        .menuStyle(BorderlessButtonMenuStyle())
-                        .menuIndicator(.hidden)
-                        .fixedSize() // Otherwise will be the width of your menu options.
+                        .padding(.top, 6)
+                        HStack(spacing: 0) {
+                            Text("IP Address: ")
+                                .font(.system(size: 11))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Text"))
+                            Text("14.200.83.34 | Sydney, Australia 🇦🇺")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text"))
+                        }
+                        .padding(.top, 4)
+                        VStack(spacing: 0) {
+                            Text("Map")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                        }
+                        .frame(width: 290, height: 100)
+                        .background(Color("Grey Background"))
+                        .overlay(RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color("Border"), lineWidth: 1)
+                        )
+                        .cornerRadius(7)
+                        .padding(.top, 6)
                     }
+                    .padding(.top, 10)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
                     .frame(
-                        maxWidth: .infinity,
-                        alignment: .trailing
+                        width: 310,
+                        height: 182,
+                        alignment: .topLeading
                     )
-                }
-                .frame(width: 310)
-                .padding(.top, 10)
-            }
-            // List
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Button {} label: {
+                    .overlay(RoundedRectangle(cornerRadius: 7)
+                        .stroke(Color("Border"), lineWidth: 1)
+                    )
+                    .cornerRadius(7)
+                    .padding(.top, 10)
+                    // -----------------------------------------------------
+                    VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 0) {
-                            Text("IP Address is ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Green Tag Text"))
-                            Text("Safe")
-                                .font(.system(size: 10))
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("IP Address is ")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Red Tag Text"))
+                                    Text("Suspicious")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color("Red Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 135, height: 20)
+                            .background(Color("Red Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("Verified")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Blue Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 51, height: 20)
+                            .background(Color("Blue Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Blue Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            .padding(.leading, 5)
+                        }
+                        HStack(spacing: 0) {
+                            Text("Opened: ")
+                                .font(.system(size: 11))
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("Green Tag Text"))
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 105, height: 20)
-                    .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Green Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Verified")
-                                .font(.system(size: 10))
+                                .foregroundColor(Color("Text"))
+                            Text("Tuesday, Jan 3 at 1:16:24 PM (2 days ago)")
+                                .font(.system(size: 11))
                                 .fontWeight(.regular)
-                                .foregroundColor(Color("Blue Tag Text"))
+                                .foregroundColor(Color("Text"))
                         }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 51, height: 20)
-                    .background(Color("Blue Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Blue Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    .padding(.leading, 5)
-                }
-                HStack(spacing: 0) {
-                    Text("Opened: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
-                    Text("Tuesday, Jan 3 at 1:16:24 PM (2 days ago)")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-                .padding(.top, 6)
-                HStack(spacing: 0) {
-                    Text("IP Address: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
-                    Text("14.200.83.34 | Sydney, Australia 🇦🇺")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-                .padding(.top, 4)
-                VStack(spacing: 0) {
-                    Text("Map")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
-                }
-                .frame(width: 290, height: 100)
-                .background(Color("Grey Background"))
-                .overlay(RoundedRectangle(cornerRadius: 7)
-                    .stroke(Color("Border"), lineWidth: 1)
-                )
-                .cornerRadius(7)
-                .padding(.top, 6)
-            }
-            .padding(.top, 10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .frame(
-                width: 310,
-                height: 182,
-                alignment: .topLeading
-            )
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-            .padding(.top, 10)
-            // -----------------------------------------------------
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Button {} label: {
+                        .padding(.top, 6)
                         HStack(spacing: 0) {
-                            Text("IP Address is ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Red Tag Text"))
-                            Text("Suspicious")
-                                .font(.system(size: 10))
+                            Text("IP Address: ")
+                                .font(.system(size: 11))
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("Red Tag Text"))
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 135, height: 20)
-                    .background(Color("Red Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Red Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Verified")
-                                .font(.system(size: 10))
+                                .foregroundColor(Color("Text"))
+                            Text("14.200.83.34 | Sydney, Australia 🇦🇺")
+                                .font(.system(size: 11))
                                 .fontWeight(.regular)
-                                .foregroundColor(Color("Blue Tag Text"))
+                                .foregroundColor(Color("Text"))
                         }
+                        .padding(.top, 4)
+                        VStack(spacing: 0) {
+                            Text("Map")
+                                .font(.system(size: 11))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Text Grey"))
+                        }
+                        .frame(width: 290, height: 100)
+                        .background(Color("Grey Background"))
+                        .overlay(RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color("Border"), lineWidth: 1)
+                        )
+                        .cornerRadius(7)
+                        .padding(.top, 6)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 51, height: 20)
-                    .background(Color("Blue Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Blue Tag Stroke"), lineWidth: 1)
+                    .padding(.top, 10)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
+                    .frame(
+                        width: 310,
+                        height: 182,
+                        alignment: .topLeading
                     )
-                    .cornerRadius(5)
-                    .padding(.leading, 5)
+                    .overlay(RoundedRectangle(cornerRadius: 7)
+                        .stroke(Color("Border"), lineWidth: 1)
+                    )
+                    .cornerRadius(7)
+                    .padding(.top, 10)
+                } else {
+                    VStack(spacing: 0) {
+                        Text("Email not opened")
+                            .font(.system(size: 12))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color("Text"))
+                    }
+                    .frame(width: 310, height: 250)
                 }
-                HStack(spacing: 0) {
-                    Text("Opened: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
-                    Text("Tuesday, Jan 3 at 1:16:24 PM (2 days ago)")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-                .padding(.top, 6)
-                HStack(spacing: 0) {
-                    Text("IP Address: ")
-                        .font(.system(size: 11))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
-                    Text("14.200.83.34 | Sydney, Australia 🇦🇺")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-                .padding(.top, 4)
-                VStack(spacing: 0) {
-                    Text("Map")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text Grey"))
-                }
-                .frame(width: 290, height: 100)
-                .background(Color("Grey Background"))
-                .overlay(RoundedRectangle(cornerRadius: 7)
-                    .stroke(Color("Border"), lineWidth: 1)
-                )
-                .cornerRadius(7)
-                .padding(.top, 6)
             }
-            .padding(.top, 10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .frame(
-                width: 310,
-                height: 182,
-                alignment: .topLeading
-            )
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-            .padding(.top, 10)
             // -----------------------------------------------------
         }
         .padding(.top, 17)
