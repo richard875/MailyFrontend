@@ -267,7 +267,7 @@ struct DetailedContentView: View {
                     )
                 }
                 .frame(width: 310)
-                .padding(.top, 8)
+                .padding(.top, 10)
             }
             // List
             VStack(alignment: .leading, spacing: 0) {
