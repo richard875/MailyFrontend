@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct MailyAppApp: App {
@@ -19,6 +20,7 @@ struct MailyAppApp: App {
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
+    private var defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
     private var statusItem: NSStatusItem!
     @Published var mainPopover: NSPopover!
     @Published var secondaryPopover: NSPopover!
@@ -28,10 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var selectedUserTracker: Tracker!
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
-    
+    private var selectedEmailViewCancellable: AnyCancellable?
+        
     private func fetchUser() {
-        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
-        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         if (token == nil) { return }
         
         GetUser(token: token!) { response in
@@ -40,6 +42,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
+        let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (token == nil) { return }
+        
+        selectedEmailViewCancellable = $selectedEmailView.sink { value in
+            if (self.selectedUserTracker != nil) {
+                self.secondaryPopoverLoading = true
+                
+                GetTrackerClicks(token: token!, trackingNumber: self.selectedUserTracker.id, emailViewSort: value) { response in
+                    if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
+                        self.secondaryPopoverEmailRecords = trackerRecords
+                        self.secondaryPopoverLoading = false
+                    }
+                }
+            }
+        }
+        
         if let window = NSApplication.shared.windows.first { window.close() }
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
@@ -60,6 +78,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         secondaryPopover.behavior = .transient
         secondaryPopover.contentViewController = NSHostingController(rootView: DetailedContentView().environmentObject(self))
         secondaryPopover.setValue(true, forKeyPath: "shouldHideAnchor")
+    }
+    
+    deinit {
+        selectedEmailViewCancellable?.cancel()
     }
     
     @objc func togglePopover() {
