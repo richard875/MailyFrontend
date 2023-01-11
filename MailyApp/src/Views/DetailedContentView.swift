@@ -11,9 +11,11 @@ import SwiftUI
 struct DetailedContentView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     let dateFormatter = DateFormatter()
+    let timeFormatter = DateFormatter()
     
     init() {
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        timeFormatter.dateFormat = "hh:mm a"
     }
     
     var body: some View {
@@ -152,61 +154,77 @@ struct DetailedContentView: View {
                     }
                 }
                 HStack(spacing: 0) {
-                    Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("2")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Green Tag Text"))
-                            Text(" Clicks")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Green Tag Text"))
+                    if (self.appDelegate.selectedUserTracker != nil) {
+                        if (self.appDelegate.selectedUserTracker.timesOpened > 0) {
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text(String(self.appDelegate.selectedUserTracker.timesOpened))
+                                        .font(.system(size: 10))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color("Green Tag Text"))
+                                    Text(" Click\(self.appDelegate.selectedUserTracker.timesOpened > 1 ? "s" : "")")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Green Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 50, height: 22)
+                            .background(Color("Green Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Green Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("Last opened ")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Yellow Tag Text"))
+                                    Text(timeAgoSinceDate(self.appDelegate.selectedUserTracker.updatedAt ?? Date()))
+                                        .font(.system(size: 10))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color("Yellow Tag Text"))
+                                    Text(" at \(timeFormatter.string(from: self.appDelegate.selectedUserTracker.updatedAt ?? Date()))")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Yellow Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 200, height: 22)
+                            .background(Color("Yellow Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
+                            .padding(.leading, 5)
+                        } else {
+                            Button {} label: {
+                                HStack(spacing: 0) {
+                                    Text("Unopened")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("Red Tag Text"))
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: 62, height: 22)
+                            .background(Color("Red Tag Fill"))
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                            )
+                            .cornerRadius(5)
                         }
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 54, height: 22)
-                    .background(Color("Green Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Green Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
                     Button {} label: {
-                        HStack(spacing: 0) {
-                            Text("Last opened ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("3")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text(" days ago at ")
-                                .font(.system(size: 10))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                            Text("1:16:30 PM")
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Yellow Tag Text"))
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: 202, height: 22)
-                    .background(Color("Yellow Tag Fill"))
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color("Yellow Tag Stroke"), lineWidth: 1)
-                    )
-                    .cornerRadius(5)
-                    .padding(.leading, 5)
-                    Button {} label: {
-                        Text("Send")
+                        Text(self.appDelegate.selectedUserTracker != nil ? MessageSendAction(rawValue: self.appDelegate.selectedUserTracker.composeAction)!.rawValue : "")
                             .font(.system(size: 10))
                             .fontWeight(.regular)
                             .foregroundColor(Color("Blue Tag Text"))
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .frame(width: 44, height: 22)
+                    .frame(width: 50, height: 22)
                     .background(Color("Blue Tag Fill"))
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color("Blue Tag Stroke"), lineWidth: 1)
