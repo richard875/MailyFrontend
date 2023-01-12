@@ -139,7 +139,7 @@ struct TrackerRecord: View {
                     .foregroundColor(Color("Text"))
             }
             .padding(.top, 4)
-            Map(coordinateRegion: $region)
+            Map(coordinateRegion: $region, interactionModes: .zoom)
                 .frame(width: 290, height: 100)
                 .background(Color("Grey Background"))
                 .overlay(RoundedRectangle(cornerRadius: 7)
