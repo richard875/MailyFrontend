@@ -7,16 +7,28 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 struct TrackerRecord: View {
     var trackerRecord: Record
     var last: Bool
     let dateFormatter = DateFormatter()
+    @State private var region: MKCoordinateRegion
     
     init(trackerRecord: Record, last: Bool) {
         self.trackerRecord = trackerRecord
         self.last = last
         self.dateFormatter.dateFormat = "EEEE, MMM d 'at' h:mm a"
+        _region = State(initialValue: MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: trackerRecord.latitude,
+                longitude: trackerRecord.longitude
+            ),
+            span: MKCoordinateSpan(
+                latitudeDelta: 0.1,
+                longitudeDelta: 0.1
+            )
+        ))
     }
     
     var body: some View {
@@ -108,38 +120,33 @@ struct TrackerRecord: View {
                     .font(.system(size: 11))
                     .fontWeight(.regular)
                     .foregroundColor(Color("Text"))
-                }
+            }
             .padding(.top, 4)
             HStack(spacing: 0) {
                 Text("Location: ")
-                        .font(.system(size: 11))
+                    .font(.system(size: 11))
                     .fontWeight(.semibold)
-                        .foregroundColor(Color("Text"))
+                    .foregroundColor(Color("Text"))
                 if (trackerRecord.ipCity != "") {
                     Text("\(trackerRecord.ipCity!), ")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
                 }
-                    Text("\(trackerRecord.ipCountry) 🇦🇺")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-            .padding(.top, 4)
-            VStack(spacing: 0) {
-                Text("Map")
+                Text("\(trackerRecord.ipCountry) \(trackerRecord.emojiFlag)")
                     .font(.system(size: 11))
                     .fontWeight(.regular)
-                    .foregroundColor(Color("Text Grey"))
+                    .foregroundColor(Color("Text"))
             }
-            .frame(width: 290, height: 100)
-            .background(Color("Grey Background"))
-            .overlay(RoundedRectangle(cornerRadius: 7)
-                .stroke(Color("Border"), lineWidth: 1)
-            )
-            .cornerRadius(7)
-            .padding(.top, 6)
+            .padding(.top, 4)
+            Map(coordinateRegion: $region)
+                .frame(width: 290, height: 100)
+                .background(Color("Grey Background"))
+                .overlay(RoundedRectangle(cornerRadius: 7)
+                    .stroke(Color("Border"), lineWidth: 1)
+                )
+                .cornerRadius(7)
+                .padding(.top, 6)
         }
         .padding(.top, 10)
         .padding(.leading, 10)
