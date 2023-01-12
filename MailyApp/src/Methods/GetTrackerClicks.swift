@@ -53,6 +53,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetTrackerClicksRe
         let ipAddress = record["ipAddress"] as! String
         let ipCity = record["ipCity"] as? String ?? ""
         let ipCountry = record["ipCountry"] as! String
+        let emojiFlag = record["emojiFlag"] as! String
         let isEu = record["isEu"] as? Bool ?? false
         let isTor = record["isTor"] as! Bool
         let isProxy = record["isProxy"] as! Bool
@@ -61,6 +62,8 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetTrackerClicksRe
         let isKnownAbuser = record["isKnownAbuser"] as! Bool
         let isThreat = record["isThreat"] as! Bool
         let isBogon = record["isBogon"] as! Bool
+        let latitude = record["latitude"] as! Double
+        let longitude = record["longitude"] as! Double
         let confidentWithEmailClient = record["confidentWithEmailClient"] as! Bool
         
         return Record(
@@ -72,6 +75,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetTrackerClicksRe
             ipAddress: ipAddress,
             ipCity: ipCity,
             ipCountry: ipCountry,
+            emojiFlag: emojiFlag,
             isEu: isEu,
             isTor: isTor,
             isProxy: isProxy,
@@ -80,6 +84,8 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetTrackerClicksRe
             isKnownAbuser: isKnownAbuser,
             isThreat: isThreat,
             isBogon: isBogon,
+            latitude: latitude,
+            longitude: longitude,
             confidentWithEmailClient: confidentWithEmailClient
         )
     }

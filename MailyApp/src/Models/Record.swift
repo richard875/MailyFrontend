@@ -16,6 +16,7 @@ struct Record {
     let ipAddress: String
     let ipCity: String?
     let ipCountry: String
+    let emojiFlag: String
     let isEu: Bool?
     let isTor: Bool
     let isProxy: Bool
@@ -24,6 +25,8 @@ struct Record {
     let isKnownAbuser: Bool
     let isThreat: Bool
     let isBogon: Bool
+    let latitude: Double
+    let longitude: Double
     let confidentWithEmailClient: Bool
 }
 
