@@ -108,31 +108,24 @@ struct TrackerRecord: View {
                     .font(.system(size: 11))
                     .fontWeight(.regular)
                     .foregroundColor(Color("Text"))
-                if (trackerRecord.ipCity != "" || trackerRecord.ipCountry != "") {
-                    Text(" | ")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
                 }
+            .padding(.top, 4)
+            HStack(spacing: 0) {
+                Text("Location: ")
+                        .font(.system(size: 11))
+                    .fontWeight(.semibold)
+                        .foregroundColor(Color("Text"))
                 if (trackerRecord.ipCity != "") {
-                    Text(trackerRecord.ipCity!)
+                    Text("\(trackerRecord.ipCity!), ")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
                 }
-                if (trackerRecord.ipCity != "" && trackerRecord.ipCountry != "") {
-                    Text(", ")
-                        .font(.system(size: 11))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color("Text"))
-                }
-                if (trackerRecord.ipCountry != "") {
                     Text("\(trackerRecord.ipCountry) 🇦🇺")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text"))
                 }
-            }
             .padding(.top, 4)
             VStack(spacing: 0) {
                 Text("Map")
