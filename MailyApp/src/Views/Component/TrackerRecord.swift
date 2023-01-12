@@ -153,7 +153,7 @@ struct TrackerRecord: View {
         .padding(.trailing, 10)
         .frame(
             width: 310,
-            height: 182,
+            height: 202,
             alignment: .topLeading
         )
         .overlay(RoundedRectangle(cornerRadius: 7)
