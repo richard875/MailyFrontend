@@ -297,16 +297,21 @@ struct DetailedContentView: View {
             } else {
                 if (self.appDelegate.selectedUserTracker != nil) {
                     if (self.appDelegate.selectedUserTracker.timesOpened > 0) {
-                        List(self.appDelegate.secondaryPopoverEmailRecords, id: \.id) {trackerRecord in
-                            TrackerRecord(
-                                trackerRecord: trackerRecord,
-                                last: trackerRecord == self.appDelegate.secondaryPopoverEmailRecords.last
-                            )
+                        ScrollViewReader { proxy in
+                            List(self.appDelegate.secondaryPopoverEmailRecords, id: \.id) {trackerRecord in
+                                TrackerRecord(
+                                    trackerRecord: trackerRecord,
+                                    last: trackerRecord == self.appDelegate.secondaryPopoverEmailRecords.last
+                                )
+                            }
+                            .padding(.leading, -8)
+                            .padding(.trailing, -9)
+                            .listStyle(PlainListStyle())
+                            .frame(width: 320)
+                            .onChange(of: self.appDelegate.secondaryPopoverEmailRecords) { data in
+                                proxy.scrollTo(data[0].id)
+                            }
                         }
-                        .padding(.leading, -8)
-                        .padding(.trailing, -9)
-                        .listStyle(PlainListStyle())
-                        .frame(width: 320)
                     } else {
                         VStack(spacing: 0) {
                             Text("Email not opened")
