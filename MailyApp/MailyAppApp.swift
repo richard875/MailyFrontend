@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
     private var selectedEmailViewCancellable: AnyCancellable?
-        
+    
     private func fetchUser() {
         let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         if (token == nil) { return }
@@ -42,10 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
-        let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-        if (token == nil) { return }
-        
         selectedEmailViewCancellable = $selectedEmailView.sink { value in
+            let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+            if (token == nil) { return }
+            
             if (self.selectedUserTracker != nil) {
                 self.secondaryPopoverLoading = true
                 
