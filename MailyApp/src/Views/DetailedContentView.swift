@@ -37,6 +37,7 @@ struct DetailedContentView: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
                 }
+                .frame(height: 13)
                 .padding(.top, 6)
                 HStack(spacing: 0) {
                     Text("From: ")
@@ -48,6 +49,7 @@ struct DetailedContentView: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color("Text Grey"))
                 }
+                .frame(height: 13)
                 .padding(.top, 5)
                 HStack(spacing: 0) {
                     Text("To: ")
@@ -71,6 +73,7 @@ struct DetailedContentView: View {
                             .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.toAddresses.components(separatedBy: ",")))
                     }
                 }
+                .frame(height: 13)
                 .padding(.top, 5)
                 if (self.appDelegate.selectedUserTracker != nil) {
                     if (self.appDelegate.selectedUserTracker.ccAddresses != "") {
@@ -96,6 +99,7 @@ struct DetailedContentView: View {
                                     .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.ccAddresses!.components(separatedBy: ",")))
                             }
                         }
+                        .frame(height: 13)
                         .padding(.top, 5)
                     }
                 }
@@ -123,6 +127,7 @@ struct DetailedContentView: View {
                                     .help(extraEmailAddressesToText(addressArray: self.appDelegate.selectedUserTracker.bccAddresses!.components(separatedBy: ",")))
                             }
                         }
+                        .frame(height: 13)
                         .padding(.top, 5)
                     }
                 }
