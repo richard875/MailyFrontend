@@ -14,6 +14,7 @@ struct Index: View {
     var secondaryPopover: NSPopover!
     var profilePictureNumber: Int
     
+    @State private var timer: Timer? = nil
     @State private var loading: Bool = false
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
@@ -362,7 +363,13 @@ struct Index: View {
         )
         .background(Color("Background"))
         .onAppear {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { _ in
+                self.indexOnAppear(indexEmail: selectedIndexEmail)
+            }
             self.indexOnAppear(indexEmail: selectedIndexEmail)
+        }
+        .onDisappear {
+            self.timer?.invalidate()
         }
     }
     
