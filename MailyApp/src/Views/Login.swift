@@ -48,6 +48,9 @@ struct Login: View {
                     )
                     .cornerRadius(7)
                     .padding(.top, 5)
+                    .onSubmit {
+                        self.login()
+                    }
                 SecureField("Password", text: $password)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(.leading, 10)
@@ -59,6 +62,9 @@ struct Login: View {
                     )
                     .cornerRadius(7)
                     .padding(.top, 10)
+                    .onSubmit {
+                        self.login()
+                    }
                 HStack {
                     Text("Forgot Password?")
                         .onHover { hovering in
@@ -94,22 +100,7 @@ struct Login: View {
             )
             VStack(spacing: 0) {
                 Button {
-                    loading.toggle()
-                    message = " "
-                    
-                    UserLogin(email: email, password: password) { loginResponse in
-                        // Use the loginResponse object as needed
-                        if (loginResponse.returnStatus == ReturnStatus.ERROR) {
-                            message = loginResponse.message
-                        } else {
-                            let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
-                            defaults.set(loginResponse.message, forKey: SharedUserDefaults.Keys.loginToken)
-                            defaults.synchronize()
-                            setRoute(Route.INDEX)
-                        }
-                        
-                        loading.toggle()
-                    }
+                    self.login()
                 } label: {
                     Text("Login")
                         .font(.system(size: 14))
@@ -162,5 +153,30 @@ struct Login: View {
         }
         .frame(width: 300, height: 439)
         .background(Color("Background"))
+    }
+    
+    private func login() {
+        loading.toggle()
+        self.message = ""
+        
+        if (self.email.trimmingCharacters(in: .whitespaces) == "" || self.password.trimmingCharacters(in: .whitespaces) == "") {
+            self.message = "Please complete the login and password fields"
+            loading.toggle()
+            return
+        }
+        
+        UserLogin(email: email, password: password) { loginResponse in
+            // Use the loginResponse object as needed
+            if (loginResponse.returnStatus == ReturnStatus.ERROR) {
+                self.message = loginResponse.message
+            } else {
+                let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+                defaults.set(loginResponse.message, forKey: SharedUserDefaults.Keys.loginToken)
+                defaults.synchronize()
+                setRoute(Route.INDEX)
+            }
+            
+            loading.toggle()
+        }
     }
 }
