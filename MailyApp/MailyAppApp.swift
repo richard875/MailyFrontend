@@ -48,11 +48,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         // Ask for notification permission
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("User allowed notification")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
         }
         
         // Get mail clicks when user change selectedEmailView
