@@ -392,9 +392,15 @@ struct Index: View {
         self.loading = true
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-        if (token == nil) { return }
+        
+        // Return to the login screen if the user is logged out
+        if (token == nil) {
+            self.setRoute(Route.LOGIN)
+            return
+        }
         
         GetUser(token: token!) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS {
             let dictionary = response.user as! [String: Any]
             let loginCheck = dictionary["loginCheck"] as! [String: Any]
             let dateFormatter = DateFormatter()
@@ -417,6 +423,10 @@ struct Index: View {
             
             // Create a User struct with the loginCheck struct and the message
             self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
+            } else {
+                self.setRoute(Route.LOGIN)
+                return
+            }
         }
         
         GetUserTrackers(token: token!, indexEmail: indexEmail) { response in
@@ -434,7 +444,12 @@ struct Index: View {
         self.loading = true
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-        if (token == nil) { return }
+        
+        // Return to the login screen if the user is logged out
+        if (token == nil) {
+            self.setRoute(Route.LOGIN)
+            return
+        }
         
         SearchUserTrackers(token: token!, searchQuery: searchQuery) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
