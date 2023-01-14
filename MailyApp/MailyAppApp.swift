@@ -64,6 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                     if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
                         self.secondaryPopoverEmailRecords = trackerRecords
                         self.secondaryPopoverLoading = false
+                    } else {
+                        self.route = Route.LOGIN
+                        self.secondaryPopover.close()
+                        return
                     }
                 }
             }
