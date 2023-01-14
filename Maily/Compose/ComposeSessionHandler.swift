@@ -16,9 +16,10 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
         // Get userToken from shared suite
         let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        if (userToken == nil) { return }
         
         GetUser(token: userToken!) { response in
-            if (response.httpStatus == HTTPResponseStatus.OK) {
+            if (response.httpStatus == HTTPResponseStatus.OK || response.returnStatus == ReturnStatus.SUCCESS) {
                 GetTracking(token: userToken!)  { response in
                     if (response.returnStatus == ReturnStatus.SUCCESS && response.httpStatus == HTTPResponseStatus.OK) {
                         self.trackingNumber = response.data?.token
