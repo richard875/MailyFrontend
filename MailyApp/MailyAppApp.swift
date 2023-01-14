@@ -35,7 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     private func fetchUser() {
         let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-        if (token == nil) { return }
+        if (token == nil) {
+            self.route = Route.LOGIN
+            return
+        }
         
         GetUser(token: token!) { response in
             self.route = response.httpStatus == HTTPResponseStatus.OK ? Route.INDEX : Route.LOGIN
@@ -55,7 +58,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Get mail clicks when user change selectedEmailView
         selectedEmailViewCancellable = $selectedEmailView.sink { value in
             let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
-            if (token == nil) { return }
+            if (token == nil) {
+                self.route = Route.LOGIN
+                return
+            }
             
             if (self.selectedUserTracker != nil) {
                 self.secondaryPopoverLoading = true
@@ -124,7 +130,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 // position and show the NSPopover
                 mainPopover.show(relativeTo: invisibleWindow.contentView!.frame, of: invisibleWindow.contentView!, preferredEdge: NSRectEdge.minY)
                 self.fetchUser()
-                // secondaryPopover.show(relativeTo: CGRect(), of: mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
                 NSApp.activate(ignoringOtherApps: true)
             }
         }
