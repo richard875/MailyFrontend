@@ -21,7 +21,7 @@ struct BottomBar: View {
                 )
             HStack {
                 Button {
-                    if let url = URL(string: "https://www.google.com") {
+                    if let url = URL(string: "https://www.richard-lee.com") {
                         NSWorkspace.shared.open(url)
                     }
                 } label: {
@@ -70,7 +70,10 @@ struct BottomBar: View {
                 .menuStyle(BorderlessButtonMenuStyle())
                 .menuIndicator(.hidden)
                 .fixedSize() // Otherwise will be the width of your menu options.
-                .frame(width: 30, height: 30)
+                .frame(
+                    width: 30,
+                    height: 30
+                )
                 .background(Color("Button on Black"))
                 .cornerRadius(15)
                 .frame(
