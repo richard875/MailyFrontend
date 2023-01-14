@@ -99,6 +99,28 @@ struct TrackerRecord: View {
                     .cornerRadius(5)
                     .padding(.leading, 5)
                 }
+                if (trackerRecord.ipCity! == "") {
+                    Button {} label: {
+                        HStack(spacing: 0) {
+                            Text("Bot")
+                                .font(.system(size: 10))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Red Tag Text"))
+                            Text(" Likely")
+                                .font(.system(size: 10))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("Red Tag Text"))
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .frame(width: 60, height: 20)
+                    .background(Color("Red Tag Fill"))
+                    .overlay(RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color("Red Tag Stroke"), lineWidth: 1)
+                    )
+                    .cornerRadius(5)
+                    .padding(.leading, 5)
+                }
             }
             HStack(spacing: 0) {
                 Text("Opened: ")
