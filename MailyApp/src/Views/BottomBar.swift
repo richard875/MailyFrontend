@@ -59,22 +59,27 @@ struct BottomBar: View {
                     maxWidth: .infinity,
                     alignment: .trailing
                 )
-                Button {} label: {
+                Menu {
+                    Button("Quit Maily") {
+                        NSApp.terminate(self)
+                    }
+                } label: {
                     Image("Settings")
+                        .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
-                .frame(
-                    width: 30,
-                    height: 30
-                )
+                .menuStyle(BorderlessButtonMenuStyle())
+                .menuIndicator(.hidden)
+                .fixedSize() // Otherwise will be the width of your menu options.
+                .frame(width: 30, height: 30)
                 .background(Color("Button on Black"))
                 .cornerRadius(15)
-                .onHover { hovering in
-                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
-                }.frame(
+                .frame(
                     maxWidth: 30,
                     alignment: .trailing
                 )
+                .onHover { hovering in
+                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                }
             }.frame(
                 width: 260
             )
