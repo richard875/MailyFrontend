@@ -63,6 +63,9 @@ struct Index: View {
                         .stroke(Color("Border"), lineWidth: 1)
                     )
                     .cornerRadius(7)
+                    .onHover { hovering in
+                        hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                    }
                     Button {
                         self.indexOnAppear(indexEmail: selectedIndexEmail)
                     } label: {
@@ -79,12 +82,19 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     .padding(.leading, 5)
+                    .onHover { hovering in
+                        hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                    }
                     Menu {
                         Button("Logout") {
                             setRoute(Route.LOGIN)
                             let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
                             defaults.set("", forKey: SharedUserDefaults.Keys.loginToken)
                             defaults.synchronize()
+                        }
+                        Divider()
+                        Button("Quit Maily") {
+                            NSApp.terminate(self)
                         }
                     } label: {
                         Image("Settings Inverse")
@@ -102,11 +112,15 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     .padding(.leading, 5)
-                }
-                .frame(height: 40, alignment: .topLeading)
+                    .frame(
+                        maxWidth: 30,
+                        alignment: .trailing
+                    )
                 .onHover { hovering in
                     hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                 }
+            }
+                .frame(height: 40, alignment: .topLeading)
             }
             .frame(
                 width: 270,
