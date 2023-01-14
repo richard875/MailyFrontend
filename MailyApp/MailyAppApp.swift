@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import UserNotifications
 
 @main
 struct MailyAppApp: App {
@@ -42,6 +43,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
+        // Ask for notification permission
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("User allowed notification")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+        // Get mail clicks when user change selectedEmailView
         selectedEmailViewCancellable = $selectedEmailView.sink { value in
             let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
             if (token == nil) { return }
