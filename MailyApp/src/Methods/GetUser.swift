@@ -27,6 +27,15 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserResponse {
         )
     }
     
+    // Return false if returned as no user
+    if (result.data == nil || result.status == HTTPResponseStatus.UNAUTHORIZED) {
+        return GetUserResponse(
+            returnStatus: ReturnStatus.ERROR,
+            httpStatus: result.status,
+            user: nil
+        )
+    }
+    
     // Return success if no error
     return GetUserResponse(
         returnStatus: ReturnStatus.SUCCESS,
