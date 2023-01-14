@@ -31,7 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var selectedUserTracker: Tracker!
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
+    @Published var newNotification: Bool = false
     private var selectedEmailViewCancellable: AnyCancellable?
+    private var newNotificationCancellable = Set<AnyCancellable>()
+    private var newNotificationPublisher: AnyPublisher<Bool, Never> {
+        $newNotification.eraseToAnyPublisher()
+    }
     
     private func fetchUser() {
         let token = self.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
@@ -77,10 +82,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         if let window = NSApplication.shared.windows.first { window.close() }
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        if let statusButton = statusItem.button {
-            statusButton.image = NSImage(systemSymbolName: "envelope.fill", accessibilityDescription: "Maily")
-            statusButton.action = #selector(togglePopover)
-        }
+        self.newNotificationPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { newNotification in
+                if let statusButton = self.statusItem.button {
+                    statusButton.image = NSImage(systemSymbolName: newNotification ? "envelope.badge.fill" : "envelope.fill", accessibilityDescription: "Maily")
+                    statusButton.action = #selector(self.togglePopover)
+                }
+            }
+            .store(in: &newNotificationCancellable)
         
         mainPopover = NSPopover()
         mainPopover.contentSize = NSSize(width: 300, height: 500)
