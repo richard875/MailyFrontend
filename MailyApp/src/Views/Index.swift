@@ -89,7 +89,7 @@ struct Index: View {
                         Button("Logout") {
                             setRoute(Route.LOGIN)
                             let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
-                            defaults.set("", forKey: SharedUserDefaults.Keys.loginToken)
+                            defaults.set(nil, forKey: SharedUserDefaults.Keys.loginToken)
                             defaults.synchronize()
                         }
                         Divider()
@@ -116,10 +116,10 @@ struct Index: View {
                         maxWidth: 30,
                         alignment: .trailing
                     )
-                .onHover { hovering in
-                    hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                    .onHover { hovering in
+                        hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
+                    }
                 }
-            }
                 .frame(height: 40, alignment: .topLeading)
             }
             .frame(
@@ -401,28 +401,28 @@ struct Index: View {
         
         GetUser(token: token!) { response in
             if response.returnStatus == ReturnStatus.SUCCESS {
-            let dictionary = response.user as! [String: Any]
-            let loginCheck = dictionary["loginCheck"] as! [String: Any]
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"
-            
-            // Convert the loginCheck dictionary to a LoginCheck struct
-            let loginCheckStruct = User.LoginCheck(
-                id: loginCheck["id"] as! String,
-                createdAt: dateFormatter.date(from: loginCheck["CreatedAt"] as? String ?? ""),
-                updatedAt: dateFormatter.date(from: loginCheck["UpdatedAt"] as? String ?? ""),
-                deletedAt: dateFormatter.date(from: loginCheck["DeletedAt"] as? String ?? ""),
-                firstName: loginCheck["firstName"] as! String,
-                lastName: loginCheck["lastName"] as! String,
-                email: loginCheck["email"] as! String,
-                password: loginCheck["password"] as! String,
-                emailVerified: loginCheck["emailVerified"] as! Bool,
-                totalClicks: loginCheck["totalClicks"] as! Int,
-                emailsSent: loginCheck["emailsSent"] as! Int
-            )
-            
-            // Create a User struct with the loginCheck struct and the message
-            self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
+                let dictionary = response.user as! [String: Any]
+                let loginCheck = dictionary["loginCheck"] as! [String: Any]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"
+                
+                // Convert the loginCheck dictionary to a LoginCheck struct
+                let loginCheckStruct = User.LoginCheck(
+                    id: loginCheck["id"] as! String,
+                    createdAt: dateFormatter.date(from: loginCheck["CreatedAt"] as? String ?? ""),
+                    updatedAt: dateFormatter.date(from: loginCheck["UpdatedAt"] as? String ?? ""),
+                    deletedAt: dateFormatter.date(from: loginCheck["DeletedAt"] as? String ?? ""),
+                    firstName: loginCheck["firstName"] as! String,
+                    lastName: loginCheck["lastName"] as! String,
+                    email: loginCheck["email"] as! String,
+                    password: loginCheck["password"] as! String,
+                    emailVerified: loginCheck["emailVerified"] as! Bool,
+                    totalClicks: loginCheck["totalClicks"] as! Int,
+                    emailsSent: loginCheck["emailsSent"] as! Int
+                )
+                
+                // Create a User struct with the loginCheck struct and the message
+                self.user = User(loginCheck: loginCheckStruct, message: dictionary["message"] as! String)
             } else {
                 self.setRoute(Route.LOGIN)
                 return
