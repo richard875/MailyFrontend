@@ -60,6 +60,7 @@
 		A5B6588C296AD20400FE48FF /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588B296AD20400FE48FF /* Tracker.swift */; };
 		A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */; };
 		A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */; };
+		A5C50F802973E0FC00185EDF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C50F7F2973E0FC00185EDF /* Socket.swift */; };
 		A5D11AEF29567A670015808F /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504921329512C73000C4022 /* GetUser.swift */; };
 		A5D11AF029567A8F0015808F /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50492152951B469000C4022 /* GetUserResponse.swift */; };
 		A5D11AF129567AA10015808F /* ReturnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59551DA294E36700098E803 /* ReturnStatus.swift */; };
@@ -155,6 +156,7 @@
 		A5B6588B296AD20400FE48FF /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserTrackers.swift; sourceTree = "<group>"; };
 		A5B6588F296ADD3A00FE48FF /* GetUserTrackersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserTrackersResponse.swift; sourceTree = "<group>"; };
+		A5C50F7F2973E0FC00185EDF /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		A5D11AF9295698EB0015808F /* GetTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTracking.swift; sourceTree = "<group>"; };
 		A5D11AFF29569FB10015808F /* GetTrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrackingResponse.swift; sourceTree = "<group>"; };
 		A5D11B012956A27F0015808F /* TrackingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingResponse.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A5C50F7E2973E0E900185EDF /* WebSocket */,
 				A5B55404296B0C2E00E41877 /* Logic */,
 				A5B55400296B068200E41877 /* Extension */,
 				A59551D7294E364A0098E803 /* Models */,
@@ -382,6 +385,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5C50F7E2973E0E900185EDF /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				A5C50F7F2973E0FC00185EDF /* Socket.swift */,
+			);
+			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		A5D11AF7295686C70015808F /* src */ = {
@@ -550,6 +561,7 @@
 				A59FE969296EA46000366A25 /* MessageSendAction.swift in Sources */,
 				A5645C71294DAB7A003557CA /* HttpMethod.swift in Sources */,
 				A59FE971296EF02800366A25 /* Record.swift in Sources */,
+				A5C50F802973E0FC00185EDF /* Socket.swift in Sources */,
 				A5B65890296ADD3A00FE48FF /* GetUserTrackersResponse.swift in Sources */,
 				A5645C6E294DA274003557CA /* UserLogin.swift in Sources */,
 				A5B55406296B0C3E00E41877 /* ParseEmailAddressName.swift in Sources */,
