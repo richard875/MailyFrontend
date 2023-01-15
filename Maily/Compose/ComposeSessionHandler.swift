@@ -12,7 +12,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     private static let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
     
     
-    // MARK: - Start composing an email
+    // MARK: - Start composing an email | Must override
     func mailComposeSessionDidBegin(_ session: MEComposeSession) {
         // Get userToken from shared suite
         let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
@@ -29,7 +29,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
         }
     }
     
-    // MARK: - Finish composing an email
+    // MARK: - Finish composing an email | Must override
     func mailComposeSessionDidEnd(_ session: MEComposeSession) {
         // Get userToken from shared suite
         let userToken = ComposeSessionHandler.defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
@@ -71,7 +71,7 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
         return ComposeSessionViewController(session: session, trackingNumber: self.trackingNumber)
     }
     
-    // MARK: - Confirming Message Delivery
+    // MARK: - Confirming Message Delivery | This is also called when use finish composing an email
     func allowMessageSendForSession(_ session: MEComposeSession, completion: @escaping (Error?) -> Void) {
         // Determine if tracker is placed in the message
         let dataStr = String(data: session.mailMessage.rawData!, encoding: .utf8)!.replacingOccurrences(of: "[\n=]", with: "", options: .regularExpression)
