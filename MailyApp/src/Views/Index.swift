@@ -377,13 +377,7 @@ struct Index: View {
         )
         .background(Color("Background"))
         .onAppear {
-            self.timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { _ in
-                self.indexOnAppear(indexEmail: selectedIndexEmail)
-            }
             self.indexOnAppear(indexEmail: selectedIndexEmail)
-        }
-        .onDisappear {
-            self.timer?.invalidate()
         }
     }
     
@@ -433,6 +427,9 @@ struct Index: View {
         GetUserTrackers(token: token!, indexEmail: indexEmail) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
+                
+                // Establish Web Socket
+                _ = Socket(indexOnAppear: self.indexOnAppear, indexEmail: self.selectedIndexEmail)
                 
                 // Stop loading
                 self.loading = false
