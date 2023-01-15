@@ -134,6 +134,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 
                 // position and show the NSPopover
                 mainPopover.show(relativeTo: invisibleWindow.contentView!.frame, of: invisibleWindow.contentView!, preferredEdge: NSRectEdge.minY)
+                self.newNotification = false
                 self.fetchUser()
                 NSApp.activate(ignoringOtherApps: true)
             }
