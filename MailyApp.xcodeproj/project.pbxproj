@@ -14,6 +14,7 @@
 		A525EBED295344F00075B4AD /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525EBEC295344F00075B4AD /* WebView.swift */; };
 		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
+		A540105D297428E600F0A5EF /* SocketParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540105C297428E600F0A5EF /* SocketParameters.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
 		A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC3285455C5006C9F59 /* ContentView.swift */; };
 		A55F2CC6285455C9006C9F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CC5285455C9006C9F59 /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		A51B370A2955E39100688646 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		A525EBEC295344F00075B4AD /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
+		A540105C297428E600F0A5EF /* SocketParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParameters.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
 		A55F2CC3285455C5006C9F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				A5C50F7F2973E0FC00185EDF /* Socket.swift */,
+				A540105C297428E600F0A5EF /* SocketParameters.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				A5B5CF22296851DF002B885E /* Line.swift in Sources */,
 				A5A52100294DAF80001E82EC /* ApiMethod.swift in Sources */,
 				A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */,
+				A540105D297428E600F0A5EF /* SocketParameters.swift in Sources */,
 				A565A78B294C74C700BF8EF0 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
