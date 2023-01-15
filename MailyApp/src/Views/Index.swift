@@ -390,6 +390,7 @@ struct Index: View {
     private func indexOnAppear(indexEmail: IndexEmail) {
         // Start loading
         self.loading = true
+        self.userTrackers = []
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         
