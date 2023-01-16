@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Index: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var setRoute: ((Route) -> Void)
     var mainPopover: NSPopover!
     var secondaryPopover: NSPopover!
@@ -429,7 +431,7 @@ struct Index: View {
                 self.userTrackers = userTrackers
                 
                 // Establish Web Socket
-                _ = Socket(indexOnAppear: self.indexOnAppear, indexEmail: self.selectedIndexEmail)
+                _ = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
                 
                 // Stop loading
                 self.loading = false
