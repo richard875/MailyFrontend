@@ -8,13 +8,13 @@
 import Foundation
 
 struct Socket {
+    private var appDelegate: AppDelegate
     private var indexOnAppear: (IndexEmail) -> Void
-    private var indexEmail: IndexEmail
     private var webSocketTask = URLSession.shared.webSocketTask(with: URL(string: "ws://maily.richardlee.dev/api/ws")!)
     
-    init(indexOnAppear: @escaping (IndexEmail) -> Void, indexEmail: IndexEmail) {
+    init(appDelegate: AppDelegate, indexOnAppear: @escaping (IndexEmail) -> Void) {
+        self.appDelegate = appDelegate
         self.indexOnAppear = indexOnAppear
-        self.indexEmail = indexEmail
         self.establishSocket()
         self.ping()
     }
@@ -30,7 +30,7 @@ struct Socket {
                 switch message {
                 case .string(let text):
                     if (text == SocketParameters.UpdateSignal) {
-                        self.indexOnAppear(self.indexEmail)
+                        self.update()
                     }
                 case .data(let data):
                     print("Received binary message: \(data)")
@@ -57,5 +57,11 @@ struct Socket {
         Timer.scheduledTimer(withTimeInterval: nextPingInterval, repeats: false) { _ in
             self.ping()
         }
+    }
+    
+    private func update() {
+        self.appDelegate.newNotification.toggle()
+        schedulePushNotification()
+        self.indexOnAppear(IndexEmail.ALL)
     }
 }
