@@ -10,7 +10,9 @@ import Foundation
 struct Socket {
     private var appDelegate: AppDelegate
     private var indexOnAppear: (IndexEmail) -> Void
-    private var webSocketTask = URLSession.shared.webSocketTask(with: URL(string: "ws://maily.richardlee.dev/api/ws")!)
+    private var webSocketTask = URLSession.shared.webSocketTask(
+        with: URL(string: replaceHttpWithWs(string: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.Websocket)"))!
+    )
     
     init(appDelegate: AppDelegate, indexOnAppear: @escaping (IndexEmail) -> Void) {
         self.appDelegate = appDelegate
@@ -29,8 +31,9 @@ struct Socket {
             case .success(let message):
                 switch message {
                 case .string(let text):
-                    if (text == SocketParameters.UpdateSignal) {
-                        self.update()
+                    let messageList = text.components(separatedBy: SocketParameters.Delimiter)
+                    if (messageList[0] == SocketParameters.UpdateSignal) {
+                        self.update(messageList: messageList)
                     }
                 case .data(let data):
                     print("Received binary message: \(data)")
@@ -59,9 +62,17 @@ struct Socket {
         }
     }
     
-    private func update() {
-        self.appDelegate.newNotification.toggle()
-        schedulePushNotification()
-        self.indexOnAppear(IndexEmail.ALL)
+    private func update(messageList: [String]) {
+        self.indexOnAppear(IndexEmail.ALL)  // Refresh API call
+        self.appDelegate.newNotification.toggle() // Display badge menu icon
+        if (messageList.count > 1) {
+            // Display notification
+            schedulePushNotification(
+                emailSubject: messageList[1],
+                emailCity: messageList[2],
+                emailCountry: messageList[3],
+                emailCountryFlag: messageList[4]
+            )
+        }
     }
 }
