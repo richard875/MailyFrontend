@@ -9,4 +9,5 @@ import Foundation
 
 struct SocketParameters {
     static let UpdateSignal = "update"
+    static let Delimiter = "##__##"
 }
