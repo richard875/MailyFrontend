@@ -22,6 +22,7 @@ struct Tracker {
     let bccAddresses: String?
     let replyToAddresses: String?
     let internalMessageId: String?
+    let updated: Bool
 }
 
 extension Tracker: Equatable {

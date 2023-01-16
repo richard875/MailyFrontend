@@ -54,6 +54,7 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
         let bccAddresses = tracker["bccAddresses"] as? String
         let replyToAddresses = tracker["replyToAddresses"] as? String
         let internalMessageID = tracker["internalMessageID"] as? String
+        let updated = tracker["updated"] as! Bool
         
         return Tracker(
             id: id,
@@ -69,7 +70,8 @@ func complete(result: ApiResponse, error: Optional<Error>) -> GetUserTrackersRes
             ccAddresses: ccAddresses,
             bccAddresses: bccAddresses,
             replyToAddresses: replyToAddresses,
-            internalMessageId: internalMessageID
+            internalMessageId: internalMessageID,
+            updated: updated
         )
     }
     
