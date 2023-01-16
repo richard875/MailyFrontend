@@ -64,7 +64,7 @@ struct Socket {
     
     private func update(messageList: [String]) {
         self.indexOnAppear(IndexEmail.ALL)  // Refresh API call
-        self.appDelegate.newNotification.toggle() // Display badge menu icon
+        self.appDelegate.newNotification = true // Display badge menu icon
         if (messageList.count > 1) {
             // Display notification
             schedulePushNotification(
