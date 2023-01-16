@@ -22,6 +22,7 @@ struct EmailTracker: View {
     
     @State private var hoverOverFrame = false
     @State private var heldDownOverFrame = false
+    @State private var unopened = true
     
     init(mainPopover: NSPopover!, secondaryPopover: NSPopover!, userTracker: Tracker, last: Bool) {
         self.mainPopover = mainPopover
@@ -50,6 +51,14 @@ struct EmailTracker: View {
                     .fontWeight(.medium)
                     .foregroundColor(Color("Text"))
                     .frame(maxWidth: .infinity, alignment: .leading)
+                if (self.userTracker.updated && self.unopened) {
+                    HStack(spacing: 0) {
+                        Image(systemName: "circle.fill")
+                            .scaleEffect(0.4)
+                            .foregroundColor(Color.blue)
+                    }
+                    .padding(.top, 2)
+                }
                 Text(self.dateViewFormatter.string(from: userTracker.createdAt ?? Date()))
                     .font(.system(size: 11))
                     .fontWeight(.semibold)
@@ -60,7 +69,7 @@ struct EmailTracker: View {
                 .fontWeight(.regular)
                 .foregroundColor(Color("Text"))
                 .frame(alignment: .topLeading)
-                .padding(.top, 3)
+                .padding(.top, self.userTracker.updated && self.unopened ? 1 : 2)
             Text(userTracker.subject ?? "")
                 .font(.system(size: 11))
                 .fontWeight(.regular)
@@ -132,7 +141,7 @@ struct EmailTracker: View {
             }
             .padding(.top, 6)
         }
-        .padding(.top, 10)
+        .padding(.top, self.userTracker.updated && self.unopened ? 8 : 10)
         .padding(.leading, 10)
         .padding(.trailing, 10)
         .frame(
@@ -152,6 +161,10 @@ struct EmailTracker: View {
         .gesture(DragGesture(minimumDistance: 0.0)
             .onChanged {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = true
+                
+                // Mark tracker as opened
+                self.unopened = false
+                
                 // Open detailed popover and load userTracker (Tracker) data
                 self.appDelegate.selectedUserTracker = self.userTracker
                 self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
