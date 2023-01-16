@@ -15,6 +15,7 @@
 		A53773A32855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A53773A42855BD0B00404662 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773A22855BD0B00404662 /* SharedUserDefaults.swift */; };
 		A540105D297428E600F0A5EF /* SocketParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540105C297428E600F0A5EF /* SocketParameters.swift */; };
+		A54010602974B99800F0A5EF /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540105F2974B99800F0A5EF /* PushNotification.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
 		A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC3285455C5006C9F59 /* ContentView.swift */; };
 		A55F2CC6285455C9006C9F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55F2CC5285455C9006C9F59 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		A525EBEC295344F00075B4AD /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A53773A22855BD0B00404662 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		A540105C297428E600F0A5EF /* SocketParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParameters.swift; sourceTree = "<group>"; };
+		A540105F2974B99800F0A5EF /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
 		A55F2CC3285455C5006C9F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 				A525EBEC295344F00075B4AD /* WebView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A540105E2974B98900F0A5EF /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				A540105F2974B99800F0A5EF /* PushNotification.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		A55F2CB5285455C5006C9F59 = {
@@ -295,6 +305,7 @@
 		A565A787294C742D00BF8EF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A540105E2974B98900F0A5EF /* Notification */,
 				A5C50F7E2973E0E900185EDF /* WebSocket */,
 				A5B55404296B0C2E00E41877 /* Logic */,
 				A5B55400296B068200E41877 /* Extension */,
@@ -532,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54010602974B99800F0A5EF /* PushNotification.swift in Sources */,
 				A50492162951B469000C4022 /* GetUserResponse.swift in Sources */,
 				A59551DB294E36700098E803 /* ReturnStatus.swift in Sources */,
 				A59551DF294EE17E0098E803 /* HTTPResponseStatus.swift in Sources */,
