@@ -16,6 +16,7 @@ struct Index: View {
     var secondaryPopover: NSPopover!
     var profilePictureNumber: Int
     
+    @State private var socket: Socket!
     @State private var timer: Timer? = nil
     @State private var loading: Bool = false
     @State private var user: User? = nil
@@ -377,6 +378,9 @@ struct Index: View {
         .onAppear {
             self.indexOnAppear(indexEmail: selectedIndexEmail)
         }
+        .onDisappear {
+            self.socket.disconnect()
+        }
     }
     
     private func indexOnAppear(indexEmail: IndexEmail) {
@@ -428,7 +432,7 @@ struct Index: View {
                 self.userTrackers = userTrackers
                 
                 // Establish Web Socket
-                _ = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
+                self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
                 
                 // Stop loading
                 self.loading = false

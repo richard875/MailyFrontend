@@ -66,4 +66,8 @@ struct Socket {
             )
         }
     }
+    
+    func disconnect() {
+        self.webSocketTask.cancel(with: .goingAway, reason: nil)
+    }
 }
