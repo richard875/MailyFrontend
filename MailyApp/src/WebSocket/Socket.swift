@@ -47,17 +47,8 @@ struct Socket {
     }
     
     private func ping() {
-        self.webSocketTask.sendPing { (error) in
-            if let error = error {
-                print("Ping failed: \(error)")
-            }
-            self.scheduleNextPing()
-        }
-    }
-    
-    private func scheduleNextPing() {
-        let nextPingInterval: TimeInterval = 60.00 // 1 minute
-        Timer.scheduledTimer(withTimeInterval: nextPingInterval, repeats: false) { _ in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
+            self.webSocketTask.sendPing { (error) in }
             self.ping()
         }
     }
