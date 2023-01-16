@@ -56,7 +56,7 @@ struct Socket {
     }
     
     private func scheduleNextPing() {
-        let nextPingInterval: TimeInterval = 20 // 4 minutes
+        let nextPingInterval: TimeInterval = 240.00 // 4 minutes
         Timer.scheduledTimer(withTimeInterval: nextPingInterval, repeats: false) { _ in
             self.ping()
         }
