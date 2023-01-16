@@ -8,18 +8,23 @@
 import Foundation
 import UserNotifications
 
-func schedulePushNotification() {
+func schedulePushNotification(
+    emailSubject: String,
+    emailCity: String,
+    emailCountry: String,
+    emailCountryFlag: String
+) {
     let content = UNMutableNotificationContent()
-    content.title = "Feed the cat"
-    content.subtitle = "It looks hungry"
     content.sound = UNNotificationSound.default
     
-    // show this notification five seconds from now
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+    // Notification info
+    content.title = emailSubject == "" ? "Maily" : emailSubject
+    content.subtitle = "Email opened in \(emailCity == "" ? "" : "\(emailCity), ")\(emailCountry) \(emailCountryFlag)"
     
-    // choose a random identifier
+    // show this notification 0.1 second from now (almost instently)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+    
+    // Display (add) notification
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-    
-    // add our notification request
     UNUserNotificationCenter.current().add(request)
 }
