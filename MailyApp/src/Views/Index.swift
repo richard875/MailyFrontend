@@ -262,21 +262,18 @@ struct Index: View {
                             if (self.selectedIndexEmail != IndexEmail.ALL) {
                                 Button(IndexEmail.ALL.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectedIndexEmail = IndexEmail.ALL
                                     self.indexOnAppear(indexEmail: IndexEmail.ALL)
                                 }
                             }
                             if (self.selectedIndexEmail != IndexEmail.OPENED) {
                                 Button(IndexEmail.OPENED.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectedIndexEmail = IndexEmail.OPENED
                                     self.indexOnAppear(indexEmail: IndexEmail.OPENED)
                                 }
                             }
                             if (self.selectedIndexEmail != IndexEmail.UNOPENED) {
                                 Button(IndexEmail.UNOPENED.rawValue) {
                                     self.searchQuery = ""
-                                    self.selectedIndexEmail = IndexEmail.UNOPENED
                                     self.indexOnAppear(indexEmail: IndexEmail.UNOPENED)
                                 }
                             }
@@ -320,7 +317,6 @@ struct Index: View {
                     .onTapGesture {
                         self.searchQuery = ""
                         if (self.selectedIndexEmail == IndexEmail.SEARCH) {
-                            self.selectedIndexEmail = IndexEmail.ALL
                             self.indexOnAppear(indexEmail: IndexEmail.ALL)
                         }
                     }
@@ -387,6 +383,7 @@ struct Index: View {
         // Start loading
         self.loading = true
         self.userTrackers = []
+        self.selectedIndexEmail = indexEmail
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         
