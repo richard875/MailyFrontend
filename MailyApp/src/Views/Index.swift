@@ -432,7 +432,9 @@ struct Index: View {
                 self.userTrackers = userTrackers
                 
                 // Establish Web Socket
+                if (self.socket == nil) {
                 self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
+                }
                 
                 // Stop loading
                 self.loading = false
