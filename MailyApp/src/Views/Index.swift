@@ -357,7 +357,9 @@ struct Index: View {
                             mainPopover: self.mainPopover,
                             secondaryPopover: self.secondaryPopover,
                             userTracker: userTracker,
-                            last: userTracker == self.userTrackers.last
+                            last: userTracker == self.userTrackers.last,
+                            addNewPaginateData: self.addNewPaginateData,
+                            selectedIndexEmail: self.selectedIndexEmail
                         )
                     }
                     .padding(.leading, -8)
@@ -427,13 +429,13 @@ struct Index: View {
             }
         }
         
-        GetUserTrackers(token: token!, indexEmail: indexEmail) { response in
+        GetUserTrackers(token: token!, indexEmail: indexEmail, page: 1) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
                 
                 // Establish Web Socket
                 if (self.socket == nil) {
-                self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
+                    self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
                 }
                 
                 // Stop loading

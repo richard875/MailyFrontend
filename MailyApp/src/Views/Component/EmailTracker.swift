@@ -15,6 +15,8 @@ struct EmailTracker: View {
     var secondaryPopover: NSPopover!
     var userTracker: Tracker
     var last: Bool
+    var addNewPaginateData: ([Tracker]) -> Void
+    var selectedIndexEmail: IndexEmail
     
     var toAddresses: [String] = []
     var dateViewFormatter = DateFormatter()
@@ -23,12 +25,23 @@ struct EmailTracker: View {
     @State private var hoverOverFrame = false
     @State private var heldDownOverFrame = false
     @State private var unopened = true
+    @State private var notFristLoad = false // (Paginate) Set to true on the first appear on screen
+    @State private var finishedPaginate = false // (Paginate) Set to true when finished loading the next batch of data
     
-    init(mainPopover: NSPopover!, secondaryPopover: NSPopover!, userTracker: Tracker, last: Bool) {
+    init(
+        mainPopover: NSPopover!,
+        secondaryPopover: NSPopover!,
+        userTracker: Tracker,
+        last: Bool,
+        addNewPaginateData: @escaping ([Tracker]) -> Void,
+        selectedIndexEmail: IndexEmail
+    ) {
         self.mainPopover = mainPopover
         self.secondaryPopover = secondaryPopover
         self.userTracker = userTracker // Tracker Data
         self.last = last
+        self.addNewPaginateData = addNewPaginateData
+        self.selectedIndexEmail = selectedIndexEmail
         self.toAddresses = userTracker.toAddresses.components(separatedBy: ",")
         self.dateViewFormatter.dateFormat = "MMM dd, yyyy"
         self.timeViewFormatter.dateFormat = "hh:mm a"
@@ -131,6 +144,17 @@ struct EmailTracker: View {
                 }
             }
             .padding(.top, 6)
+            if (self.last) {
+                VStack(spacing: 0) {}
+                    .frame(width: 0, height: 0)
+                    .onAppear {
+                        if (self.notFristLoad) {
+                            if (!self.finishedPaginate) { self.paginateTrackers() }
+                        } else {
+                            self.notFristLoad = true
+                        }
+                    }
+            }
         }
         .padding(.top, self.userTracker.updated && self.unopened ? 8 : 10)
         .padding(.leading, 10)
@@ -165,6 +189,7 @@ struct EmailTracker: View {
                 self.heldDownOverFrame = false
             }}
         )
+    }
     
     private func setEmailBackgroundColor(hover: Bool, press: Bool) -> Color {
         if (hover && !press) { return Color("Grey Background") }
@@ -174,5 +199,18 @@ struct EmailTracker: View {
         
         return Color("Background")
     }
+    
+    private func paginateTrackers() {
+        // Start loading
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        GetUserTrackers(token: token!, indexEmail: self.selectedIndexEmail, page: self.appDelegate.indexPageNumber) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
+                self.appDelegate.indexPageNumber += 1
+                self.finishedPaginate = true
+                self.addNewPaginateData(userTrackers)
+            }
+        }
     }
 }
