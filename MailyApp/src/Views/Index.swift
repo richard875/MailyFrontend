@@ -464,4 +464,8 @@ struct Index: View {
             }
         }
     }
+    
+    private func addNewPaginateData(userTrackers: [Tracker]) {
+        self.userTrackers += userTrackers
+    }
 }
