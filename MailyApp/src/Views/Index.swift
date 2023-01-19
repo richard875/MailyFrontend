@@ -388,6 +388,7 @@ struct Index: View {
     private func indexOnAppear(indexEmail: IndexEmail) {
         // Start loading
         self.loading = true
+        self.appDelegate.indexPageNumber = 2
         self.userTrackers = []
         self.selectedIndexEmail = indexEmail
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
