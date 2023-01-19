@@ -32,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var profilePictureNumber: Int = Int.random(in: 1...33)
     @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
     @Published var newNotification: Bool = false
+    @Published var indexPageNumber: Int = 2
     private var selectedEmailViewCancellable: AnyCancellable?
     private var newNotificationCancellable = Set<AnyCancellable>()
     private var newNotificationPublisher: AnyPublisher<Bool, Never> {
