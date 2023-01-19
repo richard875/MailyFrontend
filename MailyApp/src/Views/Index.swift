@@ -85,6 +85,7 @@ struct Index: View {
                     )
                     .cornerRadius(7)
                     .padding(.leading, 5)
+                    .padding(.trailing, 5)
                     .onHover { hovering in
                         hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                     }
@@ -114,7 +115,6 @@ struct Index: View {
                         .stroke(Color("Border"), lineWidth: 1)
                     )
                     .cornerRadius(7)
-                    .padding(.leading, 5)
                     .frame(
                         maxWidth: 30,
                         alignment: .trailing
