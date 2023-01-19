@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Socket {
+class Socket {
     private var appDelegate: AppDelegate
     private var indexOnAppear: (IndexEmail) -> Void
     private var webSocketTask = URLSession.shared.webSocketTask(
