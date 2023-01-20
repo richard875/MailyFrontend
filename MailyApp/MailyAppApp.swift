@@ -53,8 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         // Ask for notification permission
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-        }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in }
         
         // Get mail clicks when user change selectedEmailView
         selectedEmailViewCancellable = $selectedEmailView.sink { value in
