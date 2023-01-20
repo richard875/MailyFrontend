@@ -17,6 +17,7 @@ struct ApiEndpoints {
     static let UserTrackers = "api/user-trackers"
     static let SearchTrackers = "api/search-trackers"
     static let TrackerClicks = "api/tracker-clicks"
+    static let TelegramRegenerate = "api/telegram-regenerate"
     static let Websocket = "api/ws"
     static let User = "api/admin/user"
 }
