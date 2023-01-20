@@ -313,8 +313,8 @@ struct DetailedContentView: View {
                             .padding(.trailing, -9)
                             .listStyle(PlainListStyle())
                             .frame(width: 320)
-                            .onChange(of: self.appDelegate.secondaryPopoverEmailRecords) { data in
-                                proxy.scrollTo(data[0].id)
+                            .onChange(of: self.appDelegate.triggerSecondaryPopover) { data in
+                                self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
                             }
                         }
                     } else {

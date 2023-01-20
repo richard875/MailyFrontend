@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var statusItem: NSStatusItem!
     @Published var mainPopover: NSPopover!
     @Published var secondaryPopover: NSPopover!
+    @Published var triggerSecondaryPopover: Int = 0
     @Published var secondaryPopoverEmailRecords: [Record] = []
     @Published var secondaryPopoverLoading: Bool = false
     @Published var route: Route = Route.LOADING
