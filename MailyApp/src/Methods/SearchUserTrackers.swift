@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal func SearchUserTrackers(token: String, searchQuery: String, completion: @escaping (GetUserTrackersResponse) -> Void) {
+internal func SearchUserTrackers(token: String, searchQuery: String, page: Int, completion: @escaping (GetUserTrackersResponse) -> Void) {
     apiMethod(
         apiMethod: HTTPMethod.GET,
-        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.SearchTrackers)/\(searchQuery)",
+        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.SearchTrackers)/\(searchQuery)/\(page)",
         auth: true,
         token: token,
         completion: {(result, error) in completion(completeSearch(result: (result as! ApiResponse), error: error))}
