@@ -12,9 +12,6 @@ struct Index: View {
     @EnvironmentObject var appDelegate: AppDelegate
     
     var setRoute: ((Route) -> Void)
-    var mainPopover: NSPopover!
-    var secondaryPopover: NSPopover!
-    var profilePictureNumber: Int
     
     @State private var socket: Socket!
     @State private var timer: Timer? = nil
@@ -24,16 +21,8 @@ struct Index: View {
     @State private var userTrackers: [Tracker] = []
     @State private var selectedIndexEmail: IndexEmail = IndexEmail.ALL
     
-    init(
-        setRoute: @escaping (Route) -> Void,
-        mainPopover: NSPopover!,
-        secondaryPopover: NSPopover!,
-        profilePictureNumber: Int
-    ) {
+    init(setRoute: @escaping (Route) -> Void) {
         self.setRoute = setRoute
-        self.mainPopover = mainPopover
-        self.secondaryPopover = secondaryPopover
-        self.profilePictureNumber = profilePictureNumber
     }
     
     var body: some View {
@@ -41,7 +30,7 @@ struct Index: View {
             // Top Section
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    Image("profile\(profilePictureNumber)")
+                    Image("profile\(self.appDelegate.profilePictureNumber)")
                         .resizable()
                         .frame(width: 40, height: 40)
                         .overlay(RoundedRectangle(cornerRadius: 7)
@@ -354,8 +343,6 @@ struct Index: View {
                 } else {
                     List(self.userTrackers, id: \.id) {userTracker in
                         EmailTracker(
-                            mainPopover: self.mainPopover,
-                            secondaryPopover: self.secondaryPopover,
                             userTracker: userTracker,
                             last: userTracker == self.userTrackers.last,
                             addNewPaginateData: self.addNewPaginateData,

@@ -11,8 +11,6 @@ import SwiftUI
 struct EmailTracker: View {
     @EnvironmentObject var appDelegate: AppDelegate
     
-    var mainPopover: NSPopover!
-    var secondaryPopover: NSPopover!
     var userTracker: Tracker
     var last: Bool
     var addNewPaginateData: ([Tracker]) -> Void
@@ -29,15 +27,11 @@ struct EmailTracker: View {
     @State private var finishedPaginate = false // (Paginate) Set to true when finished loading the next batch of data
     
     init(
-        mainPopover: NSPopover!,
-        secondaryPopover: NSPopover!,
         userTracker: Tracker,
         last: Bool,
         addNewPaginateData: @escaping ([Tracker]) -> Void,
         selectedIndexEmail: IndexEmail
     ) {
-        self.mainPopover = mainPopover
-        self.secondaryPopover = secondaryPopover
         self.userTracker = userTracker // Tracker Data
         self.last = last
         self.addNewPaginateData = addNewPaginateData
@@ -183,7 +177,7 @@ struct EmailTracker: View {
                 // Open detailed popover and load userTracker (Tracker) data
                 self.appDelegate.selectedUserTracker = self.userTracker
                 self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
-                self.secondaryPopover.show(relativeTo: CGRect(), of: self.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
+                self.appDelegate.secondaryPopover.show(relativeTo: CGRect(), of: self.appDelegate.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
             }}
             .onEnded {_ in withAnimation(.easeInOut(duration: 0.15)) {
                 self.heldDownOverFrame = false
@@ -201,7 +195,6 @@ struct EmailTracker: View {
     }
     
     private func paginateTrackers() {
-        // Start loading
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         
