@@ -346,7 +346,8 @@ struct Index: View {
                             userTracker: userTracker,
                             last: userTracker == self.userTrackers.last,
                             addNewPaginateData: self.addNewPaginateData,
-                            selectedIndexEmail: self.selectedIndexEmail
+                            selectedIndexEmail: self.selectedIndexEmail,
+                            searchQuery: self.searchQuery
                         )
                     }
                     .padding(.leading, -8)
@@ -435,6 +436,7 @@ struct Index: View {
     private func searchTrackers(searchQuery: String) {
         // Start loading
         self.loading = true
+        self.appDelegate.indexPageNumber = 2
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         
@@ -444,7 +446,7 @@ struct Index: View {
             return
         }
         
-        SearchUserTrackers(token: token!, searchQuery: searchQuery) { response in
+        SearchUserTrackers(token: token!, searchQuery: searchQuery, page: 1) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
                 

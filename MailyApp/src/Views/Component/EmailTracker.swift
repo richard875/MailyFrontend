@@ -15,6 +15,7 @@ struct EmailTracker: View {
     var last: Bool
     var addNewPaginateData: ([Tracker]) -> Void
     var selectedIndexEmail: IndexEmail
+    var searchQuery: String
     
     var toAddresses: [String] = []
     var dateViewFormatter = DateFormatter()
@@ -30,12 +31,14 @@ struct EmailTracker: View {
         userTracker: Tracker,
         last: Bool,
         addNewPaginateData: @escaping ([Tracker]) -> Void,
-        selectedIndexEmail: IndexEmail
+        selectedIndexEmail: IndexEmail,
+        searchQuery: String
     ) {
         self.userTracker = userTracker // Tracker Data
         self.last = last
         self.addNewPaginateData = addNewPaginateData
         self.selectedIndexEmail = selectedIndexEmail
+        self.searchQuery = searchQuery
         self.toAddresses = userTracker.toAddresses.components(separatedBy: ",")
         self.dateViewFormatter.dateFormat = "MMM dd, yyyy"
         self.timeViewFormatter.dateFormat = "hh:mm a"
@@ -143,7 +146,10 @@ struct EmailTracker: View {
                     .frame(width: 0, height: 0)
                     .onAppear {
                         if (self.notFristLoad) {
-                            if (!self.finishedPaginate) { self.paginateTrackers() }
+                            if (!self.finishedPaginate) {
+                                if (self.selectedIndexEmail == IndexEmail.SEARCH) { self.paginateSearchTrackers() }
+                                else { self.paginateTrackers() }
+                            }
                         } else {
                             self.notFristLoad = true
                         }
@@ -199,6 +205,19 @@ struct EmailTracker: View {
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         
         GetUserTrackers(token: token!, indexEmail: self.selectedIndexEmail, page: self.appDelegate.indexPageNumber) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
+                self.appDelegate.indexPageNumber += 1
+                self.finishedPaginate = true
+                self.addNewPaginateData(userTrackers)
+            }
+        }
+    }
+    
+    private func paginateSearchTrackers() {
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        SearchUserTrackers(token: token!, searchQuery: self.searchQuery, page: self.appDelegate.indexPageNumber) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.appDelegate.indexPageNumber += 1
                 self.finishedPaginate = true
