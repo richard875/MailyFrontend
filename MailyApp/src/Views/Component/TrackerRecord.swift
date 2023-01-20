@@ -10,10 +10,15 @@ import SwiftUI
 import MapKit
 
 struct TrackerRecord: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var trackerRecord: Record
     var last: Bool
     let dateFormatter = DateFormatter()
+    
     @State private var region: MKCoordinateRegion
+    @State private var notFristLoad = false // (Paginate) Set to true on the first appear on screen
+    @State private var finishedPaginate = false // (Paginate) Set to true when finished loading the next batch of data
     
     init(trackerRecord: Record, last: Bool) {
         self.trackerRecord = trackerRecord
@@ -169,6 +174,14 @@ struct TrackerRecord: View {
                 )
                 .cornerRadius(7)
                 .padding(.top, 6)
+            if (self.last) {
+                VStack(spacing: 0) {}
+                    .frame(width: 0, height: 0)
+                    .onAppear {
+                        if (!self.finishedPaginate && self.notFristLoad) { self.paginateTrackerRecords() }
+                        self.notFristLoad = true;
+                    }
+            }
         }
         .padding(.top, 10)
         .padding(.leading, 10)
@@ -183,5 +196,26 @@ struct TrackerRecord: View {
         )
         .cornerRadius(7)
         .padding(.bottom, self.last ? 15 : 2)
+        .onChange(of: self.appDelegate.secondaryPopoverEmailRecords) { data in
+            self.finishedPaginate = false
+        }
+    }
+    
+    private func paginateTrackerRecords() {
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        GetTrackerClicks(
+            token: token!,
+            trackingNumber: self.trackerRecord.publicTrackingNumber,
+            emailViewSort: self.appDelegate.selectedEmailView,
+            page: self.appDelegate.trackerClicksPageNumber
+        ) { response in
+            if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
+                self.appDelegate.trackerClicksPageNumber += 1
+                self.appDelegate.secondaryPopoverEmailRecords += trackerRecords
+                self.finishedPaginate = true
+            }
+        }
     }
 }

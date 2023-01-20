@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var selectedEmailView: EmailViewSort = EmailViewSort.LATEST_TO_OLDEST
     @Published var newNotification: Bool = false
     @Published var indexPageNumber: Int = 2
+    @Published var trackerClicksPageNumber: Int = 2
     private var selectedEmailViewCancellable: AnyCancellable?
     private var newNotificationCancellable = Set<AnyCancellable>()
     private var newNotificationPublisher: AnyPublisher<Bool, Never> {
@@ -65,8 +66,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             
             if (self.selectedUserTracker != nil) {
                 self.secondaryPopoverLoading = true
+                self.trackerClicksPageNumber = 2
                 
-                GetTrackerClicks(token: token!, trackingNumber: self.selectedUserTracker.id, emailViewSort: value) { response in
+                GetTrackerClicks(token: token!, trackingNumber: self.selectedUserTracker.id, emailViewSort: value, page: 1) { response in
                     if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
                         self.secondaryPopoverEmailRecords = trackerRecords
                         self.secondaryPopoverLoading = false
