@@ -79,6 +79,19 @@ struct Index: View {
                         hovering ? NSCursor.pointingHand.set() : NSCursor.arrow.set()
                     }
                     Menu {
+                        Menu("Telegram Token") {
+                            Button("Your Token is: \(self.user?.loginCheck.telegramToken ?? "")") {}
+                                .disabled(true)
+                            Divider()
+                            Button("Copy Token") {
+                                let pasteboard = NSPasteboard.general
+                                pasteboard.declareTypes([.string], owner: nil)
+                                pasteboard.setString(self.user?.loginCheck.telegramToken ?? "", forType: .string)
+                            }
+                            Button("Regenerate Token") {
+                                self.regenerateToken()
+                            }
+                        }
                         Button("Logout") {
                             setRoute(Route.LOGIN)
                             let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
@@ -407,7 +420,8 @@ struct Index: View {
                     password: loginCheck["password"] as! String,
                     emailVerified: loginCheck["emailVerified"] as! Bool,
                     totalClicks: loginCheck["totalClicks"] as! Int,
-                    emailsSent: loginCheck["emailsSent"] as! Int
+                    emailsSent: loginCheck["emailsSent"] as! Int,
+                    telegramToken: loginCheck["telegramToken"] as! String
                 )
                 
                 // Create a User struct with the loginCheck struct and the message
@@ -459,5 +473,22 @@ struct Index: View {
     
     private func addNewPaginateData(userTrackers: [Tracker]) {
         self.userTrackers += userTrackers
+    }
+    
+    private func regenerateToken() {
+        let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
+        let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
+        
+        // Return to the login screen if the user is logged out
+        if (token == nil) {
+            self.setRoute(Route.LOGIN)
+            return
+        }
+        
+        TelegramRegenerate(token: token!) { response in
+            if (response.returnStatus == ReturnStatus.SUCCESS || response.httpStatus == HTTPResponseStatus.OK) {
+                self.user!.loginCheck.telegramToken = response.newTelegramToken
+            }
+        }
     }
 }
