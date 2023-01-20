@@ -20,8 +20,9 @@ struct User {
         let emailVerified: Bool
         let totalClicks: Int
         let emailsSent: Int
+        var telegramToken: String // Maybe reassigned, thus "var"
     }
     
-    let loginCheck: LoginCheck
+    var loginCheck: LoginCheck // Maybe reassigned, thus "var"
     let message: String
 }
