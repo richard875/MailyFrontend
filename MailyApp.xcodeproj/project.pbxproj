@@ -17,6 +17,7 @@
 		A540105D297428E600F0A5EF /* SocketParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540105C297428E600F0A5EF /* SocketParameters.swift */; };
 		A54010602974B99800F0A5EF /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540105F2974B99800F0A5EF /* PushNotification.swift */; };
 		A54010622974E93400F0A5EF /* ReplaceHttpWithWs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54010612974E93400F0A5EF /* ReplaceHttpWithWs.swift */; };
+		A5401064297AB1B000F0A5EF /* TelegramRegenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5401063297AB1B000F0A5EF /* TelegramRegenerate.swift */; };
 		A5401066297AB30F00F0A5EF /* TelegramRegenerateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5401065297AB30F00F0A5EF /* TelegramRegenerateResponse.swift */; };
 		A55F2CC2285455C5006C9F59 /* MailyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */; };
 		A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2CC3285455C5006C9F59 /* ContentView.swift */; };
@@ -112,6 +113,7 @@
 		A540105C297428E600F0A5EF /* SocketParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParameters.swift; sourceTree = "<group>"; };
 		A540105F2974B99800F0A5EF /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		A54010612974E93400F0A5EF /* ReplaceHttpWithWs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceHttpWithWs.swift; sourceTree = "<group>"; };
+		A5401063297AB1B000F0A5EF /* TelegramRegenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramRegenerate.swift; sourceTree = "<group>"; };
 		A5401065297AB30F00F0A5EF /* TelegramRegenerateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramRegenerateResponse.swift; sourceTree = "<group>"; };
 		A55F2CBE285455C5006C9F59 /* MailyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55F2CC1285455C5006C9F59 /* MailyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailyAppApp.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				A5B6588D296ADA9B00FE48FF /* GetUserTrackers.swift */,
 				A5B55412296C384300E41877 /* SearchUserTrackers.swift */,
 				A59FE96C296EE77D00366A25 /* GetTrackerClicks.swift */,
+				A5401063297AB1B000F0A5EF /* TelegramRegenerate.swift */,
 			);
 			path = Methods;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				A5B5540C296B97B700E41877 /* EmailTracker.swift in Sources */,
 				A55F2CC4285455C5006C9F59 /* ContentView.swift in Sources */,
 				A59551E3294F1DFA0098E803 /* Route.swift in Sources */,
+				A5401064297AB1B000F0A5EF /* TelegramRegenerate.swift in Sources */,
 				A59551E1294EE2B00098E803 /* ApiResponse.swift in Sources */,
 				A5B6588E296ADA9B00FE48FF /* GetUserTrackers.swift in Sources */,
 				A59551DD294EC0A40098E803 /* Index.swift in Sources */,
