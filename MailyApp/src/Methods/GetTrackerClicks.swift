@@ -11,11 +11,12 @@ internal func GetTrackerClicks(
     token: String,
     trackingNumber: String,
     emailViewSort: EmailViewSort,
+    page: Int,
     completion: @escaping (GetTrackerClicksResponse) -> Void
 ) {
     apiMethod(
         apiMethod: HTTPMethod.GET,
-        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.TrackerClicks)/\(trackingNumber)/\(emailViewSort.self)",
+        apiEndpoint: "\(ApiEndpoints.ServerUrl)/\(ApiEndpoints.TrackerClicks)/\(trackingNumber)/\(emailViewSort.self)/\(page)",
         auth: true,
         token: token,
         completion: {(result, error) in completion(complete(result: (result as! ApiResponse), error: error))}
