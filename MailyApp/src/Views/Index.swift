@@ -14,7 +14,7 @@ struct Index: View {
     var setRoute: ((Route) -> Void)
     
     @State private var socket: Socket!
-    @State private var timer: Timer? = nil
+    @State private var socketSystemEstablished: Bool = false
     @State private var loading: Bool = false
     @State private var user: User? = nil
     @State private var searchQuery: String = ""
@@ -382,7 +382,7 @@ struct Index: View {
             self.indexOnAppear(indexEmail: selectedIndexEmail)
         }
         .onDisappear {
-            self.socket.disconnect()
+            if (self.socket != nil) { self.socket.disconnect() }
         }
     }
     
@@ -436,8 +436,13 @@ struct Index: View {
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 self.userTrackers = userTrackers
                 
-                // Establish Web Socket
-                if (self.socket == nil) {
+                // Establish or reconnect Web Socket every 30 minutes (1800 seconds)
+                if (!self.socketSystemEstablished) {
+                    self.reConnectWebsocket()
+                    self.socketSystemEstablished = true
+                    
+                    // Initial socket connect
+                    self.socket = nil
                     self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
                 }
                 
@@ -489,6 +494,15 @@ struct Index: View {
             if (response.returnStatus == ReturnStatus.SUCCESS || response.httpStatus == HTTPResponseStatus.OK) {
                 self.user!.loginCheck.telegramToken = response.newTelegramToken
             }
+        }
+    }
+    
+    private func reConnectWebsocket() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1000.0) {
+            if (self.socket != nil) { self.socket.disconnect() }
+            self.socket = nil
+            self.socket = Socket(appDelegate: self.appDelegate, indexOnAppear: self.indexOnAppear)
+            self.reConnectWebsocket()
         }
     }
 }
