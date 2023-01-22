@@ -8,7 +8,8 @@
 import Foundation
 
 struct ApiEndpoints {
-    static let ServerUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
+    static let envDict = Bundle.main.infoDictionary?["LSEnvironment"] as! Dictionary<String, String>
+    static let ServerUrl = envDict["SERVER_URL"]!
     
     static let Login = "api/login"
     static let Generate = "api/generate"
