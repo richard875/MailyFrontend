@@ -62,18 +62,6 @@
          BundleIdentifier = "com.apple.mail"
          RemotePath = "/System/Applications/Mail.app">
       </RemoteRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "SERVER_URL"
-            value = "http://192.168.1.200:8090"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
