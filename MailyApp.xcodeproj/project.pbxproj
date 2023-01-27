@@ -720,7 +720,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SERVER_URL = "http://richardlee.ddns.net/maily";
+				SERVER_URL = "https://maily.richardlee.dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -750,7 +750,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TeamMaily.MailyApp.Maily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SERVER_URL = "http://richardlee.ddns.net/maily";
+				SERVER_URL = "https://maily.richardlee.dev";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
