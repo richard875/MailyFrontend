@@ -182,6 +182,7 @@ struct EmailTracker: View {
                 
                 // Open detailed popover and load userTracker (Tracker) data
                 self.appDelegate.selectedUserTracker = self.userTracker
+                self.appDelegate.selectedEmailView = EmailViewSort.LATEST_TO_OLDEST
                 self.appDelegate.secondaryPopover.show(relativeTo: CGRect(), of: self.appDelegate.mainPopover.contentViewController!.view, preferredEdge: NSRectEdge.minX)
                 self.appDelegate.triggerSecondaryPopover += 1 // Trigger the switch and fetch data
             }}
@@ -207,7 +208,7 @@ struct EmailTracker: View {
         GetUserTrackers(token: token!, indexEmail: self.selectedIndexEmail, page: self.appDelegate.indexPageNumber) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 DispatchQueue.main.async {
-                self.appDelegate.indexPageNumber += 1
+                    self.appDelegate.indexPageNumber += 1
                 }
                 self.finishedPaginate = true
                 self.addNewPaginateData(userTrackers)
@@ -222,7 +223,7 @@ struct EmailTracker: View {
         SearchUserTrackers(token: token!, searchQuery: self.searchQuery, page: self.appDelegate.indexPageNumber) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let userTrackers = response.userTrackers {
                 DispatchQueue.main.async {
-                self.appDelegate.indexPageNumber += 1
+                    self.appDelegate.indexPageNumber += 1
                 }
                 self.finishedPaginate = true
                 self.addNewPaginateData(userTrackers)
