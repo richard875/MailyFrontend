@@ -389,7 +389,9 @@ struct Index: View {
     private func indexOnAppear(indexEmail: IndexEmail) {
         // Start loading
         self.loading = true
-        self.appDelegate.indexPageNumber = 2
+        DispatchQueue.main.async {
+            self.appDelegate.indexPageNumber = 2
+        }
         self.userTrackers = []
         self.selectedIndexEmail = indexEmail
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
@@ -455,7 +457,9 @@ struct Index: View {
     private func searchTrackers(searchQuery: String) {
         // Start loading
         self.loading = true
-        self.appDelegate.indexPageNumber = 2
+        DispatchQueue.main.async {
+            self.appDelegate.indexPageNumber = 2
+        }
         let defaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)!
         let token = defaults.value(forKey: SharedUserDefaults.Keys.loginToken) as? String
         

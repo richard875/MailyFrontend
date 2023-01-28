@@ -212,8 +212,10 @@ struct TrackerRecord: View {
             page: self.appDelegate.trackerClicksPageNumber
         ) { response in
             if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
-                self.appDelegate.trackerClicksPageNumber += 1
-                self.appDelegate.secondaryPopoverEmailRecords += trackerRecords
+                DispatchQueue.main.async {
+                    self.appDelegate.trackerClicksPageNumber += 1
+                    self.appDelegate.secondaryPopoverEmailRecords += trackerRecords
+                }
                 self.finishedPaginate = true
             }
         }

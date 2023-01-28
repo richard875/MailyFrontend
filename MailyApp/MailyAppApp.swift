@@ -49,7 +49,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
         
         GetUser(token: token!) { response in
-            self.route = response.httpStatus == HTTPResponseStatus.OK ? Route.INDEX : Route.LOGIN
+            DispatchQueue.main.async {
+                self.route = response.httpStatus == HTTPResponseStatus.OK ? Route.INDEX : Route.LOGIN
+            }
         }
     }
     
@@ -67,12 +69,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             
             if (self.selectedUserTracker != nil) {
                 self.secondaryPopoverLoading = true
-                self.trackerClicksPageNumber = 2
+                DispatchQueue.main.async {
+                    self.trackerClicksPageNumber = 2
+                }
                 
                 GetTrackerClicks(token: token!, trackingNumber: self.selectedUserTracker.id, emailViewSort: value, page: 1) { response in
                     if response.returnStatus == ReturnStatus.SUCCESS, let trackerRecords = response.TrackerRecords {
-                        self.secondaryPopoverEmailRecords = trackerRecords
-                        self.secondaryPopoverLoading = false
+                        DispatchQueue.main.async {
+                            self.secondaryPopoverEmailRecords = trackerRecords
+                            self.secondaryPopoverLoading = false
+                        }
                     } else {
                         self.route = Route.LOGIN
                         self.secondaryPopover.close()
